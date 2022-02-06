@@ -25,6 +25,12 @@ sudo apt install -y \
   libtinfo-dev \
   zlib1g-dev
 ```
+## Install Git
+```
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update
+sudo apt install -y git
+```
 
 ## Install Nix for single user
 ```
