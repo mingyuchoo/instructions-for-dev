@@ -2,11 +2,16 @@
 
 ## Install Packages for DEV
 ```
+sudo apt update
+sudo apt upgrade -y
 sudo apt install -y \
   software-properties-common \
   build-essential \
   net-tools \
   traceroute \
+  ca-certificates \
+  gnupg \
+  lsb-release \
   curl \
   wget \
   nnn \
@@ -17,7 +22,7 @@ sudo apt install -y \
   unzip \
   htop \
   nmon
-  
+ 
 sudo apt install -y \
   libbz2-dev \
   libffi-dev \
@@ -31,6 +36,18 @@ sudo apt install -y \
   libtinfo-dev \
   zlib1g-dev
 ```
+## Install Docker
+```
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y docker.io
+sudo usermod -aG docker $USER
+
+# install docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
 ## Install Git
 ```
 sudo add-apt-repository ppa:git-core/ppa
