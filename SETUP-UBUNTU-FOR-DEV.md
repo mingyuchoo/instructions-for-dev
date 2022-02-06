@@ -10,8 +10,9 @@ sudo apt install -y \
   vim-nox \
   emacs-nox \
   tmux \ 
-  wget \
-  zlib1g-dev \
+  wget
+  
+sudo apt install -y \
   libbz2-dev \
   libffi-dev \
   libgdbm-dev \
