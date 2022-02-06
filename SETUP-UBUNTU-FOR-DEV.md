@@ -5,12 +5,18 @@
 sudo apt install -y \
   software-properties-common \
   build-essential \
+  net-tools \
+  traceroute \
   curl \
+  wget \
   nnn \
   vim-nox \
   emacs-nox \
   tmux \ 
-  wget
+  tree \
+  unzip \
+  htop \
+  nmon
   
 sudo apt install -y \
   libbz2-dev \
