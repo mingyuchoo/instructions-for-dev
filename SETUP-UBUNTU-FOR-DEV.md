@@ -1,5 +1,30 @@
 # How to setup ubuntu for development
 
+## Install Packages for DEV
+```
+sudo apt install -y \
+  software-properties-common \
+  build-essential \
+  curl \
+  nnn \
+  vim-nox \
+  emacs-nox \
+  tmux \ 
+  wget \
+  zlib1g-dev \
+  libbz2-dev \
+  libffi-dev \
+  libgdbm-dev \
+  libgmp3-dev \
+  libncurses5-dev \
+  libnss3-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  libssl-dev \
+  libtinfo-dev \
+  zlib1g-dev
+```
+
 ## Install Nix for single user
 ```
 sh <(curl -L https://nixos.org/nix/install) --no-daemon
@@ -21,6 +46,15 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
+### Install Haskell applications
+```
+stack install \
+  hcid \
+  hindent \
+  hlint \
+  hoogle \
+  stylish-haskell
+```
 
 ## Install Opam for OCaml
 ```
@@ -35,4 +69,12 @@ gunzip elm.gz
 chmod +x elm
 sudo cp elm /usr/local/bin/
 rm elm
+```
+
+## Install Python3.10
+```
+sudo apt install -y python3.10 python3.10-venv
+python3.10 -m venv $HOME/venv
+echo "source \"$HOME/venv/bin/activate\" # for Python3.10" >> .bashrc
+source $HOME/.bashrc
 ```
