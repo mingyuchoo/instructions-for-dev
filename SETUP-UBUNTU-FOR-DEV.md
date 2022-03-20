@@ -89,6 +89,8 @@ stack install \
 ## Install Opam for OCaml
 ```
 bash -c "sh <(curl -fsSL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)"
+opam init
+opam install dune
 ```
 
 ## Install Elm
@@ -103,7 +105,8 @@ rm elm
 
 ## Install Python3.10
 ```
-sudo apt install -y python3.10 python3.10-venv
+sudo apt install -y python3.10
+sudo apt install -y python3.10-venv
 python3.10 -m venv $HOME/venv
 echo "source \"$HOME/venv/bin/activate\" # for Python3.10" >> .bashrc
 source $HOME/.bashrc
