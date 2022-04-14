@@ -1,7 +1,8 @@
 # How to setup ubuntu for development
 
 ## Install Packages for DEV
-```
+
+```bash
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y \
@@ -17,12 +18,12 @@ sudo apt install -y \
   nnn \
   vim-nox \
   emacs-nox \
-  tmux \ 
+  tmux \
   tree \
   unzip \
   htop \
   nmon
- 
+
 sudo apt install -y \
   libbz2-dev \
   libffi-dev \
@@ -36,8 +37,18 @@ sudo apt install -y \
   libtinfo-dev \
   zlib1g-dev
 ```
-## Install Docker
+
+## Install Terraform
+
+```bash
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo apt update && sudo apt install terraform
 ```
+
+## Install Docker
+
+```bash
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y docker.io
@@ -49,35 +60,42 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 ## Install Git
-```
+
+```bash
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install -y git
 ```
 
 ## Install Nix for multi-user
-```
+
+```bash
 sh <(curl -L https://nixos.org/nix/install) --daemon
 echo "source \"$HOME/.nix-profile/etc/profile.d/nix.sh\"" >> .bashrc
 ```
 
 ## Install NVM for Nodejs
-```
+
+```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install 16
 ```
 
 ## Install Rustup for Rust
-```
+
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 ## Install Ghcup for Haskell
-```
+
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
+
 ### Install Haskell applications
-```
+
+```bash
 stack install \
   ghcid \
   hindent \
@@ -87,14 +105,16 @@ stack install \
 ```
 
 ## Install Opam for OCaml
-```
+
+```bash
 bash -c "sh <(curl -fsSL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)"
 opam init
 opam install dune
 ```
 
 ## Install Elm
-```
+
+```bash
 cd ~/Downloads/
 curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/binary-for-linux-64-bit.gz
 gunzip elm.gz
@@ -104,7 +124,8 @@ rm elm
 ```
 
 ## Install Python3.10
-```
+
+```bash
 sudo apt install -y python3.10
 sudo apt install -y python3.10-venv
 python3.10 -m venv $HOME/venv
