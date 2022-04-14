@@ -110,4 +110,8 @@ sudo apt install -y python3.10-venv
 python3.10 -m venv $HOME/venv
 echo "source \"$HOME/venv/bin/activate\" # for Python3.10" >> .bashrc
 source $HOME/.bashrc
+
+# for Ansible configuration management
+pip install ansible
+pip install paramiko
 ```
