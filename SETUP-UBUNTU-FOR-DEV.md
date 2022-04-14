@@ -36,6 +36,11 @@ sudo apt install -y \
   libssl-dev \
   libtinfo-dev \
   zlib1g-dev
+
+sudo apt install -y \
+  gconf2 \
+  gconf-service \
+  libappindicator1
 ```
 
 ## Install Terraform
@@ -136,3 +141,11 @@ source $HOME/.bashrc
 pip install ansible
 pip install paramiko
 ```
+
+## Install Dockstation 1.5.1
+
+```bash
+wget https://github.com/DockStation/dockstation/releases/download/v1.5.1/dockstation_1.5.1_amd64.deb
+sudo dpkg -i dockstation_1.5.1_amd64.deb
+```
+
