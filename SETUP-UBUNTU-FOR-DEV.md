@@ -22,7 +22,8 @@ sudo apt install -y \
   tree \
   unzip \
   htop \
-  nmon
+  nmon \
+  jq
 
 sudo apt install -y \
   libbz2-dev \
