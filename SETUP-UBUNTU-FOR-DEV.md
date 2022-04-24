@@ -58,6 +58,7 @@ sudo apt update && sudo apt install terraform
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y docker.io
+sudo groupadd docker
 sudo usermod -aG docker $USER
 
 # install docker-compose
