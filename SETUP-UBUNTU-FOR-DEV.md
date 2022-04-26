@@ -110,6 +110,34 @@ stack install \
   stylish-haskell
 ```
 
+### Update `$HOME/.stack/config.yaml` file
+
+```yaml
+...
+
+templates:
+  params:
+    author-name: mingyuchoo
+    author-email: mingyuchoo@gmail.com
+    copyright: mingyuchoo
+    github-username: mingyuchoo
+
+...
+
+stack-colors: STYLES
+#allow-newer: true
+```
+
+### Add some code for `stylish-haskell` to `$HOME/.stack/global-project/stack.yaml` file
+
+```yaml
+...
+
+extra-deps:
+- ghc-lib-parser-9.2.2.20220307@sha256:384755a514a42fe1615862ff6ef5c995a9ed71904360b4b212f9526f80fb214c,12705
+- ghc-lib-parser-ex-9.2.0.3@sha256:a90c3a6aa85f59848d9f8c3928ab7203299a4b560db6f300976d9b1f7da127ee,3655
+```
+
 ## Install Opam for OCaml
 
 ```bash
@@ -142,6 +170,27 @@ source $HOME/.bashrc
 pip install ansible
 pip install paramiko
 ```
+
+## Install Doom Emacs
+
+```bash
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+cd ~/.emacs.d/bin
+./doom sync
+```
+
+### Add `$HOME/.emacs.d/bin` to `$PATH`
+
+```bash
+...
+export $PATH="$HOME/.emacs.d/bin":$PATH"
+```
+
+### Additional settings
+
+-<https://github.com/mingyuchoo/doom-emacs-setting>
+
 
 ## Install Dockstation 1.5.1
 
