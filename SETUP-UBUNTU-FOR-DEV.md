@@ -142,7 +142,8 @@ extra-deps:
 ## Install Opam for OCaml
 
 ```bash
-bash -c "sh <(curl -fsSL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)"
+sudo apt install 
+sudo bash -c "sh <(curl -fsSL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)"
 opam init
 opam install dune
 ```
