@@ -118,8 +118,9 @@ stack install \
 
 templates:
   params:
-    author-name: mingyuchoo
     author-email: mingyuchoo@gmail.com
+    author-name: Mingyu Choo
+    category: PoC
     copyright: mingyuchoo
     github-username: mingyuchoo
 
