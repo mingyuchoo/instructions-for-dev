@@ -188,8 +188,7 @@ java --version
 ```bash
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
-cd ~/.emacs.d/bin
-./doom sync
+~/.emacs.d/bin/doom sync
 ```
 
 ### Add `$HOME/.emacs.d/bin` to `$PATH`
