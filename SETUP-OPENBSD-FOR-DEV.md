@@ -66,7 +66,7 @@ openbsd$ doas -u root sysmerge
 openbsd$ doas -u root sysmerge -d
 
 # update installed packages and their dependencies
-openbsd$ doas -u root pkgs_add -Uu
+openbsd$ doas -u root pkg_add -Uu
 
 # reboot
 openbsd$ doas -u root reboot
