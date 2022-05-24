@@ -72,3 +72,21 @@ openbsd$ doas -u root pkg_add -Uu
 openbsd$ doas -u root reboot
 ```
 
+## Essential packages to install for developers
+
+* bash
+* wget
+* curl
+* tree
+* git
+* vim
+* emacs
+
+## Change default $SHELL for my account
+
+```bash
+openbsd$ which bash
+/usr/local/bin/bash
+openbsd$ chsh -s /usr/local/bin/bash
+```
+
