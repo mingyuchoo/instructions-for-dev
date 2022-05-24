@@ -1,4 +1,4 @@
-# How to setup ubuntu for development
+# How to set up Ubuntu for developers
 
 ## Install Packages for DEV
 
