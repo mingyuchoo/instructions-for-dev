@@ -30,6 +30,19 @@ doas (me@openbsd.Davolink) password:
 .cshrc              .mailrc             .xsession-errors
 ```
 
+## Fix `pkg_add` TLS handshake failure: ocsp ...
+
+```bash
+openbsd$ su -
+openbsd# vi /etc/installurl
+```
+
+`/etc/installurl`
+
+```
+# https://cdn.openbsd.org/pub/OpenBSD
+https://ftp.openbsd.org/pub/OpenBSD
+```
 
 ## To keep up-to-date
 
