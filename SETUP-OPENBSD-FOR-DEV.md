@@ -90,3 +90,10 @@ openbsd$ which bash
 openbsd$ chsh -s /usr/local/bin/bash
 ```
 
+# set Prompt for Ksh
+
+`.profile` for ksh
+
+```sh
+export PS1='[\t \d] \u@\h:\w\$ '
+```
