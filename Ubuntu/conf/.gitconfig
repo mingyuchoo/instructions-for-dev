@@ -1,0 +1,34 @@
+[user]
+	email = my-email@address
+	name  = my-name
+[color]
+	ui = auto
+[core]
+	editor    = vim
+	autocrlf  = input
+	longpaths = true
+[credential]
+	helper = store
+[filter "lfs"]
+    clean    = git-lfs clean -- %f
+	smudge   = git-lfs smudge -- %f
+	process  = git-lfs filter-process
+	required = true
+[merge]
+	tool = vimdiff
+[pager]
+	branch = false
+[pull]
+	rebase = false
+[push]
+	default = simple
+[alias]
+    unstage  = reset HEAD -- .
+    unadd    = reset HEAD -- .
+	uncommit = reset HEAD~
+	ls = log --oneline --graph --all --pretty=format:'\
+%C(red)%h%C(reset) \
+-%C(yellow)%d%C(reset) \
+%C(green)(%cr)%C(reset) \
+%C(blue)<%an>%C(reset) \
+%s'
