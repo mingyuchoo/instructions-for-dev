@@ -8,12 +8,6 @@ $ sudo pacman -S bluez-utils
 $ sudo vim /etc/bluetooth/main.conf
 ```
 
-*/etc/bluetooth/main.conf*
-```sh
-...
-AutoEnable=true  # Un-comment here
-...
-```
 
 ```sh
 $ sudo systemctl enable bluetooth.service
@@ -30,6 +24,20 @@ bluetoothctl# connect <Bluetooth Device MAC Adress>
 bluetoothctl# exit
 $ 
 ```
+
+## How to power on automatically when power on my machine
+
+```sh
+$ sudo vim /etc/bluetooth/main.conf
+```
+
+*/etc/bluetooth/main.conf*
+```sh
+...
+AutoEnable=true  # Un-comment and change to true
+...
+```
+
 
 ## References
 
