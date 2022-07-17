@@ -27,7 +27,6 @@ bluetoothctl# select <Bluetooth Controller MAC Address>
 bluetoothctl# power on
 bluetoothctl# devices
 bluetoothctl# scan on
-bluetoothctl# agent on
 bluetoothctl# pair <Bluetooth Device MAC Address>
 bluetoothctl# trust <Bluetooth Device MAC Address>
 bluetoothctl# connect <Bluetooth Device MAC Adress>
