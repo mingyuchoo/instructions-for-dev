@@ -4,57 +4,46 @@
 
 -<https://itnext.io/goodbye-docker-desktop-hello-minikube-3649f2a1c469>
 
-## Uinstall Docker Desktop
-
-```bash
-brew uninstall docker
-```
-
 ## Install Hyperkit
 
-```bash
+```sh
 brew install kyperkit
 ```
 
 ## Install Docker CLI
 
-```bash
-brew install docker
+```sh
+brew install docker docker-compose
 ```
 
-## Install Kubectl
+And change `credsStore` to `credStore` in `.docker/config.json`
 
-```bash
-brew install kubectl
-```
+## Install Minikube and Kubectl
 
-## Install Minikube (and Docker daemon)
-
-```bash
-brew install minikube
+```sh
+brew install minikube kubeclt
 ```
 
 ### Set CPU, Memory limits
 
-```bash
+```sh
 minikube config set cpus 6
 minikube config set memory 12g
+```
 
+### Start Minikube (instead of docker daemon)
+
+```sh
 minikube start --kubernetes-version=v1.19.14 --driver=hyperkit --container-runtime=docker
 
 minikube kubectl get nodes
+
 eval $(minikube docker-env)
-```
-
-## Install Docker Compose
-
-```bash
-brew install docker-compose
 ```
 
 ## Dealing with Ingress resources
 
-```bash
+```sh
 minikube addons enable ingress
 ```
 
