@@ -7,6 +7,7 @@ sudo apt install -y \
   software-properties-common \
   build-essential \
   net-tools \
+  musl-tools \
   traceroute \
   ca-certificates \
   gnupg \
