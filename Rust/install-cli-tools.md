@@ -14,7 +14,6 @@ cargo install bandwhich \
   grex \
   hyperfine \
   mdbook \
-  out.txt \
   procs \
   rg \
   rls \
