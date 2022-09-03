@@ -7,6 +7,7 @@ cargo install bandwhich \
   cargo-clippy \
   cargo-fmt \
   cargo-miri \
+  cargo-watch \
   clippy-driver \
   dust \
   exa \
