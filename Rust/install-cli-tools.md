@@ -3,7 +3,6 @@
 ```sh
 cargo install bandwhich \
   bat \
-  cargo \
   cargo-clippy \
   cargo-fmt \
   cargo-miri \
@@ -12,19 +11,12 @@ cargo install bandwhich \
   dust \
   exa \
   grex \
+  irust \
   hyperfine \
   mdbook \
   procs \
   rg \
   rls \
-  rmesg \
-  rustc \
-  rustdoc \
-  rustfmt \
-  rust-gdb \
-  rust-gdbgui \
-  rust-lldb \
-  rustup \
   sd \
   tldr \
   tokei \
