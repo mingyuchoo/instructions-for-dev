@@ -3,6 +3,7 @@
 ```sh
 cargo install bandwhich \
   bat \
+  cargo-lambda \
   cargo-clippy \
   cargo-fmt \
   cargo-miri \
