@@ -11,6 +11,7 @@ cargo install bandwhich \
   clippy-driver \
   dust \
   exa \
+  gitnu \
   grex \
   irust \
   hyperfine \
