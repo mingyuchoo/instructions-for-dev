@@ -24,5 +24,6 @@ cargo install bandwhich \
   tokei \
   tpnote \
   ytop \
+  zellij \
   zoxide
 ```
