@@ -77,9 +77,11 @@ curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 # ```bash
 # stack install \
 #   ghcid \
+#   haddock \
 #   hindent \
 #   hlint \
 #   hoogle \
+#   ormolu \
 #   stylish-haskell
 # ```
 # 
