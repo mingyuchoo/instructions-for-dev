@@ -81,6 +81,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 #   hindent \
 #   hlint \
 #   hoogle \
+#   hsdev \
+#   ghc-mod \
 #   ormolu \
 #   stylish-haskell
 # ```
