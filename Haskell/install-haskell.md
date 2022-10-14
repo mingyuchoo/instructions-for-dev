@@ -51,7 +51,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
 ## Install Haskell applications
 
-```bash
+```sh
 stack install \
   ghcid \
   haddock \

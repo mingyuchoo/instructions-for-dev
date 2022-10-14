@@ -141,7 +141,7 @@ git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 
 ## Add `$HOME/.emacs.d/bin` to `$PATH`
 
-```bash
+```sh
 ...
 export $PATH="$HOME/.emacs.d/bin":$PATH"
 ```
