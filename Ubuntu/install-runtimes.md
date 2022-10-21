@@ -85,7 +85,7 @@ echo "source \"$HOME/.nix-profile/etc/profile.d/nix.sh\"" >> .bashrc
 ## Install NVM for Nodejs
 
 ```sh
-curl -o- https://raw.mingyuchoocontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install 16
 ```
 
@@ -104,7 +104,7 @@ Please refer `https://github.com/mingyuchoo/instructions-for-dev/tree/main/Haske
 
 ```sh
 sudo apt install bubblewrap
-sudo bash -c "sh <(curl -fsSL https://raw.mingyuchoocontent.com/ocaml/opam/master/shell/install.sh)"
+sudo bash -c "sh <(curl -fsSL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)"
 opam init
 opam install dune
 opam install dune merlin ocaml-lsp-server odoc ocamlformat utop dune-release
