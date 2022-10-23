@@ -79,7 +79,6 @@ sudo apt install -y git
 
 ```sh
 sh <(curl -L https://nixos.org/nix/install) --daemon
-echo "source \"$HOME/.nix-profile/etc/profile.d/nix.sh\"" >> .bashrc
 ```
 
 ## Install NVM for Nodejs
