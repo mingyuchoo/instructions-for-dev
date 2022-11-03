@@ -79,6 +79,8 @@ sudo apt install -y git
 
 ```sh
 sh <(curl -L https://nixos.org/nix/install) --daemon
+
+nix-env -i docui
 ```
 
 ## Install NVM for Nodejs
