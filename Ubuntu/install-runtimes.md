@@ -88,6 +88,10 @@ nix-env -i docui
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install 16
+
+npm install -g purescript
+npm install -g spago
+npm install -g typescript
 ```
 
 ## Install Rustup for Rust
