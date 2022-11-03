@@ -54,14 +54,11 @@ curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```sh
 stack install \
   dhall \
+  dhall-json \
   ghcid \
-  haddock \
   hindent \
   hlint \
   hoogle \
-  hsdev \
-  ghc-mod \
-  ormolu \
   pandoc \
   stylish-haskell \
   ShellCheck
