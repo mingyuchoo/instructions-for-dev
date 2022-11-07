@@ -62,6 +62,8 @@ stack install \
   pandoc \
   stylish-haskell \
   ShellCheck
+
+# stack install helix
 ```
 
 ## Update `$HOME/.stack/config.yaml` file
