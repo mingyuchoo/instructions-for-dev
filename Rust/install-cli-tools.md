@@ -20,7 +20,7 @@ cargo install bandwhich \
   rg \
   rls \
   sd \
-  starship \
+  starship --locked \
   tldr \
   tokei \
   tpnote \
