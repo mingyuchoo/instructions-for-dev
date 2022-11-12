@@ -15,6 +15,7 @@ sudo apt install -y \
   ca-certificates \
   gnupg \
   lsb-release \
+  cmake \
   curl \
   wget \
   nnn \
@@ -36,6 +37,7 @@ sudo apt install -y \
   libsqlite3-dev \
   libssl-dev \
   libtinfo-dev \
+  pkg-config \
   zlib1g-dev \
   gconf2 \
   gconf-service \

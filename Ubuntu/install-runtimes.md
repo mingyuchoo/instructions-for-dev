@@ -15,6 +15,7 @@ sudo apt install -y \
   ca-certificates \
   gnupg \
   lsb-release \
+  cmake \
   curl \
   wget \
   nnn \
@@ -37,6 +38,7 @@ sudo apt install -y \
   libssl-dev \
   libtinfo-dev \
   zlib1g-dev \
+  pkg-config \
   gconf2 \
   gconf-service \
   libappindicator1
