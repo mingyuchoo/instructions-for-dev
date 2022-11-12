@@ -20,9 +20,11 @@ cargo install bandwhich \
   rg \
   rls \
   sd \
+  starship \
   tldr \
   tokei \
   tpnote \
+  nu \
   ytop \
   zellij \
   zoxide
