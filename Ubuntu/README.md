@@ -31,4 +31,6 @@ add below to `.bashrc`
 if command -v zellij &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ zellij ]] && [ -z "$ZELLIJ" ]; then
   exec zellij
 fi
+
+alias xclip='xclip -selection clipbaord -i'
 ```
