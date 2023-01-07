@@ -22,6 +22,7 @@ sudo apt install -y \
   vim-nox \
   emacs-nox \
   tmux \
+  screenkey \
   tree \
   unzip \
   htop \
