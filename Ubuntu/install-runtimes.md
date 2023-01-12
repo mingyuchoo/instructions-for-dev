@@ -103,6 +103,12 @@ npm install -g typescript
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
+## Install Neovide
+
+```sh
+cargo install --git https://github.com/neovide/neovide
+```
+
 # Install Ghcup for Haskell
 
 Please refer `https://github.com/mingyuchoo/instructions-for-dev/tree/main/Haskell`
