@@ -4,11 +4,7 @@
 cargo install bandwhich \
   bat \
   cargo-lambda \
-  cargo-clippy \
-  cargo-fmt \
-  cargo-miri \
   cargo-watch \
-  clippy-driver \
   dust \
   exa \
   gitnu \
@@ -19,7 +15,6 @@ cargo install bandwhich \
   mdbook \
   procs \
   rg \
-  rls \
   sd \
   starship --locked \
   tldr \
