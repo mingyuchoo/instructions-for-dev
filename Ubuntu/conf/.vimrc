@@ -96,7 +96,7 @@ nnoremap tl :term<CR><C-w>L
  
 " -----------------------------------------------------------------------------
 " NERDTree
-nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+nnoremap <silent> <C-y> :NERDTreeToggle<CR>
 nmap n3 :NnnPicker<CR>
 let g:nnn#set_default_mappings = 0
 let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' }}
