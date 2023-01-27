@@ -5,7 +5,7 @@ create `/etc/X11/xorg.conf.d/10-monitor.conf` file.
 
 ## `/etc/X11/xorg.conf.d/10-monitor.conf`
 
-```sh
+```bash
 Section "Monitor"
 	Identifier	"eDP-1"
 	Option		"Primary"	"true"

@@ -2,20 +2,20 @@
 
 ## Create a Haskell app
 
-```sh
+```bash
 $ stack new hello
 ```
 
 ### Build and run locally
 
-```sh
+```bash
 $ stack build
 $ stack run
 ```
 
 ## Create a Dockerfile in the app
 
-```sh
+```bash
 $ cd hello
 $ touch Dockerfile
 ```
@@ -40,13 +40,13 @@ ENTRYPOINT ["stack", "run"]
 
 ### Docker build
 
-```sh
+```bash
 $ docker build -tag hello:0.1 --file Dockerfile .
 ```
 
 ### Docker run
 
-```sh
+```bash
 $ docker run --detach --name hello --publish 0.0.0.0:3000:3000 hello:0.1
 
 # or

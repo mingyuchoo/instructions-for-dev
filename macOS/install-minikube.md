@@ -6,13 +6,13 @@
 
 ## Install Hyperkit
 
-```sh
+```bash
 brew install kyperkit
 ```
 
 ## Install Docker CLI
 
-```sh
+```bash
 brew install docker docker-compose
 ```
 
@@ -20,20 +20,20 @@ And change `credsStore` to `credStore` in `.docker/config.json`
 
 ## Install Minikube and Kubectl
 
-```sh
+```bash
 brew install minikube kubeclt
 ```
 
 ### Set CPU, Memory limits
 
-```sh
+```bash
 minikube config set cpus 6
 minikube config set memory 12g
 ```
 
 ### Start Minikube (instead of docker daemon)
 
-```sh
+```bash
 minikube start --kubernetes-version=v1.19.14 --driver=hyperkit --container-runtime=docker
 
 minikube kubectl get nodes
@@ -43,7 +43,7 @@ eval $(minikube docker-env)
 
 ## Dealing with Ingress resources
 
-```sh
+```bash
 minikube addons enable ingress
 ```
 

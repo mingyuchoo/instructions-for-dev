@@ -2,7 +2,7 @@
 
 ## Install Packages for DEV
 
-```sh
+```bash
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y \
@@ -47,13 +47,13 @@ sudo apt install -y \
 
 ## Install Ghcup for Haskell
 
-```sh
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
 
 ## Install Haskell applications
 
-```sh
+```bash
 stack install \
   dhall \
   dhall-json \

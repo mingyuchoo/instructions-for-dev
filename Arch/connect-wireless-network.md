@@ -1,6 +1,6 @@
 # Connect Wireless in Arch Linux
 
-```sh
+```bash
 iwclt
 
 adapter list

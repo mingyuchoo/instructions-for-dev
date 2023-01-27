@@ -5,7 +5,7 @@
 * Install `git`
 * Install `openssh-server`
 
-```sh
+```bash
 # mgch
 MY_HOME=/home/mingyuchoo
 MY_USER=mingyuchoo
@@ -16,14 +16,14 @@ GIT_USER=git
 
 ## Add `git` user for using git repository
 
-```sh
+```bash
 sudo useradd -mrUd $GIT_HOME $GIT_USER
 sudo su - $GIT_USER
 ```
 
 ## Set up initial environment for Git repository
 
-```sh
+```bash
 # git
 mkdir -p $GIT_HOME/.ssh
 chmod 700 $GIT_HOME/.ssh
@@ -35,7 +35,7 @@ exit
 
 ## Generate credential for git repository
 
-```sh
+```bash
 cd $MY_HOME
 ssh-keygen -t rsa
 ```
@@ -43,7 +43,7 @@ copy `$MY_HOME/.ssh/id_rsa.pub` to `$GIT_HOME/.ssh/authorized_keys` file.
 
 ## Clone git repository to my account
 
-```sh
+```bash
 git clone git@localhost:demo-project.git
 Cloning into 'demo'...
 ...
@@ -52,7 +52,7 @@ warning: You appear to have cloned an empty repository.
 
 ## Use the cloned repository
 
-```sh
+```bash
 cd demo-project
 touch README.md
 cat "# demo-project" > README.md

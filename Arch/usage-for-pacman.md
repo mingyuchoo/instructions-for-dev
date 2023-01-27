@@ -2,17 +2,17 @@
 
 ## query installed packages
 
-```sh
+```bash
 sudo pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h
 ```
 ## query unnecessary packages
 
-```sh
+```bash
 sudo pacman -Qdtq
 ```
 
 ## remove unnecessary package
 
-```sh
+```bash
 sudo pacman -R $(pacman -Qdtq)
 ```

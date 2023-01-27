@@ -4,7 +4,7 @@
 
 Install the packages below
 
-```sh
+```bash
 pkg install xorg
 pkg install graphics/drm-kmod
 ```
@@ -13,6 +13,6 @@ pkg install graphics/drm-kmod
 
 Add the code below to */etc/rc.conf*
 
-```sh
+```bash
 kld_list="i915kms.ko"
 ```

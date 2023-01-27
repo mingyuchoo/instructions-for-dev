@@ -5,7 +5,7 @@
 
 - <https://www.vultr.com/docs/introduction-to-doas-on-openbsd/>
 
-```sh
+```bash
 openbsd$ ls
 openbsd$ doas -u root ls
 doas: doas is not enabled, /etc/doas.conf: No such file or directory
@@ -21,7 +21,7 @@ openbsd# vi /etc/doas.conf
 permit persist :wheel
 ```
 
-```sh
+```bash
 openbsd# exit
 openbsd$ doas -u root ls
 doas (me@openbsd.Davolink) password:
@@ -32,7 +32,7 @@ doas (me@openbsd.Davolink) password:
 
 ## Fix `pkg_add` TLS handshake failure: ocsp ...
 
-```sh
+```bash
 openbsd$ su -
 openbsd# vi /etc/installurl
 ```
@@ -48,7 +48,7 @@ https://ftp.openbsd.org/pub/OpenBSD
 
 - <https://rakhesh.com/linux-bsd/keeping-openbsd-up-to-date/>
 
-```sh
+```bash
 # apply OS patches
 openbsd$ doas -u root syspatch
 
@@ -58,7 +58,7 @@ openbsd$ doas -u root pkg_add -Uu
 
 ### To upgrade between releases
 
-```sh
+```bash
 # upgrade the OS
 openbsd$ doas -u root sysmerge
 
@@ -84,7 +84,7 @@ openbsd$ doas -u root reboot
 
 ## Change default $SHELL for my account
 
-```sh
+```bash
 openbsd$ which bash
 /usr/local/bin/bash
 openbsd$ chsh -s /usr/local/bin/bash
@@ -94,6 +94,6 @@ openbsd$ chsh -s /usr/local/bin/bash
 
 `.profile` for ksh
 
-```sh
+```bash
 export PS1='[\t \d] \u@\h:\w\$ '
 ```

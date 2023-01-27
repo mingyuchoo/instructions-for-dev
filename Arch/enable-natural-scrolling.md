@@ -1,6 +1,6 @@
 # Enable Natural Scrolling
 
-```sh
+```bash
 $ cat /etc/X11/xorg.conf.d/30-touchpad.conf
 
 Section "InputClass"

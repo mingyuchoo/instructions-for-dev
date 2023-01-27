@@ -8,7 +8,7 @@
 
 add below like to `/etc/environment` file
 
-```sh
+```bash
 MOD_ENABLE_WAYLAND=1
 ```
 

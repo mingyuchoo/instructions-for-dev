@@ -1,6 +1,6 @@
 # Install all media codecs in Ubuntu
 
-```sh
+```bash
 sudo add-apt-repository multiverse
 sudo apt update
 sudo apt install ubuntu-restricted-extras

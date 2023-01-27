@@ -2,6 +2,6 @@
 
 ## Prerequsite
 
-```sh
+```bash
 $ sudo pacman -S webkit2gtk
 ```

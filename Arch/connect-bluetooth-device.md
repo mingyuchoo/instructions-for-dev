@@ -2,24 +2,24 @@
 
 ## How to Connect Devices
 
-```sh
+```bash
 $ sudo pacman -S bluez bluez-utils
 ```
 
 ## How to power on automatically when power on my machine
 
-```sh
+```bash
 $ sudo vim /etc/bluetooth/main.conf
 ```
 
 */etc/bluetooth/main.conf*
-```sh
+```bash
 ...
 AutoEnable=true  # Un-comment and change to true
 ...
 ```
 
-```sh
+```bash
 $ sudo systemctl enable bluetooth.service
 $ sudo systemctl start bluetooth.service
 $ bluetoothctl
@@ -31,7 +31,7 @@ bluetoothctl# pair <Bluetooth Device MAC Address>
 bluetoothctl# trust <Bluetooth Device MAC Address>
 bluetoothctl# connect <Bluetooth Device MAC Adress>
 bluetoothctl# exit
-$ 
+$
 ```
 
 ## References

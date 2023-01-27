@@ -2,7 +2,7 @@
 
 ## Find out Network Device
 
-```sh
+```bash
 pciconf -lv | grep -A1 -B3 network
 ```
 
@@ -10,7 +10,7 @@ pciconf -lv | grep -A1 -B3 network
 
 Add the code below to */boot/loader.conf*
 
-```sh
+```bash
 if_iwm_load="YES"
 iwm8265fm_load="YES"
 wlan_ccmp_load="YES"
@@ -21,7 +21,7 @@ wlan_tkip_load="YES"
 
 Add the code below to */etc/rc.conf*
 
-```sh
+```bash
 background_dhclient="YES"
 wlans_iwm0="wlan0"
 ifconfig_wlan0="WPA SYNCDHCP powersave"
@@ -31,7 +31,7 @@ ifconfig_wlan0="WPA SYNCDHCP powersave"
 
 Add the code below to */etc/wpa_supplicant.conf*
 
-```sh
+```bash
 ctrl_interface=/var/run/wpa_supplicant
 eapol_version=2
 ap_scan=1

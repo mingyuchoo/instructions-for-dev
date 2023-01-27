@@ -1,6 +1,6 @@
 # Install CLI Tools
 
-```sh
+```bash
 cargo install bandwhich \
   bat \
   cargo-lambda \
@@ -30,7 +30,7 @@ cargo install bandwhich \
 
 addd below to `.bashrc`
 
-```sh
+```bash
 ...
 
 if command -v zellij &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ zellij ]] && [ -z "$ZELLIJ" ]; then

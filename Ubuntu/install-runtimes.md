@@ -2,7 +2,7 @@
 
 ## Install Packages for DEV
 
-```sh
+```bash
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y \
@@ -47,7 +47,7 @@ sudo apt install -y \
 
 ## Install Terraform
 
-```sh
+```bash
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 sudo apt update && sudo apt install terraform
@@ -55,7 +55,7 @@ sudo apt update && sudo apt install terraform
 
 ## Install Docker
 
-```sh
+```bash
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y docker.io
@@ -65,14 +65,14 @@ sudo usermod -aG docker $USER
 
 ## install docker-compose
 
-```sh
+```bash
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 ## Install Git
 
-```sh
+```bash
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install -y git
@@ -80,7 +80,7 @@ sudo apt install -y git
 
 ## Install Nix for multi-user
 
-```sh
+```bash
 sh <(curl -L https://nixos.org/nix/install) --daemon
 
 nix-env -i docui
@@ -88,7 +88,7 @@ nix-env -i docui
 
 ## Install NVM for Nodejs
 
-```sh
+```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 nvm install 16
 
@@ -97,13 +97,13 @@ npm install -g yarn typescript spago purescript
 
 ## Install Rustup for Rust
 
-```sh
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 ## Install Neovide
 
-```sh
+```bash
 cargo install --git https://github.com/neovide/neovide
 ```
 
@@ -114,7 +114,7 @@ Please refer `https://github.com/mingyuchoo/instructions-for-dev/tree/main/Haske
 
 ## Install Opam for OCaml
 
-```sh
+```bash
 sudo apt install bubblewrap
 sudo bash -c "sh <(curl -fsSL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)"
 opam init
@@ -124,7 +124,7 @@ opam install dune merlin ocaml-lsp-server odoc ocamlformat utop dune-release
 
 ## Install Elm
 
-```sh
+```bash
 cd ~/Downloads/
 curl -L -o elm.gz https://github.com/elm/compiler/releases/download/0.19.1/binary-for-linux-64-bit.gz
 gunzip elm.gz
@@ -135,7 +135,7 @@ rm elm
 
 ## Install Java
 
-```sh
+```bash
 curl -sL https://github.com/shyiko/jabba/raw/master/install.sh | bash && . ~/.jabba/jabba.sh
 jabba install openjdk@1.11.0
 jabba alias default openjdk@1.11.0
@@ -144,7 +144,7 @@ java --version
 
 ## Install Doom Emacs
 
-```sh
+```bash
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 ~/.emacs.d/bin/doom sync
@@ -153,7 +153,7 @@ git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 
 ## Add `$HOME/.emacs.d/bin` to `$PATH`
 
-```sh
+```bash
 ...
 export $PATH="$HOME/.emacs.d/bin":$PATH"
 ```

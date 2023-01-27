@@ -4,7 +4,7 @@
 
 Edit `PS1` environment variable in `.bashrc` file
 
-```sh
+```bash
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\$ '
 ```
 
@@ -12,7 +12,7 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]\u@\h\[\033[00m\]:\[\033[0
 
 add below to `.bashrc`
 
-```sh
+```bash
 ...
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
@@ -25,7 +25,7 @@ fi
 
 add below to `.bashrc`
 
-```sh
+```bash
 ...
 
 if command -v zellij &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ zellij ]] && [ -z "$ZELLIJ" ]; then
