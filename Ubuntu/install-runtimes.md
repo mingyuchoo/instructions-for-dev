@@ -8,7 +8,6 @@ sudo apt upgrade -y
 sudo apt install -y \
   software-properties-common \
   build-essential \
-  ipheth-utils \
   net-tools \
   musl-tools \
   traceroute \
@@ -38,11 +37,15 @@ sudo apt install -y \
   libsqlite3-dev \
   libssl-dev \
   libtinfo-dev \
+  libvterm-dev \
   zlib1g-dev \
   pkg-config \
-  gconf2 \
-  gconf-service \
   libappindicator1
+  
+# for X-window
+sudo apt install -y   ipheth-utils \
+  gconf2 \
+  gconf-service
 ```
 
 ## Install Terraform
