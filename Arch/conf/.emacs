@@ -1,8 +1,8 @@
+(require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 
-(require 'package)
 (require 'lsp)
 (require 'lsp-haskell)
 
@@ -12,7 +12,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes '(deeper-blue))
+ '(custom-enabled-themes '(wheatgrass))
  '(display-battery-mode t)
  '(display-time-mode t)
  '(global-display-column-numbers-mode t)

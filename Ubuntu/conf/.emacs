@@ -1,15 +1,15 @@
+(require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'exec-path "/home/mgch/.local/bin/")
 (package-initialize)
 
-(require 'package)
 ;;(require 'lsp)                      ; do NOT use until confirmed
 (require 'lsp-haskell)
 
 (custom-set-variables
  ;;'(cua-mode t nil (cua-base))
- '(custom-enabled-themes '(deeper-blue))
+ '(custom-enabled-themes '(wheatgrass))
  '(display-battery-mode t)
  '(display-time-mode t)
  '(global-display-column-numbers-mode t)
