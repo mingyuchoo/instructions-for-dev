@@ -1,60 +1,56 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'exec-path "/home/mgch/.local/bin/")
 (package-initialize)
 
-(require 'lsp)
 (require 'lsp-haskell)
 
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(cua-mode t nil (cua-base))
+ ;;'(cua-mode t nil (cua-base))
  '(custom-enabled-themes '(wheatgrass))
  '(display-battery-mode t)
  '(display-time-mode t)
  '(global-display-column-numbers-mode t)
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
-   '(neotree dune opam ocamlformat vterm rust-mode yaml-mode haskell-mode lsp-ui lsp-mode))
+   '(eglot neotree dune opam ocamlformat vterm rust-mode yaml-mode haskell-mode lsp-ui lsp-mode))
  '(scroll-bar-mode nil)
  '(toggle-scroll-bar nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(cursor ((t (:background "red3")))))
+
 
 (setq make-backup-files nil)
 (setq font-lock-maximum-decoration t)
+(setq haskell-stylish-on-save t)
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
 (setq ring-bell-function 'ignore)
 (setq show-paren-style 'parenthesis)
 (setq tab-width 4)
 (setq neo-smart-open t)
+(setq neo-window-width 30)
 
 (setq-default message-log-max nil)
 (setq-default indent-tabs-mode nil)
 
 (global-prettify-symbols-mode t)
-(global-set-key [C-kanji] 'set-mark-command)
-(global-set-key [f5] 'neotree-toggle)
-(global-set-key [f6] 'neotree-hidden-file-toggle)
-(global-set-key [f7] 'vterm)
-(global-set-key [f8] 'vterm-other-window)
+
+(global-set-keyu [?\C-h] 'delete-backward-char)
+(global-set-key (kbd "C-x n") 'neotree-toggle)
+;;(global-set-key [f6] 'neotree-hidden-file-toggle)
+;;(global-set-key [f7] 'vterm)
+(global-set-key (kbd "C-x v") 'vterm-other-window)
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
-(add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
+(add-hook 'before-save-hook (λ() (delete-trailing-whitespace)))
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)
-;;(add-hook 'after-init-hook 'global-hl-line-mode)
+(add-hook 'after-init-hook 'global-hl-line-mode)
 
 (kill-buffer "*Messages*")
 
