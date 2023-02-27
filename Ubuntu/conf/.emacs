@@ -41,7 +41,7 @@
 
 (global-prettify-symbols-mode t)
 
-(global-set-keyu [?\C-h] 'delete-backward-char)
+(global-set-key [?\C-h] 'delete-backward-char)
 (global-set-key (kbd "C-x n") 'neotree-toggle)
 ;;(global-set-key [f6] 'neotree-hidden-file-toggle)
 ;;(global-set-key [f7] 'vterm)
