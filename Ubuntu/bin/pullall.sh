@@ -2,8 +2,8 @@
 
 for i in $(ls -d -- */)
 do
-    pushd "$i" || exit
-    cd "$i" 2>/dev/null || exit
+    pushd "$i"
+    cd "$i" 2>/dev/null
     git pull
-    popd || exit
+    popd
 done
