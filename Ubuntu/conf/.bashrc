@@ -3,7 +3,9 @@ case $- in
       *) return;;
 esac
 
-EDITOR=nvim
+stty erase ^H
+
+EDITOR=emacs
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -24,9 +26,9 @@ esac
 #force_color_prompt=yes
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	color_prompt=yes
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -77,8 +79,8 @@ fi
 
 
 export NVM_DIR="$HOME/.nvm"
-source "$NVM_DIR/nvm.sh" 
-source "$NVM_DIR/bash_completion" 
+source "$NVM_DIR/nvm.sh"
+source "$NVM_DIR/bash_completion"
 
 source "$HOME/.ghcup/env"
 source "$HOME/.cargo/env"
@@ -111,4 +113,3 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # run emacs daemon if NOT running
 pidof emacs > /dev/null || emacs --daemon
-

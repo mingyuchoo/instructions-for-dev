@@ -1,5 +1,7 @@
 [[ $- != *i* ]] && return
 
+stty erase ^H
+
 PS1='[\u@\h \W]\$ '
 
 alias df='df -h'
