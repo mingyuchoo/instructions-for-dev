@@ -4,10 +4,8 @@
 (add-to-list 'exec-path "/home/mgch/.local/bin/")
 (package-initialize)
 
-(require 'lsp-haskell)
 
 (custom-set-variables
- ;;'(cua-mode t nil (cua-base))
  '(custom-enabled-themes '(wheatgrass))
  '(display-battery-mode t)
  '(display-time-mode t)
@@ -24,6 +22,10 @@
  '(cursor ((t (:background "red3")))))
 
 
+(setq-default message-log-max nil)
+(setq-default indent-tabs-mode nil)
+
+
 (setq make-backup-files nil)
 (setq font-lock-maximum-decoration t)
 (setq haskell-stylish-on-save t)
@@ -35,12 +37,10 @@
 (setq neo-smart-open t)
 (setq neo-window-width 30)
 
-(setq-default message-log-max nil)
-(setq-default indent-tabs-mode nil)
 
 (global-prettify-symbols-mode t)
 
-(global-set-keyu [?\C-h] 'delete-backward-char)
+(global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x n") 'neotree-toggle)
 ;;(global-set-key [f6] 'neotree-hidden-file-toggle)
 ;;(global-set-key [f7] 'vterm)
@@ -54,11 +54,6 @@
 
 (kill-buffer "*Messages*")
 
-
 ;; set OCaml language server
 ;(add-to-list 'load-path "$HOME/.opam/default/share/emacs/site-lisp")
 ;(require 'ocp-indent)
-
-;; set window size
-;;(add-to-list 'default-frame-alist '(height . 30))
-;;(add-to-list 'default-frame-alist '(width . 120))

@@ -1,10 +1,9 @@
 #!/bin/bash
 
-for i in $(ls -d -- */)
+for i in $(ls -d */)
 do
-    pushd "$i" || exit
-    cd "$i" 2>/dev/null || exit
+    pushd "${i}"
+    cd "${i}" 2>&1 /dev/null
     ncu -u
-    popd || exit
+    popd
 done
-

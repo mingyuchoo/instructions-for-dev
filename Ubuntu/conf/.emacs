@@ -24,6 +24,8 @@
 (custom-set-faces
  '(cursor ((t (:background "red3")))))
 
+(setq-default message-log-max nil)
+(setq-default indent-tabs-mode nil)
 
 (setq make-backup-files nil)
 (setq font-lock-maximum-decoration t)
@@ -35,9 +37,6 @@
 (setq tab-width 4)
 (setq neo-smart-open t)
 (setq neo-window-width 40)
-
-(setq-default message-log-max nil)
-(setq-default indent-tabs-mode nil)
 
 (global-prettify-symbols-mode t)
 

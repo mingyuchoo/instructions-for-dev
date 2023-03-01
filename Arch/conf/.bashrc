@@ -10,4 +10,5 @@ alias n3='nnn'
 alias grep='grep --color=auto'
 alias emacs='emacs -nw'
 
-eval $(opam env)
+# eval "$(opam env)"
+# eval "$(direnv hook bash)"
