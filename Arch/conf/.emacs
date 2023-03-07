@@ -12,7 +12,7 @@
  '(global-display-column-numbers-mode t)
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
-   '(eglot neotree dune opam ocamlformat vterm rust-mode yaml-mode haskell-mode lsp-ui lsp-mode))
+   '(evil eglot neotree dune opam ocamlformat vterm rust-mode yaml-mode haskell-mode lsp-ui lsp-mode))
  '(scroll-bar-mode nil)
  '(toggle-scroll-bar nil)
  '(tool-bar-mode nil)
@@ -21,6 +21,10 @@
 (custom-set-faces
  '(cursor ((t (:background "red3")))))
 
+(require 'evil)
+(evil-mode 1)
+
+(require 'lsp-haskell)
 
 (setq-default message-log-max nil)
 (setq-default indent-tabs-mode nil)
