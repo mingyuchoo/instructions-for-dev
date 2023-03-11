@@ -58,7 +58,7 @@
 
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
-(add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)
 (add-hook 'after-init-hook 'global-hl-line-mode)
