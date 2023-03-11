@@ -4,6 +4,7 @@
 (add-to-list 'exec-path "/home/mgch/.local/bin/")
 (package-initialize)
 
+
 (custom-set-variables
  ;;'(cua-mode t nil (cua-base))
  '(custom-enabled-themes '(wheatgrass))
@@ -18,16 +19,21 @@
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 
-(custom-set-faces
- '(cursor ((t (:background "red3")))))
+;; activate all the packages (in particular autoloads)
+(package-initialize)
+(unless package-archive-contents
+  package-refresh-contents))
+(package-install-selected-packages)
 
+
+(require 'lsp-haskell)
 (require 'evil)
 (evil-mode 1)
 
-(require 'lsp-haskell)
 
 (setq-default message-log-max nil)
 (setq-default indent-tabs-mode nil)
+
 
 (setq make-backup-files nil)
 (setq font-lock-maximum-decoration t)
@@ -40,19 +46,23 @@
 (setq neo-smart-open t)
 (setq neo-window-width 40)
 
+
 (global-prettify-symbols-mode t)
 
-(global-set-key [?\C-h] 'delete-backward-char)
+
+(global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x n") 'neotree-toggle)
 ;;(global-set-key [f6] 'neotree-hidden-file-toggle)
 ;;(global-set-key [f7] 'vterm)
 (global-set-key (kbd "C-x v") 'vterm-other-window)
+
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 (add-hook 'before-save-hook (lambda() (delete-trailing-whitespace)))
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)
 (add-hook 'after-init-hook 'global-hl-line-mode)
+
 
 (kill-buffer "*Messages*")
 
@@ -61,6 +71,6 @@
 ;(add-to-list 'load-path "$HOME/.opam/default/share/emacs/site-lisp")
 ;(require 'ocp-indent)
 
-;; set window size
-;;(add-to-list 'default-frame-alist '(height . 30))
-;;(add-to-list 'default-frame-alist '(width . 120))
+
+(custom-set-faces
+ '(cursor ((t (:background "red3")))))
