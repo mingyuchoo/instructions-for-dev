@@ -74,3 +74,12 @@
 
 (custom-set-faces
  '(cursor ((t (:background "red3")))))
+
+
+;; Set default window size
+(if (display-graphic-p)
+    (progn
+      (setq initial-frame-alist
+	    '(
+	      (width . 120)
+	      (height . 60)))))
