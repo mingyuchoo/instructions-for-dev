@@ -52,9 +52,11 @@
 
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x n") 'neotree-toggle)
-;;(global-set-key [f6] 'neotree-hidden-file-toggle)
-;;(global-set-key [f7] 'vterm)
 (global-set-key (kbd "C-x v") 'vterm-other-window)
+(global-set-key (kbd "M-=") 'tab-bar-new-to)
+(global-set-key (kbd "M--") 'tab-bar-close-tab)
+(global-set-key (kbd "M-[") 'tab-bar-switch-to-prev-tab)
+(global-set-key (kbd "M-]") 'tab-bar-switch-to-next-tab)
 
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
