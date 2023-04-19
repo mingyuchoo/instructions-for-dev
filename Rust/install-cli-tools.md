@@ -10,7 +10,7 @@ cargo install bandwhich \
   gitnu \
   grex \
   irust \
-  helix \
+  helix-term --locked \
   hyperfine \
   mdbook \
   procs \
@@ -22,6 +22,7 @@ cargo install bandwhich \
   tpnote \
   nu \
   ytop \
+  pijul \
   zellij \
   zoxide
 ```
@@ -33,7 +34,11 @@ addd below to `.bashrc`
 ```bash
 ...
 
-if command -v zellij &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ zellij ]] && [ -z "$ZELLIJ" ]; then
+if command -v zellij &> /dev/null && 
+  [ -n "$PS1" ] && 
+  [[ ! "$TERM" =~ screen ]] && 
+  [[ ! "$TERM" =~ zellij ]] &&
+  [ -z "$ZELLIJ" ]; then
   exec zellij
 fi
 ```
