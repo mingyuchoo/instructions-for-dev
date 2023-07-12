@@ -5,6 +5,7 @@ cargo install bandwhich \
   bat \
   cargo-lambda \
   cargo-watch \
+  cargo-modules \
   dust \
   exa \
   gitnu \
