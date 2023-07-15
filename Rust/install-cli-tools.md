@@ -1,11 +1,41 @@
-# Install CLI Tools
+# How to install Rust in your machines.
+
+## For NixOS machine
+
+edit `/etc/nixos/configuration.nix` in root account
+
+```nix
+{ config, pkgs, ... }:
+{
+  users.users.<user_name> = {
+  rustup
+  }
+}
+```
+
+run following commands to install stable toolchain in user account
+
+```bash
+rustup default stable
+rustup component add rls # or `llvm`
+rustup component add rust-analysis
+rustup component add rust-analyzer
+```
+
+run following command to install cargo tools in user account
+
+```bash
+cargo install cargo-lambda
+cargo install cargo-modules
+cargo install cargo-tauri
+cargo install cargo-modules
+```
+
+## Install other CLI tools
 
 ```bash
 cargo install bandwhich \
   bat \
-  cargo-lambda \
-  cargo-watch \
-  cargo-modules \
   dust \
   exa \
   gitnu \
