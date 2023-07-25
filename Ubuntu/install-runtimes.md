@@ -93,7 +93,7 @@ nix-env -i docui
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
-nvm install 16
+nvm install 18
 
 npm install -g yarn typescript spago purescript
 ```
