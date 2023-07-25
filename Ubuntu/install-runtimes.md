@@ -92,7 +92,7 @@ nix-env -i docui
 ## Install NVM for Nodejs
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash
 nvm install 16
 
 npm install -g yarn typescript spago purescript
