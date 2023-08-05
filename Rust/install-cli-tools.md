@@ -40,7 +40,7 @@ cargo install bandwhich \
   exa \
   gitnu \
   grex \
-  irust \
+  evcxr_repl \
   helix-term --locked \
   hyperfine \
   mdbook \
@@ -65,9 +65,9 @@ addd below to `.bashrc`
 ```bash
 ...
 
-if command -v zellij &> /dev/null && 
-  [ -n "$PS1" ] && 
-  [[ ! "$TERM" =~ screen ]] && 
+if command -v zellij &> /dev/null &&
+  [ -n "$PS1" ] &&
+  [[ ! "$TERM" =~ screen ]] &&
   [[ ! "$TERM" =~ zellij ]] &&
   [ -z "$ZELLIJ" ]; then
   exec zellij
