@@ -25,6 +25,7 @@ rustup component add rust-analyzer
 run following command to install cargo tools in user account
 
 ```bash
+cargo install cargo-expand
 cargo install cargo-lambda
 cargo install cargo-modules
 cargo install cargo-tauri
