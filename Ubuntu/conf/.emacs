@@ -40,6 +40,7 @@
 (setq haskell-stylish-on-save t)
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
+(setq require-final-newline t)
 (setq ring-bell-function 'ignore)
 (setq show-paren-style 'parenthesis)
 (setq tab-width 4)
