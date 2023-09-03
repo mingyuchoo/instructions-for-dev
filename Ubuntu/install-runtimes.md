@@ -97,6 +97,23 @@ nvm install 18
 
 npm install -g yarn typescript spago purescript
 ```
+## Install Deno
+
+```bash
+curl -fsSL https://deno.land/x/install/install.sh | sh
+```
+
+## Install Bun
+
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
+
+## Install Zig
+
+```bash
+snap install zig --classic --edge
+```
 
 ## Install Rustup for Rust
 
