@@ -15,3 +15,12 @@ In the applet,
 
 In the `gnome-tweak-tool` ,
 'Keyboard & mouse' > 'Additional Layout Options' button > enable 'Emacs Input'.
+
+
+##  Enable Vim Keybinding in GNOME Text Editor
+
+```bash
+$ sudo apt install gnome-text-editor
+$ gsettings set   org.gnome.TextEditor keybindings vim  # set to vim
+$ gsettings reset org.gnome.TextEditor keybindings      # reset to default
+```
