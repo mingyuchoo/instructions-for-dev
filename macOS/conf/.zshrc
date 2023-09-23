@@ -1,5 +1,6 @@
 # path
 PATH="/opt/homebrew/bin:$PATH"
+PATH="/opt/homebrew/sbin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 export PATH
 
