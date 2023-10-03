@@ -5,6 +5,8 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+export EDITOR=emacs
+
 # Aliases
 alias ls="ls -F"
 alias ll="ls -l"
