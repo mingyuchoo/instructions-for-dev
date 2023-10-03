@@ -2,5 +2,6 @@
 
 ```bash
 $ sudo dnf update
-$ sudo dnf groupinstall "Development Tools" "Development Libraries"
+$ sudo dnf groupinstall -y "Development Tools" "Development Libraries"
+$ sudo dnf install -y direnv
 ```
