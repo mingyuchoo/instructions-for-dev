@@ -56,9 +56,12 @@
 (global-set-key (kbd "C-x v") 'vterm-other-window)
 (global-set-key (kbd "M-=") 'tab-bar-new-to)
 (global-set-key (kbd "M--") 'tab-bar-close-tab)
-(global-set-key (kbd "M-[") 'tab-bar-switch-to-prev-tab)
-(global-set-key (kbd "M-]") 'tab-bar-switch-to-next-tab)
+;;(global-set-key (kbd "M-[") 'tab-bar-switch-to-prev-tab)
+;;(global-set-key (kbd "M-]") 'tab-bar-switch-to-next-tab)
 
+;; DO NOT INSERT IOIOIO WHEN FOCUS IN/OUT
+(global-set-key (kbd "M-[ I") 'sp-backward-unwrap-sexp)
+(global-set-key (kbd "M-[ O") 'sp-backward-unwrap-sexp)
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -83,6 +86,6 @@
 (if (display-graphic-p)
     (progn
       (setq initial-frame-alist
-	    '(
-	      (width . 120)
-	      (height . 60)))))
+            '(
+              (width . 120)
+              (height . 60)))))
