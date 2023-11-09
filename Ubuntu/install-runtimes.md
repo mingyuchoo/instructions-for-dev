@@ -41,7 +41,7 @@ sudo apt install -y \
   zlib1g-dev \
   pkg-config \
   libappindicator1
-  
+
 # for X-window
 sudo apt install -y   ipheth-utils \
   gconf2 \
@@ -69,8 +69,9 @@ sudo usermod -aG docker $USER
 ## install docker-compose
 
 ```bash
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.21.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.23.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
 ```
 
 ## Install Git
@@ -121,10 +122,16 @@ snap install zig --classic --edge
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-## Install Neovide
+## Install Lua
 
 ```bash
-cargo install --git https://github.com/neovide/neovide
+sudo apt install -y lua5.4
+```
+
+## Install MIT-Scheme
+
+```bash
+sudo apt install -y mit-scheme
 ```
 
 # Install Ghcup for Haskell
@@ -181,4 +188,3 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 ## Additional settings
 
 -<https://github.com/mingyuchoo/doom-emacs-setting>
-
