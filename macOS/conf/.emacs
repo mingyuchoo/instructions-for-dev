@@ -2,7 +2,6 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'exec-path "/home/mgch/.local/bin/")
-(package-initialize)
 
 
 (custom-set-variables
@@ -20,15 +19,11 @@
  '(tooltip-mode nil))
 
 ;; activate all the packages (in particular autoloads)
-;; (package-initialize)
-(unless package-archive-contents
- (package-refresh-contents))
+
 (package-install-selected-packages)
-
-
 (require 'lsp-haskell)
 (require 'evil)
-(evil-mode 1)
+(evil-mode t)
 
 
 (setq-default message-log-max nil)

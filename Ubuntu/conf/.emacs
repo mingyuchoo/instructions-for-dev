@@ -1,8 +1,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'exec-path "/home/mgch/.local/bin/")
-(package-initialize)
+(add-to-list 'exec-path "/Users/mgch/.local/bin/")
 
 
 (custom-set-variables
@@ -20,15 +19,11 @@
  '(tooltip-mode nil))
 
 ;; activate all the packages (in particular autoloads)
-(package-initialize)
-(unless package-archive-contents
-  package-refresh-contents))
+
 (package-install-selected-packages)
-
-
 (require 'lsp-haskell)
 (require 'evil)
-(evil-mode 1)
+(evil-mode t)
 
 
 (setq-default message-log-max nil)
@@ -63,6 +58,7 @@
 (global-set-key (kbd "M-[ I") 'sp-backward-unwrap-sexp)
 (global-set-key (kbd "M-[ O") 'sp-backward-unwrap-sexp)
 
+
 (add-hook 'before-save-hook 'whitespace-cleanup)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'haskell-mode-hook #'lsp)
@@ -86,6 +82,6 @@
 (if (display-graphic-p)
     (progn
       (setq initial-frame-alist
-            '(
-              (width . 120)
-              (height . 60)))))
+	    '(
+	      (width . 120)
+	      (height . 60)))))
