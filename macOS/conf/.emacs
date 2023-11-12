@@ -62,7 +62,6 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)
-(add-hook 'after-init-hook 'global-hl-line-mode)
 
 
 (kill-buffer "*Messages*")
