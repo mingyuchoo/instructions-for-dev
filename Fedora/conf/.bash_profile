@@ -11,6 +11,8 @@ fi
 [[ -f "$HOME/.ghcup/env"  ]] && source "$HOME/.ghcup/env"
 [[ -f "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
 
+eval "$(dir env hook bash)"
+
 # for homebrew
 eval "$(/bin/brew shellenv)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
