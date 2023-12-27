@@ -5,3 +5,8 @@
 </p>
 
 # instructions-for-dev
+
+- conf
+- lang
+- os
+- platform

@@ -20,6 +20,7 @@
  '(package-selected-packages
    '(
      dockerfile-mode
+     dotenv-mode
      haskell-mode
      groovy-mode
      gradle-mode
@@ -53,6 +54,7 @@
 (package-install-selected-packages)
 
 
+(require 'dotenv-mode)
 (require 'ocp-indent)
 (require 'multiple-cursors)
 (require 'editorconfig)
