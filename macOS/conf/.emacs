@@ -4,19 +4,43 @@
 (add-to-list 'exec-path "$HOME/.local/bin/")
 (add-to-list 'load-path "$HOME/.opam/default/share/emacs/site-lisp") ;; set OCaml language server
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+;; Uncomment when you refresh contents
+;;
+;(when (not package-archive-contents)
+;  (package-refresh-contents))
 
 
 (custom-set-variables
- ;;'(cua-mode t nil (cua-base))
+ ;'(cua-mode t nil (cua-base))
  '(custom-enabled-themes '(wheatgrass))
  '(display-battery-mode t)
  '(display-time-mode t)
  '(global-display-column-numbers-mode t)
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
-   '(evil eglot neotree dune opam ocamlformat vterm rust-mode yaml-mode haskell-mode lsp-ui lsp-mode))
+   '(
+     dockerfile-mode
+     haskell-mode
+     groovy-mode
+     gradle-mode
+     rust-mode
+     typescript-mode
+     yaml-mode
+     editorconfig
+     eglot
+     evil
+     multiple-cursors
+     neotree
+     dune
+     opam
+     ocamlformat
+     ocp-indent
+     vterm
+     lsp-haskell
+     lsp-mode
+     lsp-ui
+     dune opam
+     ))
  '(scroll-bar-mode nil)
  '(toggle-scroll-bar nil)
  '(tool-bar-mode nil)
@@ -24,18 +48,20 @@
 
 
 ;; activate all the packages (in particular autoloads)
+;;
 (package-initialize)
 (package-install-selected-packages)
 
 
 (require 'ocp-indent)
+(require 'multiple-cursors)
 (require 'editorconfig)
 (require 'lsp-haskell)
 (require 'evil)
 
 
 (editorconfig-mode t)
-(evil-mode t)
+;(evil-mode t)
 
 
 (setq-default message-log-max nil)
@@ -64,13 +90,24 @@
 (global-set-key (kbd "C-x v") 'vterm-other-window)
 (global-set-key (kbd "M-=") 'tab-bar-new-to)
 (global-set-key (kbd "M--") 'tab-bar-close-tab)
-;;(global-set-key (kbd "M-[") 'tab-bar-switch-to-prev-tab)
-;;(global-set-key (kbd "M-]") 'tab-bar-switch-to-next-tab)
 
+;; DO NOT USE THESE LINES
+;;
+;(global-set-key (kbd "M-[") 'tab-bar-switch-to-prev-tab)
+;(global-set-key (kbd "M-]") 'tab-bar-switch-to-next-tab)
 
-;; DO NOT INSERT IOIOIO WHEN FOCUS IN/OUT
+;; THESE LINES PREVENT INSERTING "IOIOIO" WHEN FOCUS IN/OUT
+;;
 (global-set-key (kbd "M-[ I") 'sp-backward-unwrap-sexp)
 (global-set-key (kbd "M-[ O") 'sp-backward-unwrap-sexp)
+
+
+;; for multiplecursors
+;;
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
@@ -87,9 +124,10 @@
 
 
 ;; Set default window size
+;;
 (if (display-graphic-p)
     (progn
       (setq initial-frame-alist
-	    '(
-	      (width . 120)
-	      (height . 60)))))
+       '(
+        (width . 120)
+        (height . 60)))))
