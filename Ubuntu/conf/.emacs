@@ -4,13 +4,14 @@
 (add-to-list 'exec-path "$HOME/.local/bin/")
 (add-to-list 'load-path "$HOME/.opam/default/share/emacs/site-lisp") ;; set OCaml language server
 
-;; Uncomment when you refresh contents 
+;; Uncomment when you refresh contents
+;;
 ;(when (not package-archive-contents)
 ;  (package-refresh-contents))
 
 
 (custom-set-variables
- ;;'(cua-mode t nil (cua-base))
+ ;'(cua-mode t nil (cua-base))
  '(custom-enabled-themes '(wheatgrass))
  '(display-battery-mode t)
  '(display-time-mode t)
@@ -47,6 +48,7 @@
 
 
 ;; activate all the packages (in particular autoloads)
+;;
 (package-initialize)
 (package-install-selected-packages)
 
@@ -88,16 +90,20 @@
 (global-set-key (kbd "C-x v") 'vterm-other-window)
 (global-set-key (kbd "M-=") 'tab-bar-new-to)
 (global-set-key (kbd "M--") 'tab-bar-close-tab)
-;;(global-set-key (kbd "M-[") 'tab-bar-switch-to-prev-tab)
-;;(global-set-key (kbd "M-]") 'tab-bar-switch-to-next-tab)
 
+;; DO NOT USE THESE LINES
+;;
+;(global-set-key (kbd "M-[") 'tab-bar-switch-to-prev-tab)
+;(global-set-key (kbd "M-]") 'tab-bar-switch-to-next-tab)
 
-;; DO NOT INSERT IOIOIO WHEN FOCUS IN/OUT
+;; THESE LINES PREVENT INSERTING "IOIOIO" WHEN FOCUS IN/OUT
+;;
 (global-set-key (kbd "M-[ I") 'sp-backward-unwrap-sexp)
 (global-set-key (kbd "M-[ O") 'sp-backward-unwrap-sexp)
 
 
 ;; for multiplecursors
+;;
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -118,9 +124,10 @@
 
 
 ;; Set default window size
+;;
 (if (display-graphic-p)
     (progn
       (setq initial-frame-alist
-	    '(
-	      (width . 120)
-	      (height . 60)))))
+       '(
+        (width . 120)
+        (height . 60)))))
