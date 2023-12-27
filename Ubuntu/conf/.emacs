@@ -16,7 +16,29 @@
  '(global-display-column-numbers-mode t)
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
-   '(evil eglot neotree dune opam ocamlformat vterm rust-mode yaml-mode haskell-mode lsp-ui lsp-mode))
+   '(
+     dockerfile-mode
+     haskell-mode
+     groovy-mode
+     gradle-mode
+     rust-mode
+     typescript-mode
+     yaml-mode
+     editorconfig
+     eglot
+     evil
+     multiple-cursors
+     neotree
+     dune
+     opam
+     ocamlformat
+     ocp-indent
+     vterm
+     lsp-haskell
+     lsp-mode
+     lsp-ui
+     dune opam
+     ))
  '(scroll-bar-mode nil)
  '(toggle-scroll-bar nil)
  '(tool-bar-mode nil)
@@ -29,13 +51,14 @@
 
 
 (require 'ocp-indent)
+(require 'multiple-cursors)
 (require 'editorconfig)
 (require 'lsp-haskell)
 (require 'evil)
 
 
 (editorconfig-mode t)
-(evil-mode t)
+;(evil-mode t)
 
 
 (setq-default message-log-max nil)
@@ -71,6 +94,13 @@
 ;; DO NOT INSERT IOIOIO WHEN FOCUS IN/OUT
 (global-set-key (kbd "M-[ I") 'sp-backward-unwrap-sexp)
 (global-set-key (kbd "M-[ O") 'sp-backward-unwrap-sexp)
+
+
+;; for multiplecursors
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
