@@ -4,8 +4,9 @@
 (add-to-list 'exec-path "$HOME/.local/bin/")
 (add-to-list 'load-path "$HOME/.opam/default/share/emacs/site-lisp") ;; set OCaml language server
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+;; Uncomment when you refresh contents 
+;(when (not package-archive-contents)
+;  (package-refresh-contents))
 
 
 (custom-set-variables
