@@ -75,11 +75,11 @@ stack install \
 
 templates:
   params:
-    author-email: mingyuchoo@gmail.com
-    author-name: Mingyu Choo
-    category: PoC
-    copyright: mingyuchoo
-    github-username: mingyuchoo
+    author-email: myname@myemail.com
+    author-name: First Last
+    category: CLI
+    copyright: First Last year
+    github-username: myusername
 
 ...
 
