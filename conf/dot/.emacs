@@ -41,6 +41,7 @@
      lsp-mode
      lsp-ui
      dune opam
+     org-bullets
      ))
  '(scroll-bar-mode nil)
  '(toggle-scroll-bar nil)
@@ -61,7 +62,7 @@
 (require 'lsp-haskell)
 (require 'evil)
 
-
+(org-bullets-mode t)
 (editorconfig-mode t)
 ;(evil-mode t)
 
@@ -116,7 +117,6 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)
-
 
 (kill-buffer "*Messages*")
 
