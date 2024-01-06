@@ -121,6 +121,20 @@
 (kill-buffer "*Messages*")
 
 
+;; Org mode
+;;
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+(setq org-todo-keywords
+      '((sequence "TODO" "DOING" "DONE")))
+(setq org-tag-alias '(("@home" . ?h)
+                      ("@office" . ?o)
+                      ("@reading" . ?r)))
+
+
+;; Cursor
+;;
 (custom-set-faces
  '(cursor ((t (:background "red3")))))
 
