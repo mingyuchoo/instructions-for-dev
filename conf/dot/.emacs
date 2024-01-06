@@ -123,9 +123,7 @@
 
 ;; Org mode
 ;;
-(global-set-key (kbd "C-c l") #'org-store-link)
-(global-set-key (kbd "C-c a") #'org-agenda)
-(global-set-key (kbd "C-c c") #'org-capture)
+(global-set-key (kbd "C-c n") #'org-insert-structure-template)
 (setq org-todo-keywords
       '((sequence "TODO" "DOING" "DONE")))
 (setq org-tag-alias '(("@home" . ?h)
