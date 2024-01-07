@@ -41,6 +41,8 @@
      lsp-mode
      lsp-ui
      dune opam
+     org-roam
+     helm
      ))
  '(scroll-bar-mode nil)
  '(toggle-scroll-bar nil)
@@ -53,7 +55,7 @@
 (package-initialize)
 (package-install-selected-packages)
 
-
+(require 'org-roam)
 (require 'dotenv-mode)
 (require 'ocp-indent)
 (require 'multiple-cursors)
@@ -61,7 +63,7 @@
 (require 'lsp-haskell)
 (require 'evil)
 
-
+(helm-mode t)
 (editorconfig-mode t)
 ;(evil-mode t)
 
@@ -86,7 +88,9 @@
 
 (global-prettify-symbols-mode t)
 
-
+(global-set-key (kbd "C-c n i") 'org-mode-node-insert)
+(global-set-key (kbd "C-c n f") 'org-mode-node-find)
+(global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x n") 'neotree-toggle)
 (global-set-key (kbd "C-x v") 'vterm-other-window)
@@ -122,13 +126,17 @@
 
 ;; Org mode
 ;;
-(global-set-key (kbd "C-c n") #'org-insert-structure-template)
-(setq org-startup-indented t)
+;(global-set-key (kbd "C-c n") #'org-insert-structure-template)
+;(setq org-startup-indented t)
 (setq org-todo-keywords
       '((sequence "TODO" "DOING" "DONE")))
 (setq org-tag-alias '(("@home" . ?h)
                       ("@office" . ?o)
                       ("@reading" . ?r)))
+;(make-directory "~/Dropbox/org-roam")
+(setq org-roam-directory (file-truename "~/Dropbox/org-roam"))
+(setq find-file-visit-truename t)
+(org-roam-db-autosync-mode)
 
 
 ;; Cursor
