@@ -41,7 +41,6 @@
      lsp-mode
      lsp-ui
      dune opam
-     org-bullets
      ))
  '(scroll-bar-mode nil)
  '(toggle-scroll-bar nil)
@@ -62,7 +61,7 @@
 (require 'lsp-haskell)
 (require 'evil)
 
-(org-bullets-mode t)
+
 (editorconfig-mode t)
 ;(evil-mode t)
 
@@ -124,6 +123,7 @@
 ;; Org mode
 ;;
 (global-set-key (kbd "C-c n") #'org-insert-structure-template)
+(setq org-startup-indented t)
 (setq org-todo-keywords
       '((sequence "TODO" "DOING" "DONE")))
 (setq org-tag-alias '(("@home" . ?h)
