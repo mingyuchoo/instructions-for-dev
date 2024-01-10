@@ -72,7 +72,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-
+(setq column-number-mode t)
 (setq tab-width 4)
 (setq make-backup-files nil)
 (setq font-lock-maximum-decoration t)
