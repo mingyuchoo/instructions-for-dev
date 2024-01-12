@@ -127,7 +127,8 @@
 ;; Org mode
 ;;
 ;(global-set-key (kbd "C-c n") #'org-insert-structure-template)
-;(setq org-startup-indented t)
+(setq org-startup-indented t)
+(setq org-log-done 'note)
 (setq org-todo-keywords
       '((sequence "TODO" "DOING" "DONE")))
 (setq org-tag-alias '(("@home" . ?h)
@@ -135,6 +136,7 @@
                       ("@reading" . ?r)))
 ;(make-directory "~/Dropbox/org-roam")
 (setq org-roam-directory (file-truename "~/Dropbox/org-roam"))
+(setq org-agenda-files '("~Dropbox/org-roam"))
 (setq find-file-visit-truename t)
 (org-roam-db-autosync-mode)
 
