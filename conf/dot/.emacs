@@ -87,10 +87,12 @@
 
 
 (global-prettify-symbols-mode t)
+(global-set-key (kbd "M-x") 'helm-M-x)
 
+(global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c n i") 'org-mode-node-insert)
 (global-set-key (kbd "C-c n f") 'org-mode-node-find)
-(global-set-key (kbd "M-x") 'helm-M-x)
+
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x n") 'neotree-toggle)
 (global-set-key (kbd "C-x v") 'vterm-other-window)
