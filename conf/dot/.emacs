@@ -136,7 +136,7 @@
 ;;
 ;(global-set-key (kbd "C-c n") #'org-insert-structure-template)
 (setq org-startup-indented t)
-(setq org-log-done 'note)
+(setq org-log-done 'time)
 (setq org-todo-keywords
       '((sequence "TODO" "DOING" "DONE")))
 (setq org-tag-alias '(("@home" . ?h)
