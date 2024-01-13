@@ -91,7 +91,7 @@
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c n c") 'org-roam-capture)
-(global-set-key (kbd "C-c n f") 'org-oram-node-find)
+(global-set-key (kbd "C-c n f") 'org-roam-node-find)
 (global-set-key (kbd "C-c n g") 'org-roam-graph)
 (global-set-key (kbd "C-c n i") 'org-roam-node-insert)
 (global-set-key (kbd "C-c n j") 'org-roam-dalies-capture-today)
