@@ -20,12 +20,37 @@
  '(display-time-mode t)
  '(global-display-column-numbers-mode t)
  '(global-display-line-numbers-mode t)
- '(package-selected-packages
-   '(cmake-mode dockerfile-mode dotenv-mode haskell-mode groovy-mode gradle-mode rust-mode typescript-mode yaml-mode org editorconfig eglot evil magit multiple-cursors neotree dune opam ocamlformat ocp-indent lsp-haskell lsp-mode lsp-ui dune opam org-roam helm))
  '(scroll-bar-mode nil)
  '(toggle-scroll-bar nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
+ '(package-selected-packages
+   '(cmake-mode
+     dockerfile-mode
+     dotenv-mode
+     haskell-mode
+     groovy-mode
+     gradle-mode
+     rust-mode
+     typescript-mode
+     yaml-mode org
+     editorconfig
+     eglot
+     evil
+     magit
+     multiple-cursors
+     neotree
+     dune
+     opam
+     ocamlformat
+     ocp-indent
+     lsp-haskell
+     lsp-mode
+     lsp-ui
+     dune
+     opam
+     org-roam
+     helm))
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; activate all the packages (in particular autoloads)

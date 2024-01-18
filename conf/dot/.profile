@@ -5,7 +5,8 @@ if [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ]; then
     . "$HOME/.bashrc"
 fi
 
-
+export HISTSIZE=10000
+export HISTFILESIZE=10000
 export EDITOR=emacs
 export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.emacs.d/bin:$PATH"
