@@ -80,6 +80,7 @@
 ; (make-directory "~/Dropbox/org-roam")
 (setq org-agenda-files '("~/Dropbox/org-roam"))
 (setq org-roam-directory (file-truename "~/Dropbox/org-roam"))
+(setq org-startup-folded t)
 (setq org-startup-indented t)
 (setq find-file-visit-truename t)
 (setq org-log-done 'time)
@@ -119,7 +120,6 @@
 (global-set-key (kbd "C-c n f") 'org-roam-node-find)
 (global-set-key (kbd "C-c n i") 'org-roam-node-insert)
 
-(global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x n") 'neotree-toggle)
 (global-set-key (kbd "M-=") 'tab-bar-new-to)
 (global-set-key (kbd "M--") 'tab-bar-close-tab)
@@ -137,6 +137,8 @@
 (global-set-key (kbd "M-[ I") 'sp-backward-unwrap-sexp)
 (global-set-key (kbd "M-[ O") 'sp-backward-unwrap-sexp)
 
+(global-set-key (kbd "C-h") 'delete-backward-char)
+(define-key minibuffer-local-map (kbd "C-h") 'delete-backward-char)
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; hooks
