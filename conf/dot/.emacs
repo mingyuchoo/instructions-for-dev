@@ -50,7 +50,8 @@
      dune
      opam
      org-roam
-     helm))
+     helm
+     transpose-frame))
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; activate all the packages (in particular autoloads)
@@ -58,6 +59,7 @@
 (package-initialize)
 (package-install-selected-packages)
 
+(require 'transpose-frame)
 (require 'org-roam)
 (require 'dotenv-mode)
 (require 'ocp-indent)
@@ -121,6 +123,7 @@
 (global-set-key (kbd "C-c n i") 'org-roam-node-insert)
 
 (global-set-key (kbd "C-x n") 'neotree-toggle)
+(global-set-key (kbd "C-x t") 'transpose-frame)
 (global-set-key (kbd "M-=") 'tab-bar-new-to)
 (global-set-key (kbd "M--") 'tab-bar-close-tab)
 
