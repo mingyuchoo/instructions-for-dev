@@ -82,7 +82,7 @@
 ; (make-directory "~/Dropbox/org-roam")
 (setq org-agenda-files '("~/Dropbox/org-roam"))
 (setq org-roam-directory (file-truename "~/Dropbox/org-roam"))
-(setq org-startup-folded t)
+(setq org-startup-folded 'content)
 (setq org-startup-indented t)
 (setq find-file-visit-truename t)
 (setq org-log-done 'time)
