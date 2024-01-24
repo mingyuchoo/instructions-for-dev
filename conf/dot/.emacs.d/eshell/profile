@@ -1,7 +1,8 @@
-addpath /opt/homebrew/bin \
-        $HOME/bin         \
-        $HOME/.bun/bin    \
-        $HOME/.cargo/bin  \
-        $HOME/.ghcup/bin  \
-        $HOME/.local/bin  \
+addpath /opt/homebrew/bin                     \
+        $HOME/bin                             \
+        $HOME/.bun/bin                        \
+        $HOME/.cargo/bin                      \
+        $HOME/.ghcup/bin                      \
+        $HOME/.local/bin                      \
+        $HOME/.nvm/versions/node/v18.18.0/bin \
         $HOME/.opam/default/bin
