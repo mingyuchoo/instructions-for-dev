@@ -67,6 +67,7 @@
 (require 'editorconfig)
 (require 'lsp-haskell)
 (require 'evil)
+(require 'cl-lib) ;; for ELISP
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; mode activation
