@@ -52,7 +52,8 @@
      org-bullets
      org-roam
      helm
-     transpose-frame))
+     transpose-frame
+     vterm))
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; activate all the packages (in particular autoloads)
@@ -125,6 +126,7 @@
 (global-set-key (kbd "C-c n f") 'org-roam-node-find)
 (global-set-key (kbd "C-c n i") 'org-roam-node-insert)
 
+(global-set-key (kbd "C-x v") 'vterm-toggle)
 (global-set-key (kbd "C-x n") 'neotree-toggle)
 (global-set-key (kbd "C-x t") 'transpose-frame)
 (global-set-key (kbd "M-=") 'tab-bar-new-to)
