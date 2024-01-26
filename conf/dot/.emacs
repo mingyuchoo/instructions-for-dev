@@ -98,7 +98,8 @@
 ; (setq default-directory "~/Dropbox/org-roam")
 (setq-default message-log-max nil)
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(setq-default standard-indent 2)
+(setq-default tab-width 2)
 
 (setq column-number-mode t)
 (setq tab-width 4)
