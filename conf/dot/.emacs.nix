@@ -23,8 +23,8 @@
     (add-to-list 'package-archives archive t))
   (when (not (string-equal system-type "windows-nt"))
       (progn
-  (add-to-list 'exec-path "$HOME/.local/bin/")
-  (add-to-list 'load-path "$HOME/.opam/default/share/emacs/site-lisp")))
+  (add-to-list 'exec-path (concat (getenv "HOME") "/.local/bin/"))
+  (add-to-list 'load-path (concat (getenv "HOME") "/.opam/default/share/emacs/site-lisp"))))
   (package-initialize))
 
 
@@ -34,7 +34,7 @@
       (defvar my-home-directory "c:/Users/mingy")
       (setq default-directory my-home-directory))
   (progn
-    (defvar my-home-directory "$HOME")
+    (defvar my-home-directory (getenv "HOME"))
     (setq default-directory my-home-directory)))
 
 
