@@ -8,8 +8,8 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Uncomment when you refresh contents
 ;;
-;(when (not package-archive-contents)
-;  (package-refresh-contents))
+;;(when (not package-archive-contents)
+;; (package-refresh-contents))
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -25,7 +25,15 @@
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
  '(package-selected-packages
-   '(cmake-mode
+   '(eglot
+     editorconfig
+     helm
+     magit
+     neotree
+     multiple-cursors
+     transpose-frame
+     vterm
+     cmake-mode
      dockerfile-mode
      dotenv-mode
      haskell-mode
@@ -34,14 +42,6 @@
      rust-mode
      typescript-mode
      yaml-mode
-     editorconfig
-     eglot
-     evil
-     magit
-     multiple-cursors
-     neotree
-     dune
-     opam
      ocamlformat
      ocp-indent
      lsp-haskell
@@ -50,10 +50,8 @@
      dune
      opam
      org-bullets
-     org-roam
-     helm
-     transpose-frame
-     vterm))
+     org-roam))
+
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; activate all the packages (in particular autoloads)
@@ -82,7 +80,7 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Org-mode, Org-roam
 ;;
-; (make-directory "~/Dropbox/org-roam")
+;;(make-directory "~/Dropbox/org-roam")
 (setq org-agenda-files '("~/Dropbox/org-roam"))
 (setq org-roam-directory (file-truename "~/Dropbox/org-roam"))
 (setq org-startup-folded 'content)
@@ -97,7 +95,7 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; gloval variable
 ;;
-; (setq default-directory "~/Dropbox/org-roam")
+;;(setq default-directory "~/Dropbox/org-roam")
 (setq-default message-log-max nil)
 (setq-default indent-tabs-mode nil)
 (setq-default standard-indent 2)
@@ -119,7 +117,7 @@
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
-;(global-prettify-symbols-mode t)
+;;(global-prettify-symbols-mode t)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -168,10 +166,3 @@
 (custom-set-faces
  '(default ((t (:family "Zed Mono" :foundry "nil" :slant normal :weight regular :height 120 :width normal))))
  '(cursor ((t (:background "red3")))))
-
-;(if (display-graphic-p)
-;    (progn
-;      (setq initial-frame-alist
-;       '(
-;        (width . 120)
-;        (height . 60)))))
