@@ -33,7 +33,7 @@
      gradle-mode
      rust-mode
      typescript-mode
-     yaml-mode org
+     yaml-mode
      editorconfig
      eglot
      evil
