@@ -60,6 +60,7 @@
 (package-install-selected-packages)
 
 (require 'transpose-frame)
+(require 'org-bullets)
 (require 'org-roam)
 (require 'dotenv-mode)
 (require 'ocp-indent)
@@ -85,6 +86,7 @@
 (setq org-roam-directory (file-truename "~/Dropbox/org-roam"))
 (setq org-startup-folded 'content)
 (setq org-startup-indented t)
+(setq org-hide-emphasis-markers t)
 (setq find-file-visit-truename t)
 (setq org-log-done 'time)
 (setq org-todo-keywords
