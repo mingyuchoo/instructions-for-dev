@@ -152,10 +152,12 @@
 ;; hooks
 ;;
 (add-hook 'emacs-startup-hook 'neotree-toggle)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode t)))
-(add-hook 'org-mode-hook 'visual-line-mode)
-(add-hook 'before-save-hook 'whitespace-cleanup)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'org-mode-hook (lambda ()
+                           (org-bullets-mode t)
+                           (visual-line-mode t)))
+(add-hook 'before-save-hook (lambda ()
+                              (whitespace-cleanup)
+                              (delete-trailing-whitespace)))
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)
 
