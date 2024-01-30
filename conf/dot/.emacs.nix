@@ -155,9 +155,9 @@
 
 (progn
   ;; Hooks
-  (add-hook 'before-save-hook (lambda ()
-      (whitespace-cleanup)
-      (delete-trailing-whitespace))))
+  (add-hook 'before-save-hook (lambda () (whitespace-cleanup) (delete-trailing-whitespace)))
+  (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0)))
+  (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))))
 
 
 
