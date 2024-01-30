@@ -38,23 +38,6 @@
     (setq default-directory my-home-directory)))
 
 
-(progn
-  ;; Basic settings
-  (require 'cl-lib)
-  (setq-default message-log-max nil)
-  (setq-default indent-tabs-mode nil)
-  (setq-default standard-indent 2)
-  (setq-default tab-width 2)
-  (setq column-number-mode t)
-  (setq font-lock-maximum-decoration t)
-  (setq inhibit-startup-message t)
-  (setq initial-scratch-message "")
-  (setq make-backup-files nil)
-  (setq require-final-newline t)
-  (setq ring-bell-function 'ignore)
-  (setq show-paren-style 'parenthesis)
-  (setq tab-width 2)
-  (kill-buffer "*Messages*"))
 
 (progn
   ;; Transpose-frame
@@ -176,8 +159,33 @@
       (delete-trailing-whitespace))))
 
 
+
+(progn
+  ;; Basic settings
+  (require 'cl-lib)
+  (setq-default display-line-numbers 'relative)
+  (setq-default message-log-max nil)
+  (setq-default indent-tabs-mode nil)
+  (setq-default standard-indent 2)
+  (setq-default tab-width 2)
+  (setq column-number-mode t)
+  (setq font-lock-maximum-decoration t)
+  (setq inhibit-startup-message t)
+  (setq initial-scratch-message "")
+  (setq make-backup-files nil)
+  (setq require-final-newline t)
+  (setq ring-bell-function 'ignore)
+  (setq show-paren-style 'parenthesis)
+  (setq tab-width 2)
+  (kill-buffer "*Messages*"))
+
+
 (progn
   ;; Keybindings
+  (global-set-key [next] (lambda () (interactive) (scroll-up-command) (recenter)))
+  (global-set-key [prior] (lambda () (interactive) (scroll-down-command) (recenter)))
+  (global-set-key (kbd "C-n") (lambda () (interactive) (next-line) (recenter)))
+  (global-set-key (kbd "C-p") (lambda () (interactive) (previous-line) (recenter)))
   (global-set-key (kbd "M-=") 'tab-bar-new-to)
   (global-set-key (kbd "M--") 'tab-bar-close-tab)
   (global-set-key (kbd "M-[ I") 'sp-backward-unwrap-sexp)
