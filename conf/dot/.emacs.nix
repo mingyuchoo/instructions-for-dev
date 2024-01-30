@@ -126,6 +126,7 @@
       (local-set-key (kbd "C-c a") 'org-agenda)
       (local-set-key (kbd "C-c n f") 'org-roam-node-find)
       (local-set-key (kbd "C-c n i") 'org-roam-node-insert))
+    (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
     (add-hook 'org-mode-hook (lambda ()
      (org-bullets-mode t)
      (visual-line-mode t)
