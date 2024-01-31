@@ -44,6 +44,17 @@
 
 
 (progn
+  ;; Evil-mode
+  (custom-set-variables
+    '(package-selected-packages '(evil undo-tree)))
+  (package-install-selected-packages)
+  (require 'evil)
+  (evil-mode t)
+  (define-key evil-normal-state-map (kbd "j") '(lambda () (interactive) (next-line) (recenter)))
+  (define-key evil-normal-state-map (kbd "k") '(lambda () (interactive) (previous-line) (recenter))))
+
+
+(progn
   ;; Transpose-frame
   (custom-set-variables
    '(package-selected-packages '(transpose-frame)))
