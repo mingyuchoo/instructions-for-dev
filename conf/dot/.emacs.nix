@@ -36,7 +36,7 @@
 
 (if (string-equal system-type "windows-nt")
     (progn
-      (defvar my-home-directory "c:/Users/mingy")
+      (defvar choo/home-directory "c:/Users/mingy")
       (setq default-directory choo/home-directory))
   (progn
     (defvar choo/home-directory (getenv "HOME"))
