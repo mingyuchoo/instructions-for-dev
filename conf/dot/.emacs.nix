@@ -16,7 +16,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Zed Mono" :foundry "nil" :slant normal :weight regular :height 110 :width normal))))
+ '(default ((t (:family "Zed Mono" :foundry "nil" :slant normal :weight light :height 110 :width normal))))
  '(cursor ((t (:background "red3")))))
 
 
@@ -43,29 +43,29 @@
     (setq default-directory (concat choo/home-directory "/Dropbox/org-roam"))))
 
 
-(progn
-  ;; Evil-mode
-  (custom-set-variables
-    '(package-selected-packages '(evil undo-tree)))
-  (package-install-selected-packages)
-  (require 'evil)
-  (evil-mode t)
-  (define-key evil-normal-state-map (kbd "j") '(lambda () (interactive) (next-line) (recenter)))
-  (define-key evil-normal-state-map (kbd "k") '(lambda () (interactive) (previous-line) (recenter))))
+;;(progn
+;;  ;; Evil-mode
+;;  (custom-set-variables
+;;   '(package-selected-packages '(evil undo-tree)))
+;;  (package-install-selected-packages)
+;;  (require 'evil)
+;;  (evil-mode t)
+;;  (define-key evil-normal-state-map (kbd "j") '(lambda () (interactive) (next-line) (recenter)))
+;;  (define-key evil-normal-state-map (kbd "k") '(lambda () (interactive) (previous-line) (recenter))))
 
 
 (progn
   ;; Transpose-frame
   (custom-set-variables
-   '(package-selected-packages '(transpose-frame)))
-   (package-install-selected-packages)
-   (require 'transpose-frame)
-   (global-set-key (kbd "C-x t") 'transpose-frame))
+   '(package-selected-package '(transpose-frame)))
+  (package-install-selected-packages)
+  (require 'transpose-frame)
+  (global-set-key (kbd "C-x t") 'transpose-frame))
 
 (progn
   ;; Dotenv-mode
   (custom-set-variables
-   '(package-selected-packages '(dotenv-mode)))
+   '(package-selected-package '(dotenv-mode)))
    (package-install-selected-packages)
    (require 'dotenv-mode))
 
@@ -73,7 +73,7 @@
 (progn
   ;; Editorconfig
   (custom-set-variables
-   '(package-selected-packages '(editorconfig)))
+   '(package-selected-package '(editorconfig)))
    (package-install-selected-packages)
    (require 'editorconfig)
    (editorconfig-mode t))
@@ -82,7 +82,7 @@
 (progn
   ;; Multiple-cursors
   (custom-set-variables
-   '(package-selected-packages '(multiple-cursors)))
+   '(package-selected-package '(multiple-cursors)))
    (package-install-selected-packages)
    (require 'multiple-cursors)
    (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -94,7 +94,7 @@
 (progn
   ;; Helm-mode
   (custom-set-variables
-   '(package-selected-packages '(helm)))
+   '(package-selected-package '(helm)))
   (package-install-selected-packages)
   (helm-mode t)
   (global-set-key (kbd "M-x") 'helm-M-x))
@@ -103,7 +103,7 @@
 (progn
   ;; Vterm
   (custom-set-variables
-   '(package-selected-packages '(vterm)))
+   '(package-selected-package '(vterm)))
    (package-install-selected-packages)
    (global-set-key (kbd "C-x v") 'vterm-toggle))
 
@@ -111,7 +111,7 @@
 (progn
   ;; Neotree
   (custom-set-variables
-   '(package-selected-packages '(neotree)))
+   '(package-selected-package '(neotree)))
    (package-install-selected-packages)
    (setq neo-smart-open t)
    (setq neo-window-width 40)
@@ -124,11 +124,13 @@
   (progn
     ;; Org-mode and Org-roam
     (custom-set-variables
-     '(package-selected-packages '(org-bullets org-roam)))
+     '(package-selected-packages '(ob-rust ob-typescript org-bullets org-roam)))
     (package-install-selected-packages)
 
     (require 'org-bullets)
     (require 'org-roam)
+    (require 'ob-rust)
+    (require 'ob-typescript)
     (defvar choo/org-roam-directory (concat choo/home-directory "/Dropbox/org-roam"))
     (setq org-agenda-files (list choo/org-roam-directory))
     (setq org-roam-directory (file-truename choo/org-roam-directory))
@@ -139,6 +141,13 @@
     (setq org-todo-keywords
     '((sequence "TODO" "DOING" "BLOCKED" "DONE")))
     (org-roam-db-autosync-mode)
+    (org-babel-do-load-languages 'org-babel-load-languages
+                                 '((python . t)
+                                   (js . t)
+                                   (rust . t)
+                                   (haskell . t)
+                                   (ocaml . t)))
+    (setq org-confirm-babel-evaluate nil)
     (defun choo/org-mode-keys ()
       (local-set-key (kbd "C-c a") 'org-agenda)
       (local-set-key (kbd "C-c n f") 'org-roam-node-find)
@@ -170,7 +179,7 @@
 (progn
   ;; Zig-mode
   (custom-set-variables
-   '(package-selected-package '(zig-mode)))
+   '(package-selected-packages '(zig-mode)))
   (package-install-selected-packages))
 
 
