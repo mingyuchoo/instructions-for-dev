@@ -1,17 +1,22 @@
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-enabled-themes '(deeper-blue))
  '(display-battery-mode t)
  '(display-time-mode t)
  '(font-use-system-font t)
- '(package-selected-packages '(cmake-mode dockerfile-mode rust-mode typescript-mode yaml-mode))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
- '(default ((t (:family "Zed Mono Medium" :foundry "outline" :slant normal :weight medium :height 100 :width normal))))
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Zed Mono" :foundry "nil" :slant normal :weight regular :height 110 :width normal))))
  '(cursor ((t (:background "red3")))))
 
 
@@ -32,11 +37,10 @@
 (if (string-equal system-type "windows-nt")
     (progn
       (defvar my-home-directory "c:/Users/mingy")
-      (setq default-directory my-home-directory))
+      (setq default-directory choo/home-directory))
   (progn
-    (defvar my-home-directory (getenv "HOME"))
-    (setq default-directory my-home-directory)))
-
+    (defvar choo/home-directory (getenv "HOME"))
+    (setq default-directory (concat choo/home-directory "/Dropbox/org-roam"))))
 
 
 (progn
@@ -100,8 +104,9 @@
    (package-install-selected-packages)
    (setq neo-smart-open t)
    (setq neo-window-width 40)
-   (add-hook 'emacs-startup-hook 'neotree-toggle)
+   ;;(add-hook 'emacs-startup-hook 'neotree-toggle)
    (global-set-key (kbd "C-x n") 'neotree-toggle))
+
 
 
 (when (not (string-equal system-type "windows-nt"))
@@ -110,29 +115,28 @@
     (custom-set-variables
      '(package-selected-packages '(org-bullets org-roam)))
     (package-install-selected-packages)
+
     (require 'org-bullets)
     (require 'org-roam)
-    (defvar my-org-roam-directory (concat my-home-directory "/Dropbox/org-roam"))
-    (setq org-agenda-files (list my-org-roam-directory))
-    (setq org-roam-directory (file-truename my-org-roam-directory))
+    (defvar choo/org-roam-directory (concat choo/home-directory "/Dropbox/org-roam"))
+    (setq org-agenda-files (list choo/org-roam-directory))
+    (setq org-roam-directory (file-truename choo/org-roam-directory))
     (setq org-startup-folded 'content)
     (setq org-startup-indented t)
     (setq org-hide-emphasis-markers t)
     (setq org-log-done 'time)
     (setq org-todo-keywords
-      '((sequence "TODO" "DOING" "BLOCKED" "DONE")))
+    '((sequence "TODO" "DOING" "BLOCKED" "DONE")))
     (org-roam-db-autosync-mode)
-    (defun my-org-mode-keys ()
+    (defun choo/org-mode-keys ()
       (local-set-key (kbd "C-c a") 'org-agenda)
       (local-set-key (kbd "C-c n f") 'org-roam-node-find)
       (local-set-key (kbd "C-c n i") 'org-roam-node-insert))
-    (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
     (add-hook 'org-mode-hook (lambda ()
-     (org-bullets-mode t)
-     (visual-line-mode t)
-     (my-org-mode-keys)))))
-
-
+                               (display-line-numbers-mode 0)
+                               (org-bullets-mode t)
+                               (visual-line-mode t)
+                               (choo/org-mode-keys)))))
 
 (progn
   ;; Haskell-mode
@@ -152,13 +156,18 @@
   (package-install-selected-packages)
   (require 'ocp-indent))
 
+(progn
+  ;; Zig-mode
+  (custom-set-variables
+   '(package-selected-package '(zig-mode)))
+  (package-install-selected-packages))
+
 
 (progn
   ;; Hooks
   (add-hook 'before-save-hook (lambda () (whitespace-cleanup) (delete-trailing-whitespace)))
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0)))
   (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))))
-
 
 
 (progn
@@ -178,8 +187,8 @@
   (setq ring-bell-function 'ignore)
   (setq show-paren-style 'parenthesis)
   (setq tab-width 2)
+  (setq scroll-preserve-screen-position 'always)
   (kill-buffer "*Messages*"))
-
 
 (progn
   ;; Keybindings
