@@ -198,6 +198,15 @@
 
 (progn
   ;; Hooks
+  (defun setup-initial-windows ()
+    "Split the window and open eshell in the bottom window."
+    (interactive)
+    (split-window-below)
+    (other-window 1)
+    (eshell)
+    (other-window 1)
+    )
+  (add-hook 'after-init-hook 'setup-initial-windows)
   (add-hook 'before-save-hook (lambda () (whitespace-cleanup) (delete-trailing-whitespace))))
 
 
