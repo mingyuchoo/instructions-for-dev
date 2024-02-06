@@ -126,7 +126,6 @@
     (custom-set-variables
      '(package-selected-packages '(ob-rust ob-typescript org-bullets org-roam)))
     (package-install-selected-packages)
-
     (require 'org-bullets)
     (require 'org-roam)
     (require 'ob-rust)
@@ -184,10 +183,22 @@
 
 
 (progn
-  ;; Hooks
-  (add-hook 'before-save-hook (lambda () (whitespace-cleanup) (delete-trailing-whitespace)))
+  ;; Nix-mode
+  (custom-set-variables
+   '(package-selected-package '(nix-mode)))
+  (package-install-selected-packages))
+
+
+(progn
+  ;; Terminal
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0)))
   (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))))
+
+
+
+(progn
+  ;; Hooks
+  (add-hook 'before-save-hook (lambda () (whitespace-cleanup) (delete-trailing-whitespace))))
 
 
 (progn
@@ -212,6 +223,18 @@
 
 (progn
   ;; Keybindings
+  (defun split-window-below-and-move ()
+    "Split the window below and move the cursor to the new window."
+    (interactive)
+    (split-window-below)
+    (balance-windows)
+    (other-window 1))
+  (defun split-window-right-and-move ()
+    "split the window right and move the curosr to the new window."
+    (interactive)
+    (split-window-right)
+    (balance-windows)
+    (other-window 1))
   (global-set-key [next] (lambda () (interactive) (scroll-up-command) (recenter)))
   (global-set-key [prior] (lambda () (interactive) (scroll-down-command) (recenter)))
   (global-set-key (kbd "C-n") (lambda () (interactive) (next-line) (recenter)))
@@ -220,5 +243,7 @@
   (global-set-key (kbd "M--") 'tab-bar-close-tab)
   (global-set-key (kbd "M-[ I") 'sp-backward-unwrap-sexp)
   (global-set-key (kbd "M-[ O") 'sp-backward-unwrap-sexp)
+  (global-set-key (kbd "C-x 2") 'split-window-below-and-move)
+  (global-set-key (kbd "C-x 3") 'split-window-right-and-move)
   (global-set-key (kbd "C-h") 'delete-backward-char)
   (define-key minibuffer-local-map (kbd "C-h") 'delete-backward-char))
