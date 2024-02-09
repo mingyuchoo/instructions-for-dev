@@ -1,3 +1,3 @@
-! Exchange between 51(backslash) and 22(BakcSpace)
+! Exchange between  22(BakcSpace) and 51(backslash)
+keycode 22 = backslash bar
 keycode 51 = BackSpace
-keycode 22 = backslash
