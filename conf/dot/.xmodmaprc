@@ -1,3 +1,8 @@
-# This file exchanges between Backspace and Backslash keys
+! Make Caps Lock an additional Ctrl
+remove Lock = Caps_Lock
+keycode 66 = Control_L
+add Control = Control_L
+
+! Exchange between 51(backslash) and 22(BakcSpace)
 keycode 51 = BackSpace
 keycode 22 = backslash
