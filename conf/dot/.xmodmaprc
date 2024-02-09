@@ -1,0 +1,3 @@
+# This file exchanges between Backspace and Backslash keys
+keycode 51 = BackSpace
+keycode 22 = backslash
