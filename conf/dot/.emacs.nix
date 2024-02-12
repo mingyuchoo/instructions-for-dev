@@ -214,7 +214,7 @@
 (progn
   ;; Basic settings
   (require 'cl-lib)
-  (setq-default display-line-numbers 'relative)
+  (setq-default display-line-numbers t)
   (setq-default message-log-max nil)
   (setq-default indent-tabs-mode nil)
   (setq-default standard-indent 2)
