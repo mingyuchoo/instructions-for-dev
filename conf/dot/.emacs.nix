@@ -190,21 +190,31 @@
 
 
 (progn
-  ;; Terminal
+  ;; No Line Numbers
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0)))
-  (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))))
+  (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0)))
+  (add-hook 'dired-mode-hook (lambda () (display-line-numbers-mode 0))))
 
 
 
 (progn
   ;; Hooks
+  (defun setup-initial-windows ()
+    "Split the window and open eshell in the bottom window."
+    (interactive)
+    (split-window-below)
+    (other-window 1)
+    (eshell)
+    (other-window 1)
+    )
+  (add-hook 'after-init-hook 'setup-initial-windows)
   (add-hook 'before-save-hook (lambda () (whitespace-cleanup) (delete-trailing-whitespace))))
 
 
 (progn
   ;; Basic settings
   (require 'cl-lib)
-  (setq-default display-line-numbers 'relative)
+  (setq-default display-line-numbers t)
   (setq-default message-log-max nil)
   (setq-default indent-tabs-mode nil)
   (setq-default standard-indent 2)

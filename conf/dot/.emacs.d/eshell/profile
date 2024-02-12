@@ -6,3 +6,5 @@ addpath /opt/homebrew/bin                     \
         $HOME/.local/bin                      \
         $HOME/.nvm/versions/node/v18.18.0/bin \
         $HOME/.opam/default/bin
+
+clear
