@@ -190,9 +190,10 @@
 
 
 (progn
-  ;; Terminal
+  ;; No Line Numbers
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0)))
-  (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))))
+  (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0)))
+  (add-hook 'dired-mode-hook (lambda () (display-line-numbers-mode 0))))
 
 
 
