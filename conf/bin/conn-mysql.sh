@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Please install mysql client before to use
 #   sudo apt install -y mysql-client

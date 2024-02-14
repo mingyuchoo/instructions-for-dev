@@ -1,7 +1,7 @@
 #! /bin/bash
 
 cat <<EOF >> download-repos.sh.sh
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd ~/github/mingyuchoo/
 
