@@ -1,172 +1,266 @@
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'exec-path "$HOME/.local/bin/")
-(add-to-list 'load-path "$HOME/.opam/default/share/emacs/site-lisp") ;; set OCaml language server
-
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Uncomment when you refresh contents
-;;
-;;(when (not package-archive-contents)
-;; (package-refresh-contents))
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(custom-enabled-themes '(wheatgrass))
+ '(custom-enabled-themes '(adwaita))
  '(display-battery-mode t)
  '(display-time-mode t)
- '(global-display-column-numbers-mode t)
- '(global-display-line-numbers-mode t)
  '(scroll-bar-mode nil)
- '(toggle-scroll-bar nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
- '(package-selected-packages
-   '(eglot
-     editorconfig
-     helm
-     magit
-     neotree
-     multiple-cursors
-     transpose-frame
-     vterm
-     cmake-mode
-     dockerfile-mode
-     dotenv-mode
-     haskell-mode
-     groovy-mode
-     gradle-mode
-     rust-mode
-     typescript-mode
-     yaml-mode
-     ocamlformat
-     ocp-indent
-     lsp-haskell
-     lsp-mode
-     lsp-ui
-     dune
-     opam
-     org-bullets
-     org-roam))
-
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; activate all the packages (in particular autoloads)
-;;
-(package-initialize)
-(package-install-selected-packages)
-
-(require 'transpose-frame)
-(require 'org-bullets)
-(require 'org-roam)
-(require 'dotenv-mode)
-(require 'ocp-indent)
-(require 'multiple-cursors)
-(require 'editorconfig)
-(require 'lsp-haskell)
-(require 'evil)
-(require 'cl-lib) ;; for ELISP
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; mode activation
-;;
-(helm-mode t)
-(editorconfig-mode t)
-;(evil-mode t)
-
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Org-mode, Org-roam
-;;
-;;(make-directory "~/Dropbox/org-roam")
-(setq org-agenda-files '("~/Dropbox/org-roam"))
-(setq org-roam-directory (file-truename "~/Dropbox/org-roam"))
-(setq org-startup-folded 'content)
-(setq org-startup-indented t)
-(setq org-hide-emphasis-markers t)
-(setq find-file-visit-truename t)
-(setq org-log-done 'time)
-(setq org-todo-keywords
-      '((sequence "TODO" "DOING" "BLOCKED" "DONE")))
-(org-roam-db-autosync-mode)
-
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; gloval variable
-;;
-;;(setq default-directory "~/Dropbox/org-roam")
-(setq-default message-log-max nil)
-(setq-default indent-tabs-mode nil)
-(setq-default standard-indent 2)
-(setq-default tab-width 2)
-
-(setq column-number-mode t)
-(setq tab-width 4)
-(setq make-backup-files nil)
-(setq font-lock-maximum-decoration t)
-(setq haskell-stylish-on-save t)
-(setq inhibit-startup-message t)
-(setq initial-scratch-message "")
-(setq require-final-newline t)
-(setq ring-bell-function 'ignore)
-(setq show-paren-style 'parenthesis)
-(setq neo-smart-open t)
-(setq neo-window-width 40)
-
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;;(global-prettify-symbols-mode t)
-(global-set-key (kbd "M-x") 'helm-M-x)
-
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c n f") 'org-roam-node-find)
-(global-set-key (kbd "C-c n i") 'org-roam-node-insert)
-
-(global-set-key (kbd "C-x v") 'vterm-toggle)
-(global-set-key (kbd "C-x n") 'neotree-toggle)
-(global-set-key (kbd "C-x t") 'transpose-frame)
-(global-set-key (kbd "M-=") 'tab-bar-new-to)
-(global-set-key (kbd "M--") 'tab-bar-close-tab)
-
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C-S-c C-S-a") 'mc/mark-all-like-this)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-
-;; DO NOT USE THESE LINES
-;(global-set-key (kbd "M-[") 'tab-bar-switch-to-prev-tab)
-;(global-set-key (kbd "M-]") 'tab-bar-switch-to-next-tab)
-
-;; THESE LINES PREVENT INSERTING "IOIOIO" WHEN FOCUS IN/OUT
-(global-set-key (kbd "M-[ I") 'sp-backward-unwrap-sexp)
-(global-set-key (kbd "M-[ O") 'sp-backward-unwrap-sexp)
-
-(global-set-key (kbd "C-h") 'delete-backward-char)
-(define-key minibuffer-local-map (kbd "C-h") 'delete-backward-char)
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; hooks
-;;
-(add-hook 'emacs-startup-hook 'neotree-toggle)
-(add-hook 'org-mode-hook (lambda ()
-                           (org-bullets-mode t)
-                           (visual-line-mode t)))
-(add-hook 'before-save-hook (lambda ()
-                              (whitespace-cleanup)
-                              (delete-trailing-whitespace)))
-(add-hook 'haskell-mode-hook #'lsp)
-(add-hook 'haskell-literate-mode-hook #'lsp)
-
-
-(kill-buffer "*Messages*")
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Cursor, Font
-;;
 (custom-set-faces
- '(default ((t (:family "Zed Mono" :foundry "nil" :slant normal :weight regular :height 120 :width normal))))
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Amazon Ember Mono" :foundry "DAMA" :slant normal :weight regular :height 99 :width normal))))
  '(cursor ((t (:background "red3")))))
+
+
+(progn
+  ;; Insall Emacs Packages
+  (require 'package)
+  (dolist (archive '(("melpa" . "https://melpa.org/packages/")
+       ("melpa-stable" . "https://stable.melpa.org/packages/")))
+    (add-to-list 'package-archives archive t))
+  (when (not (string-equal system-type "windows-nt"))
+      (progn
+  (add-to-list 'exec-path (concat (getenv "HOME") "/.local/bin/"))
+  (add-to-list 'load-path (concat (getenv "HOME") "/.opam/default/share/emacs/site-lisp"))))
+  (package-initialize))
+
+
+
+(if (string-equal system-type "windows-nt")
+    (progn
+      (defvar choo/home-directory "c:/Users/mingy")
+      (setq default-directory choo/home-directory))
+  (progn
+    (defvar choo/home-directory (getenv "HOME"))
+    (setq default-directory (concat choo/home-directory "/Dropbox/org-roam"))))
+
+
+;;(progn
+;;  ;; Evil-mode
+;;  (custom-set-variables
+;;   '(package-selected-packages '(evil undo-tree)))
+;;  (package-install-selected-packages)
+;;  (require 'evil)
+;;  (evil-mode t)
+;;  (define-key evil-normal-state-map (kbd "j") '(lambda () (interactive) (next-line) (recenter)))
+;;  (define-key evil-normal-state-map (kbd "k") '(lambda () (interactive) (previous-line) (recenter))))
+
+
+(progn
+  ;; Transpose-frame
+  (custom-set-variables
+   '(package-selected-package '(transpose-frame)))
+  (package-install-selected-packages)
+  (require 'transpose-frame)
+  (global-set-key (kbd "C-x t") 'transpose-frame))
+
+(progn
+  ;; Dotenv-mode
+  (custom-set-variables
+   '(package-selected-package '(dotenv-mode)))
+   (package-install-selected-packages)
+   (require 'dotenv-mode))
+
+
+(progn
+  ;; Editorconfig
+  (custom-set-variables
+   '(package-selected-package '(editorconfig)))
+   (package-install-selected-packages)
+   (require 'editorconfig)
+   (editorconfig-mode t))
+
+
+(progn
+  ;; Multiple-cursors
+  (custom-set-variables
+   '(package-selected-package '(multiple-cursors)))
+   (package-install-selected-packages)
+   (require 'multiple-cursors)
+   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+   (global-set-key (kbd "C-S-c C-S-a") 'mc/mark-all-like-this)
+   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this))
+
+
+(progn
+  ;; Helm-mode
+  (custom-set-variables
+   '(package-selected-package '(helm)))
+  (package-install-selected-packages)
+  (helm-mode t)
+  (global-set-key (kbd "M-x") 'helm-M-x))
+
+
+(progn
+  ;; Vterm
+  (custom-set-variables
+   '(package-selected-package '(vterm)))
+   (package-install-selected-packages)
+   (global-set-key (kbd "C-x v") 'vterm-toggle))
+
+
+(progn
+  ;; Neotree
+  (custom-set-variables
+   '(package-selected-package '(neotree)))
+   (package-install-selected-packages)
+   (setq neo-smart-open t)
+   (setq neo-window-width 40)
+   ;;(add-hook 'emacs-startup-hook 'neotree-toggle)
+   (global-set-key (kbd "C-x n") 'neotree-toggle))
+
+
+
+(when (not (string-equal system-type "windows-nt"))
+  (progn
+    ;; Org-mode and Org-roam
+    (custom-set-variables
+     '(package-selected-packages '(ob-rust ob-typescript org-bullets org-roam)))
+    (package-install-selected-packages)
+    (require 'org-bullets)
+    (require 'org-roam)
+    (require 'ob-rust)
+    (require 'ob-typescript)
+    (defvar choo/org-roam-directory (concat choo/home-directory "/Dropbox/org-roam"))
+    (setq org-agenda-files (list choo/org-roam-directory))
+    (setq org-roam-directory (file-truename choo/org-roam-directory))
+    (setq org-startup-folded 'content)
+    (setq org-startup-indented t)
+    (setq org-hide-emphasis-markers t)
+    (setq org-log-done 'time)
+    (setq org-todo-keywords
+    '((sequence "TODO" "DOING" "BLOCKED" "DONE")))
+    (org-roam-db-autosync-mode)
+    (org-babel-do-load-languages 'org-babel-load-languages
+                                 '((python . t)
+                                   (js . t)
+                                   (rust . t)
+                                   (haskell . t)
+                                   (ocaml . t)))
+    (setq org-confirm-babel-evaluate nil)
+    (defun choo/org-mode-keys ()
+      (local-set-key (kbd "C-c a") 'org-agenda)
+      (local-set-key (kbd "C-c n f") 'org-roam-node-find)
+      (local-set-key (kbd "C-c n i") 'org-roam-node-insert))
+    (add-hook 'org-mode-hook (lambda ()
+                               (display-line-numbers-mode 0)
+                               (org-bullets-mode t)
+                               (visual-line-mode t)
+                               (choo/org-mode-keys)))))
+
+(progn
+  ;; Haskell-mode
+  (custom-set-variables
+   '(package-selected-packages '(haskell-mode lsp-haskell lsp-mode lsp-ui)))
+  (package-install-selected-packages)
+  (require 'lsp-haskell)
+  (setq haskell-stylish-on-save t)
+  (add-hook 'haskell-mode-hook #'lsp)
+  (add-hook 'haskell-literate-mode-hook #'lsp))
+
+
+(progn
+  ;; OCaml-mode
+  (custom-set-variables
+   '(package-selected-packages '(dune ocamlformat ocp-indent opam)))
+  (package-install-selected-packages)
+  (require 'ocp-indent))
+
+
+(progn
+  ;; Zig-mode
+  (custom-set-variables
+   '(package-selected-package '(zig-mode)))
+  (package-install-selected-packages))
+
+
+(progn
+  ;; Rust-mode
+  (custom-set-variables
+   '(package-selected-package '(rust-mode)))
+  (package-install-selected-packages))
+
+
+(progn
+  ;; Nix-mode
+  (custom-set-variables
+   '(package-selected-package '(nix-mode)))
+  (package-install-selected-packages))
+
+
+(progn
+  ;; No Line Numbers
+  (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0)))
+  (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0)))
+  (add-hook 'dired-mode-hook (lambda () (display-line-numbers-mode 0))))
+
+
+
+(progn
+  ;; Hooks
+  (defun setup-initial-windows ()
+    "Split the window and open eshell in the bottom window."
+    (interactive)
+    (split-window-below)
+    (other-window 1)
+    (eshell)
+    (other-window 1)
+    )
+  (add-hook 'after-init-hook 'setup-initial-windows)
+  (add-hook 'before-save-hook (lambda () (whitespace-cleanup) (delete-trailing-whitespace))))
+
+
+(progn
+  ;; Basic settings
+  (require 'cl-lib)
+  (setq-default display-line-numbers t)
+  (setq-default message-log-max nil)
+  (setq-default indent-tabs-mode nil)
+  (setq-default standard-indent 2)
+  (setq-default tab-width 2)
+  (setq column-number-mode t)
+  (setq font-lock-maximum-decoration t)
+  (setq inhibit-startup-message t)
+  (setq initial-scratch-message "")
+  (setq make-backup-files nil)
+  (setq require-final-newline t)
+  (setq ring-bell-function 'ignore)
+  (setq show-paren-style 'parenthesis)
+  (setq tab-width 2)
+  (setq scroll-preserve-screen-position 'always)
+  (kill-buffer "*Messages*"))
+
+(progn
+  ;; Keybindings
+  (defun split-window-below-and-move ()
+    "Split the window below and move the cursor to the new window."
+    (interactive)
+    (split-window-below)
+    (balance-windows)
+    (other-window 1))
+  (defun split-window-right-and-move ()
+    "split the window right and move the curosr to the new window."
+    (interactive)
+    (split-window-right)
+    (balance-windows)
+    (other-window 1))
+  (global-set-key [next] (lambda () (interactive) (scroll-up-command) (recenter)))
+  (global-set-key [prior] (lambda () (interactive) (scroll-down-command) (recenter)))
+  (global-set-key (kbd "C-n") (lambda () (interactive) (next-line) (recenter)))
+  (global-set-key (kbd "C-p") (lambda () (interactive) (previous-line) (recenter)))
+  (global-set-key (kbd "M-=") 'tab-bar-new-to)
+  (global-set-key (kbd "M--") 'tab-bar-close-tab)
+  (global-set-key (kbd "M-[ I") 'sp-backward-unwrap-sexp)
+  (global-set-key (kbd "M-[ O") 'sp-backward-unwrap-sexp)
+  (global-set-key (kbd "C-x 2") 'split-window-below-and-move)
+  (global-set-key (kbd "C-x 3") 'split-window-right-and-move)
+  (global-set-key (kbd "C-h") 'delete-backward-char)
+  (define-key minibuffer-local-map (kbd "C-h") 'delete-backward-char))

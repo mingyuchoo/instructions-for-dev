@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Please install below before to use
 #   sudo apt install -y postgresql-client-common
