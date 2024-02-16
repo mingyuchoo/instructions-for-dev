@@ -1,35 +1,40 @@
-# README
-# `cargo install git-delta`
-#
+# cargo install git-delta
 
 [user]
-        email         = my-name@email.com
-        name          = my-name
+  email         = my-name@email.com
+  name          = my-name
 
 [color]
-        ui            = auto
+  ui            = auto
 
 [core]
-        editor        = emacs
-        autocrlf      = input
-        longpaths     = true
-        pager         = delta
+  editor        = emacs
+  autocrlf      = input
+  longpaths     = true
+  pager         = delta
 
 [credential]
-        helper        = store
+  helper        = store
 
 [delta]
-        navigate      = true
-        light         = true
-        side-by-side  = true
-        line-numbers  = true
-        features      = decorations
+  navigate      = true
+  light         = true
+  side-by-side  = true
+  line-numbers  = true
+  features      = decorations
 
 [diff]
-        colorMoved    = default
+  colorMoved    = default
 
 [interactive]
-        diffFilter    = delta --color-only --features=interactive
+  diffFilter    = delta --color-only --features=interactive
 
 [merge]
-        conflictstyle = diff3
+  conflictstyle = diff3
+  ff            = only
+
+[pull]
+  rebase        = true
+
+[alias]
+  ll            = log --graph --pretty=oneline
