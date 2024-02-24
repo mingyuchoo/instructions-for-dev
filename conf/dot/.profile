@@ -9,7 +9,10 @@ export HISTSIZE=10000
 export HISTFILESIZE=10000
 export EDITOR=emacs
 export NVM_DIR="$HOME/.nvm"
-export PATH="$HOME/.emacs.d/bin:$PATH"
+
+PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH
 
 
 [[ -f $HOME/.bashrc                 ]] && . $HOME/.bashrc
