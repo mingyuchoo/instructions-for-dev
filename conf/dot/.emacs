@@ -15,7 +15,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Amazon Ember Mono" :foundry "DAMA" :slant normal :weight regular :height 99 :width normal))))
+ '(default ((t (:family "Amazon Ember Mono" :foundry "DAMA" :slant normal :weight regular :height 100 :width normal))))
  '(cursor ((t (:background "red3")))))
 
 
@@ -162,6 +162,8 @@
    '(package-selected-packages '(haskell-mode lsp-haskell lsp-mode lsp-ui)))
   (package-install-selected-packages)
   (require 'lsp-haskell)
+  (defvar hls-path "~/.ghcup/bin/haskell-language-server-wrapper")
+  (setq lsp-haskell-server-path hls-path)
   (setq haskell-stylish-on-save t)
   (add-hook 'haskell-mode-hook #'lsp)
   (add-hook 'haskell-literate-mode-hook #'lsp))
