@@ -162,7 +162,9 @@
    '(package-selected-packages '(haskell-mode lsp-haskell lsp-mode lsp-ui)))
   (package-install-selected-packages)
   (require 'lsp-haskell)
-  (defvar hls-path "~/.ghcup/bin/haskell-language-server-wrapper") ;; CHANGE HERE
+  ;; USE SAME VERSION WITH `ghc`
+  ;; AND SET CORRECT PATH of `haskell-language-server-wrapper`
+  (defvar hls-path "~/.ghcup/bin/haskell-language-server-wrapper")
   (setq lsp-haskell-server-path hls-path)
   (setq haskell-stylish-on-save t)
   (add-hook 'haskell-mode-hook #'lsp)
