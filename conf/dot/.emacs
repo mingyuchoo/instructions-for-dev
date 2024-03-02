@@ -162,7 +162,7 @@
    '(package-selected-packages '(haskell-mode lsp-haskell lsp-mode lsp-ui)))
   (package-install-selected-packages)
   (require 'lsp-haskell)
-  (defvar hls-path "~/.ghcup/bin/haskell-language-server-wrapper")
+  (defvar hls-path "~/.ghcup/bin/haskell-language-server-wrapper") ;; CHANGE HERE
   (setq lsp-haskell-server-path hls-path)
   (setq haskell-stylish-on-save t)
   (add-hook 'haskell-mode-hook #'lsp)
@@ -249,7 +249,7 @@
     (balance-windows)
     (other-window 1))
   (defun split-window-right-and-move ()
-    "split the window right and move the curosr to the new window."
+    "Split The Window Right and move the curosr to the new window."
     (interactive)
     (split-window-right)
     (balance-windows)
