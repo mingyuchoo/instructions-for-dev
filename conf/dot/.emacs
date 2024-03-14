@@ -1,8 +1,4 @@
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-enabled-themes '(adwaita))
  '(display-battery-mode t)
@@ -11,10 +7,6 @@
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(default ((t (:family "Amazon Ember Mono" :foundry "DAMA" :slant normal :weight regular :height 100 :width normal))))
  '(cursor ((t (:background "red3")))))
 
@@ -225,11 +217,13 @@
 (progn
   ;; Basic settings
   (require 'cl-lib)
+  (require 'whitespace)
   (setq-default display-line-numbers t)
   (setq-default message-log-max nil)
   (setq-default indent-tabs-mode nil)
   (setq-default standard-indent 2)
   (setq-default tab-width 2)
+  (setq whitespace-style '(tabs tab-mark))
   (setq column-number-mode t)
   (setq font-lock-maximum-decoration t)
   (setq inhibit-startup-message t)
@@ -256,6 +250,8 @@
     (split-window-right)
     (balance-windows)
     (other-window 1))
+  (global-prettify-symbols-mode t)
+  (global-whitespace-mode t)
   (global-set-key [next] (lambda () (interactive) (scroll-up-command) (recenter)))
   (global-set-key [prior] (lambda () (interactive) (scroll-down-command) (recenter)))
   (global-set-key (kbd "C-n") (lambda () (interactive) (next-line) (recenter)))
