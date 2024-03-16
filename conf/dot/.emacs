@@ -7,8 +7,9 @@
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
+ '(cursor ((t (:background "red3"))))
  '(default ((t (:family "Amazon Ember Mono" :foundry "DAMA" :slant normal :weight regular :height 100 :width normal))))
- '(cursor ((t (:background "red3")))))
+ '(default ((t (:family "Amazon Ember Mono" :foundry "DAMA" :slant normal :weight regular :height 100 :width normal)))))
 
 
 (progn
