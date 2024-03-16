@@ -236,6 +236,7 @@
   (setq scroll-preserve-screen-position 'always)
   (kill-buffer "*Messages*"))
 
+
 (progn
   ;; Keybindings
   (defun split-window-below-and-move ()
@@ -245,11 +246,31 @@
     (balance-windows)
     (other-window 1))
   (defun split-window-right-and-move ()
-    "Split The Window Right and move the curosr to the new window."
+    "split the window right and move the curosr to the new window."
     (interactive)
     (split-window-right)
     (balance-windows)
     (other-window 1))
+  (defun search-and-replace-current-word ()
+    "Search for the current word and initiate a query-replace."
+    (interactive)
+    (let ((current-word (thing-at-point 'word)))
+      (if current-word
+          (progn
+            (isearch-yank-string current-word)
+            (isearch-exit)
+            (query-replace current-word (read-string (format "Replace %s with: " current-word))))
+        (message "No word at point."))))
+  (defun replace-current-word-everywhere ()
+    "Replace all instances of the current word in the buffer."
+    (interactive)
+    (let ((current-word (thing-at-point 'word)))
+      (if current-word
+          (let ((replacement (read-string (format "Replace %s with: " current-word))))
+            (save-excursion
+              (goto-char (point-min))
+              (replace-string current-word replacement)))
+        (message "No word at point."))))
   (global-prettify-symbols-mode t)
   (global-whitespace-mode t)
   (global-set-key [next] (lambda () (interactive) (scroll-up-command) (recenter)))
@@ -260,6 +281,8 @@
   (global-set-key (kbd "M--") 'tab-bar-close-tab)
   (global-set-key (kbd "M-[ I") 'sp-backward-unwrap-sexp)
   (global-set-key (kbd "M-[ O") 'sp-backward-unwrap-sexp)
+  (global-set-key (kbd "C-c r") 'search-and-replace-current-word)
+  (global-set-key (kbd "C-c a") 'replace-current-word-everywhere)
   (global-set-key (kbd "C-x 2") 'split-window-below-and-move)
   (global-set-key (kbd "C-x 3") 'split-window-right-and-move)
   (global-set-key (kbd "C-h") 'delete-backward-char)
