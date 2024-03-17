@@ -236,6 +236,7 @@
   (setq inhibit-startup-message t)
   (setq initial-scratch-message "")
   (setq make-backup-files nil)
+  (setq resize-mini-windows nil)
   (setq require-final-newline t)
   (setq ring-bell-function 'ignore)
   (setq show-paren-style 'parenthesis)
