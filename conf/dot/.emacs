@@ -187,6 +187,13 @@
 
 
 (progn
+  ;; Erlang, Elixir
+  (custom-set-variables
+   '(package-selected-packages '(alchemist elixir-mode erlang)))
+  (package-install-selected-packages))
+
+
+(progn
   ;; Nix-mode
   (custom-set-variables
    '(package-selected-package '(nix-mode)))
@@ -200,16 +207,15 @@
   (add-hook 'dired-mode-hook (lambda () (display-line-numbers-mode 0))))
 
 
-
 (progn
   ;; Hooks
   (defun setup-initial-windows ()
     "Split the window and open eshell in the bottom window."
     (interactive)
-    (split-window-below)
-    (other-window 1)
+    ;;(split-window-below)
+    ;;(other-window 1)
     (eshell)
-    (other-window 1)
+    ;;(other-window 1)
     )
   (add-hook 'after-init-hook 'setup-initial-windows)
   (add-hook 'before-save-hook (lambda () (whitespace-cleanup) (delete-trailing-whitespace))))
