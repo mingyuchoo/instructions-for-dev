@@ -1,14 +1,23 @@
+## for linux
+#[shell]
+#program = "/bin/zsh"
+
+
+## for macOS
 [shell]
-program = "/bin/zsh"
+program = "/opt/homebrew/bin/tmux"
+
 
 [window]
 padding = { x = 3, y = 3 }
 dynamic_padding = true
 opacity = 1
 
+
 [scrolling]
 history = 100000
 multiplier = 3
+
 
 [font]
 normal = { family = "Zed mono", style = "Light" }
@@ -17,8 +26,10 @@ italic = { family = "Zed mono", style = "Light" }
 bold_italic = { family = "Zed mono", style = "Light" }
 size = 11
 
+
 [colors]
 cursor = { text = "#ffffff", cursor = "#ff0000" }
+
 
 [cursor]
 style = { shape = "Underline", blinking = "On" }
