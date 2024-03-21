@@ -10,7 +10,8 @@ alias ls='ls --color=auto'
 alias ll='ls -la'
 alias nnn='nnn -e'
 alias grep='grep --color=auto'
-alias emacs='emacs -nw'
+alias ed='emacs --daemon'
+alias ec='emacsclient -c'
 
 # eval "$(opam env)"
 # eval "$(direnv hook bash)"

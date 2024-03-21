@@ -37,14 +37,18 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=( aws cabal direnv dotenv git rust tmux )
 
 export ARCHFLAGS="-arch x86_64"
-export EDITOR='nvim'
+export EDITOR='emacsclient -c'
 export LANG=en_US.UTF-8
 export MANPATH="/usr/local/man:$MANPATH"
 
 # aliases
-alias ls="ls -F"
-alias ll="ls -la"
-alias la="ls -a"
+alias ls="ls --color=auto"
+alias ll="ls -l"
+alias la="ls -la"
+alias ed="emacs --daemon"
+alias ec="emacsclient -c"
+alias nnn="nnn -e"
+alias n3="nnn"
 
 # env
 export NVM_DIR="$HOME/.nvm"

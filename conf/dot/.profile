@@ -7,7 +7,7 @@ fi
 
 export HISTSIZE=10000
 export HISTFILESIZE=10000
-export EDITOR=emacs
+export EDITOR='emacsclient -c'
 export NVM_DIR="$HOME/.nvm"
 
 PATH="$HOME/.local/bin:$PATH"
