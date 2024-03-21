@@ -1,3 +1,13 @@
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; ## How to install Emacs on macOS
+;; $ brew install emacs
+;; $ brew install emacsclient
+;; $ brew services restart emacs
+;; $ emacsclient -nw -c
+;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (custom-set-variables
  '(column-number-mode t)
  '(custom-enabled-themes '(adwaita))
