@@ -200,7 +200,9 @@
   ;; Erlang, Elixir
   (custom-set-variables
    '(package-selected-packages '(alchemist elixir-mode erlang)))
-  (package-install-selected-packages))
+  (package-install-selected-packages)
+  (require 'elixir-mode)
+  (add-hook 'elixir-mode-hook (lambda () (add-hook 'before-save-hook 'elixir-format nil t))))
 
 
 (progn
