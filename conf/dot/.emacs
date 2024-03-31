@@ -199,10 +199,13 @@
 (progn
   ;; Erlang, Elixir
   (custom-set-variables
-   '(package-selected-packages '(alchemist elixir-mode erlang)))
+   '(package-selected-packages '(alchemist elixir-mode eglot erlang)))
   (package-install-selected-packages)
-  (require 'elixir-mode)
-  (add-hook 'elixir-mode-hook (lambda () (add-hook 'before-save-hook 'elixir-format nil t))))
+  (require 'eglot)
+  (setq lsp-elixir-enable-inlay-hints t)
+  (add-hook 'elixir-mode-hook 'eglot-ensure)
+  (add-hook 'elixir-mode-hook (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+  (add-to-list 'eglot-server-programs '(elixir-mode "~/.nix-profile/bin/elixir-ls"))) ;; path in NixOS home-manager
 
 
 (progn
