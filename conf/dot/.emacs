@@ -10,16 +10,15 @@
 
 (custom-set-variables
  '(column-number-mode t)
- '(custom-enabled-themes '(adwaita))
+ '(custom-enabled-themes '(wheatgrass))
  '(display-battery-mode t)
  '(display-time-mode t)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
- '(cursor ((t (:background "red3"))))
- '(default ((t (:family "Amazon Ember Mono" :foundry "DAMA" :slant normal :weight regular :height 100 :width normal))))
- '(default ((t (:family "Amazon Ember Mono" :foundry "DAMA" :slant normal :weight regular :height 100 :width normal)))))
+ '(default ((t (:family "IosevkaTerm Nerd Font Mono" :foundry "DAMA" :slant normal :weight regular :height 120 :width normal))))
+ '(cursor ((t (:background "red3")))))
 
 
 (progn
@@ -45,39 +44,29 @@
     (setq default-directory (concat choo/home-directory "/Dropbox/org-roam"))))
 
 
-;;(progn
-;;  ;; Evil-mode
-;;  (custom-set-variables
-;;   '(package-selected-packages '(evil undo-tree)))
-;;  (package-install-selected-packages)
-;;  (require 'evil)
-;;  (evil-mode t)
-;;  (define-key evil-normal-state-map (kbd "j") '(lambda () (interactive) (next-line) (recenter)))
-;;  (define-key evil-normal-state-map (kbd "k") '(lambda () (interactive) (previous-line) (recenter))))
-
-
 (progn
   ;; Transpose-frame
   (custom-set-variables
    '(package-selected-package '(transpose-frame)))
-  (package-install-selected-packages)
   (require 'transpose-frame)
+  (package-install-selected-packages)
   (global-set-key (kbd "C-x t") 'transpose-frame))
+
 
 (progn
   ;; Dotenv-mode
   (custom-set-variables
    '(package-selected-package '(dotenv-mode)))
-   (package-install-selected-packages)
-   (require 'dotenv-mode))
+   (require 'dotenv-mode)
+   (package-install-selected-packages))
 
 
 (progn
   ;; Editorconfig
   (custom-set-variables
    '(package-selected-package '(editorconfig)))
-   (package-install-selected-packages)
    (require 'editorconfig)
+   (package-install-selected-packages)
    (editorconfig-mode t))
 
 
@@ -85,8 +74,8 @@
   ;; Multiple-cursors
   (custom-set-variables
    '(package-selected-package '(multiple-cursors)))
-   (package-install-selected-packages)
    (require 'multiple-cursors)
+   (package-install-selected-packages)
    (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
    (global-set-key (kbd "C-S-c C-S-a") 'mc/mark-all-like-this)
    (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -127,11 +116,11 @@
     ;; Org-mode and Org-roam
     (custom-set-variables
      '(package-selected-packages '(ob-rust ob-typescript org-bullets org-roam)))
-    (package-install-selected-packages)
     (require 'org-bullets)
     (require 'org-roam)
     (require 'ob-rust)
     (require 'ob-typescript)
+    (package-install-selected-packages)
     (defvar choo/org-roam-directory (concat choo/home-directory "/Dropbox/org-roam"))
     (setq org-agenda-files (list choo/org-roam-directory))
     (setq org-roam-directory (file-truename choo/org-roam-directory))
@@ -163,8 +152,8 @@
   ;; Haskell-mode
   (custom-set-variables
    '(package-selected-packages '(haskell-mode lsp-haskell lsp-mode lsp-ui)))
-  (package-install-selected-packages)
   (require 'lsp-haskell)
+  (package-install-selected-packages)
   ;; USE SAME VERSION WITH `ghc`
   ;; AND SET CORRECT PATH of `haskell-language-server-wrapper`
   (defvar hls-path "~/.ghcup/bin/haskell-language-server-wrapper")
@@ -178,8 +167,8 @@
   ;; OCaml-mode
   (custom-set-variables
    '(package-selected-packages '(dune ocamlformat ocp-indent opam)))
-  (package-install-selected-packages)
-  (require 'ocp-indent))
+  (require 'ocp-indent)
+  (package-install-selected-packages))
 
 
 (progn
@@ -227,12 +216,11 @@
   (defun setup-initial-windows ()
     "Split the window and open eshell in the bottom window."
     (interactive)
-    ;;(split-window-below)
-    ;;(other-window 1)
+    (split-window-below)
+    (other-window 1)
     (eshell)
-    ;;(other-window 1)
-    )
-  (add-hook 'after-init-hook 'setup-initial-windows)
+    (other-window 1))
+  ;; (add-hook 'after-init-hook 'setup-initial-windows)
   (add-hook 'before-save-hook (lambda () (whitespace-cleanup) (delete-trailing-whitespace))))
 
 
@@ -242,8 +230,7 @@
   (require 'whitespace)
   (setq-default display-line-numbers t)
   (setq-default message-log-max nil)
-  (setq-default indent-tabs-mode nil)
-  (setq-default standard-indent 2)
+  (setq-default indent-tabs-mode t)
   (setq-default tab-width 2)
   (setq whitespace-style '(tabs tab-mark))
   (setq column-number-mode t)
@@ -255,7 +242,6 @@
   (setq require-final-newline t)
   (setq ring-bell-function 'ignore)
   (setq show-paren-style 'parenthesis)
-  (setq tab-width 2)
   (setq scroll-preserve-screen-position 'always)
   (kill-buffer "*Messages*"))
 
