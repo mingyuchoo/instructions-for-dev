@@ -47,7 +47,7 @@
 (progn
   ;; Transpose-frame
   (custom-set-variables
-   '(package-selected-package '(transpose-frame)))
+   '(package-selected-packages '(transpose-frame)))
   (require 'transpose-frame)
   (package-install-selected-packages)
   (global-set-key (kbd "C-x t") 'transpose-frame))
@@ -56,7 +56,7 @@
 (progn
   ;; Dotenv-mode
   (custom-set-variables
-   '(package-selected-package '(dotenv-mode)))
+   '(package-selected-packages '(dotenv-mode)))
    (require 'dotenv-mode)
    (package-install-selected-packages))
 
@@ -64,7 +64,7 @@
 (progn
   ;; Editorconfig
   (custom-set-variables
-   '(package-selected-package '(editorconfig)))
+   '(package-selected-packages '(editorconfig)))
    (require 'editorconfig)
    (package-install-selected-packages)
    (editorconfig-mode t))
@@ -73,7 +73,7 @@
 (progn
   ;; Multiple-cursors
   (custom-set-variables
-   '(package-selected-package '(multiple-cursors)))
+   '(package-selected-packages '(multiple-cursors)))
    (require 'multiple-cursors)
    (package-install-selected-packages)
    (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
@@ -85,7 +85,7 @@
 (progn
   ;; Helm-mode
   (custom-set-variables
-   '(package-selected-package '(helm)))
+   '(package-selected-packages '(helm)))
   (package-install-selected-packages)
   (helm-mode t)
   (global-set-key (kbd "M-x") 'helm-M-x))
@@ -94,7 +94,7 @@
 (progn
   ;; Vterm
   (custom-set-variables
-   '(package-selected-package '(vterm)))
+   '(package-selected-packages '(vterm)))
    (package-install-selected-packages)
    (global-set-key (kbd "C-x v") 'vterm-toggle))
 
@@ -102,7 +102,7 @@
 (progn
   ;; Neotree
   (custom-set-variables
-   '(package-selected-package '(neotree)))
+   '(package-selected-packages '(neotree)))
    (package-install-selected-packages)
    (setq neo-smart-open t)
    (setq neo-window-width 40)
@@ -174,14 +174,14 @@
 (progn
   ;; Zig-mode
   (custom-set-variables
-   '(package-selected-package '(zig-mode)))
+   '(package-selected-packages '(zig-mode)))
   (package-install-selected-packages))
 
 
 (progn
   ;; Rust-mode
   (custom-set-variables
-   '(package-selected-package '(rust-mode)))
+   '(package-selected-packages '(rust-mode)))
   (package-install-selected-packages))
 
 
@@ -200,7 +200,7 @@
 (progn
   ;; Nix-mode
   (custom-set-variables
-   '(package-selected-package '(nix-mode)))
+   '(package-selected-packages '(nix-mode)))
   (package-install-selected-packages))
 
 
