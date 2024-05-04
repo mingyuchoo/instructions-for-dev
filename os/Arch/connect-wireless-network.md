@@ -1,4 +1,14 @@
-# Connect Wireless in Arch Linux
+# Connect Wirelss Network
+
+## Using NetworkManager in Desktop
+
+```bash
+sudo pacman -Syyu networkmanager
+sudo systemctl enable NetworkManager.service
+sudo systemctl start NetworkManager.service
+```
+
+## Connect Wireless Manually in Console
 
 ```bash
 iwclt
