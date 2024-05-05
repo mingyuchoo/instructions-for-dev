@@ -18,6 +18,11 @@ Please refer each document about the "Wayland input method" configuration.
 Before you configure the "Wayland input method", you should make sure that
 QT_IM_MODULE and GTK_IM_MODULE environment variables are unset in the desktop session.
 
+**ISSUE**
+
+When run IBUS in Wayland,
+keyboard repeatation functionality does not work.
+
 ### Case 2) in X11
 
 
