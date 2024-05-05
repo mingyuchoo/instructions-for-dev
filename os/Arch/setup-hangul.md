@@ -4,10 +4,25 @@
 
 ```bash
 sudo pacman -S ibus ibus-hangul
-ibus-daemon -drx
 ```
 
-### Configure .xinitrc
+### Case 1) in Wayland
+
+IBus should be called from the desktop session in Wayland.
+For KDE, you can launch 'systemsettings5' utility and go to "Input Devices"-> "Virtual Keyboard" section
+and select "IBus Wayland" icon
+and click "Apply" button to configure IBus in Wayland.
+For other desktop sessions, you can copy the 'Exec=' line
+in org.freedesktop.IBus.Panel.Wayland.Gtk3.desktop file to a configuration file of the session.
+Please refer each document about the "Wayland input method" configuration.
+Before you configure the "Wayland input method", you should make sure that
+QT_IM_MODULE and GTK_IM_MODULE environment variables are unset in the desktop session.
+
+### Case 2) in X11
+
+
+Configure `$HOME/.xprofile`
+
 
 ```bash
 export GTK_IM_MODULE=ibus
@@ -15,28 +30,4 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 ibus-daemon -drx
-```
-
-## Using SCIM
-
-```bash
-sudo pacman -S scim libhangul
-git clone https://aur.archlinux.org/scim-hangul.git
-cd scim-hangul
-makepkg -si
-```
-
-### How to configure keys in X11
-
-```bash
-scim-setup
-```
-
-### Configure .xinitrc
-
-```bash
-export XMODIFIERS="@im=SCIM"
-export GTK_IM_MODULE=scim
-export QT_IM_MODULE=scim
-scim -d
 ```
