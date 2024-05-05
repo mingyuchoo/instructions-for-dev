@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+# ------------------------------------------------------------------------------
+# =# \l                               -- list databases
+# =# \c <database_name>               -- connect to database
+# =# \dn                              -- list schemas
+# =# SET search_path TO <schema_name> -- connect to specific schema
+# ------------------------------------------------------------------------------
+docker exec --interactive --tty postgresql-db /bin/bash

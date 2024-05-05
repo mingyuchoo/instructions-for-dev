@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+ps aux | grep emacs | grep daemon | awk '{print $2}' | xargs -I {} kill -9 {}
