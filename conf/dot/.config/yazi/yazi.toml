@@ -3,3 +3,8 @@ ratio = [1,2,5]
 
 [preview]
 tab_size = 2
+
+[opener]
+edit = [
+  { run = 'nvim "$@"', block = true },
+]
