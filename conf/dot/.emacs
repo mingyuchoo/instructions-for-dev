@@ -230,13 +230,14 @@
   (require 'whitespace)
   (setq-default display-line-numbers t)
   (setq-default message-log-max nil)
-  (setq-default indent-tabs-mode t)
+  (setq-default indent-tabs-mode nil)
   (setq-default tab-width 2)
+  (setq-default tab-always-indent 'complete)
   (setq whitespace-style '(face tabs tab-mark))
-	(set-face-attribute 'whitespace-tab nil
-											:foreground "grey"
-											:background nil
-											:weight 'thin)
+  (set-face-attribute 'whitespace-tab nil
+                      :foreground "grey"
+                      :background nil
+                      :weight 'thin)
   (setq column-number-mode t)
   (setq font-lock-maximum-decoration t)
   (setq inhibit-startup-message t)
