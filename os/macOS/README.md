@@ -23,7 +23,7 @@ brew install kyperkit
 ### Install Docker CLI
 
 ```bash
-brew install docker docker-compose
+brew install docker docker-compose docker-buildx
 ```
 
 And change `credsStore` to `credStore` in `.docker/config.json`
