@@ -1,17 +1,35 @@
-[[ $- != *i* ]] && return
+# #############################################################################
+# `.bashrc`
+#
+# This file starts in an environment where you are already logged in.
+# For example, when opening a new terminal window or tab in a terminal emulator.
+#   - Set prompt
+#   - Set aliases
+#   - Set functions
+#   - Set scripts ex) `eval "$(...)"`
+# #############################################################################
 
 stty erase ^H
 
+# Prompt
 PS1='[\u@\h \W]\$ '
 
+# Aliases
 alias df='df -h'
-alias dir='ls --color=auto'
 alias ls='ls --color=auto'
 alias ll='ls -la'
-alias nnn='nnn -e'
-alias grep='grep --color=auto'
 alias ed='emacs --daemon'
 alias ec='emacsclient -c'
+alias vi="nvim"
+alias vim="nvim"
+alias xclip="xclip -selection clipboard"
+alias xsel="xsel --clipboard --input"
 
-# eval "$(opam env)"
-# eval "$(direnv hook bash)"
+# Scripts
+[[ -f $HOME/.cargo/env              ]] && . $HOME/.cargo/env
+[[ -f $HOME/.ghcup/env              ]] && . $HOME/.ghcup/env
+[[ -f $HOME/.opam/opam-init/init.sh ]] && . $HOME/.opam/opam-init/init.sh
+[[ -f $HOME/.venv/bin/activate      ]] && . $HOME/.venv/bin/activate
+[[ -s $HOME/.nvm/nvm.sh             ]] && . $HOME/.nvm/nvm.sh
+[[ -s $HOME/.nvm/bash_completion    ]] && . $HOME/.nvm/bash_completion
+
