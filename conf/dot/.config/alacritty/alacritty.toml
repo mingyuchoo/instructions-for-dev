@@ -1,8 +1,10 @@
 live_config_reload = true
 
+
 [shell]
 program = "/usr/bin/fish"
 args = ["--command=tmux"]
+
 
 [window]
 dimensions.columns = 80
@@ -11,7 +13,6 @@ dynamic_padding = true
 opacity = 1.0
 padding.x = 3
 padding.y = 3
-# startup_mode = "Fullscreen"
 
 
 [scrolling]
@@ -28,6 +29,12 @@ cursor.cursor = "#ff0000"
 style.shape = "Underline"
 style.blinking = "On"
 thickness = 0.5
+
+
+[font]
+normal.family = "ZedMono Nerd Font"
+normal.style = "Regular"
+size = 12
 
 
 [selection]
