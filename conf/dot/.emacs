@@ -45,6 +45,15 @@
 
 
 (progn
+  ;; Evil-mode
+  (custom-set-variables
+   '(package-selected-packages '(evil-mode)))
+  (require 'evil)
+  (evil-mode t)
+  (package-install-selected-packages))
+
+
+(progn
   ;; Transpose-frame
   (custom-set-variables
    '(package-selected-packages '(transpose-frame)))
