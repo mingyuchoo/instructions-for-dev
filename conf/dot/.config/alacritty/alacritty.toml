@@ -2,8 +2,11 @@ live_config_reload = true
 
 
 [shell]
-program = "/usr/bin/fish"
-args = ["--command=tmux"]
+# program = "/usr/bin/fish"
+# args = ["--command=tmuxnu
+
+program = "/usr/bin/nu"
+args = ["-e tmux"]
 
 
 [window]
