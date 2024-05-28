@@ -22,6 +22,8 @@ $env.PATH = (
 $env.EDITOR = nvim
 
 alias ll = ls -l
+alias lz = lazydocker
+
 
 def --env yy [...args] {
     let tmp = (mktemp -t "yazi-cwd.XXXXXX")
