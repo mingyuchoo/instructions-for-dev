@@ -36,8 +36,13 @@ thickness = 0.5
 
 [font]
 normal.family = "ZedMono Nerd Font"
-normal.style = "Regular"
-size = 12
+normal.style = "light"
+size = 14
+
+
+[font.offset]
+x = 2
+y = 2
 
 
 [selection]
