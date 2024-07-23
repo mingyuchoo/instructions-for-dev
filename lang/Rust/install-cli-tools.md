@@ -37,7 +37,7 @@ cargo install cargo-watch
 ```bash
 cargo install bandwhich \
   bat \
-  dust \
+  du-dust \
   exa \
   gitnu \
   grex \
