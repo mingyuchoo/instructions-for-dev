@@ -1,5 +1,5 @@
 # How to install Rust in your machines.
-
+- <https://gist.github.com/sts10/daadbc2f403bdffad1b6d33aff016c0a>
 ## For NixOS machine
 
 edit `/etc/nixos/configuration.nix` in root account
