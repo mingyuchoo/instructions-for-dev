@@ -20,6 +20,7 @@ alias ls='ls --color=auto'
 alias ll='ls -la'
 alias ed='emacs --daemon'
 alias ec='emacsclient -c'
+alias sbcl='rlwrap sbcl'
 alias vi="nvim"
 alias vim="nvim"
 alias xclip="xclip -selection clipboard"
