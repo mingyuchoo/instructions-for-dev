@@ -25,10 +25,12 @@ rustup component add rust-analyzer
 run following command to install cargo tools in user account
 
 ```bash
+cargo install cargo-binstall
+cargo install cargo-dist
 cargo install cargo-expand
 cargo install cargo-lambda
 cargo install cargo-modules
-cargo install cargo-tauri
+cargo install cargo-tauri-app --locked
 cargo install cargo-watch
 ```
 
@@ -38,11 +40,10 @@ cargo install cargo-watch
 cargo install bandwhich \
   bat \
   du-dust \
-  exa \
+  eza \
   gitnu \
   grex \
   evcxr_repl \
-  helix-term --locked \
   hyperfine \
   mdbook \
   procs \
