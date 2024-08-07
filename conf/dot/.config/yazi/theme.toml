@@ -3,10 +3,10 @@
 # : Manager {{{
 
 [manager]
-cwd = { fg = "#83a598" }
+cwd = { fg = "#d79920" }
 
 # Hovered
-hovered         = { fg = "#282828", bg = "#83a598" }
+hovered         = { fg = "#282828", bg = "#d79920" }
 preview_hovered = { underline = true }
 
 # Find
@@ -20,7 +20,7 @@ marker_cut      = { fg = "#fb4934", bg = "#fb4934" }
 
 # Tab
 tab_active   = { fg = "#282828", bg = "#504945" }
-tab_inactive = { fg = "#a89984", bg = "#3c3836" }
+tab_inactive = { fg = "#679d69", bg = "#3c3836" }
 tab_width    = 1
 
 # Border
@@ -41,7 +41,7 @@ separator_close = ""
 separator_style = { fg = "#3c3836", bg = "#3c3836" }
 
 # Mode
-mode_normal = { fg = "#282828", bg = "#A89984", bold = true }
+mode_normal = { fg = "#282828", bg = "#d65c0d", bold = true }
 mode_select = { fg = "#282828", bg = "#b8bb26", bold = true }
 mode_unset  = { fg = "#282828", bg = "#d3869b", bold = true }
 
@@ -95,7 +95,7 @@ hovered = { underline = true }
 
 [which]
 mask            = { bg = "#3c3836" }
-cand            = { fg = "#83a598" }
+cand            = { fg = "#d79920" }
 rest            = { fg = "#928374" }
 desc            = { fg = "#fe8019" }
 separator       = "  "
@@ -108,10 +108,10 @@ separator_style = { fg = "#504945" }
 
 [help]
 on      = { fg = "#fe8019" }
-exec    = { fg = "#83a598" }
+exec    = { fg = "#d79920" }
 desc    = { fg = "#928374" }
 hovered = { bg = "#504945", bold = true }
-footer  = { fg = "#3c3836", bg = "#a89984" }
+footer  = { fg = "#3c3836", bg = "#679d69" }
 
 # : }}}
 
@@ -122,7 +122,7 @@ footer  = { fg = "#3c3836", bg = "#a89984" }
 
 rules = [
     # Images
-    { mime = "image/*", fg = "#83a598" },
+    { mime = "image/*", fg = "#d79920" },
 
     # Videos
     { mime = "video/*", fg = "#b8bb26" },
@@ -138,8 +138,8 @@ rules = [
     { mime = "application/x-rar",           fg = "#fe8019" },
 
     # Fallback
-    { name = "*", fg = "#a89984" },
-    { name = "*/", fg = "#83a598" }
+    { name = "*", fg = "#679d69" },
+    { name = "*/", fg = "#d79920" }
 ]
 
 # : }}}
