@@ -1,5 +1,5 @@
 alias ll ls -l $*
 alias la ls -la $*
-alias mkdir -p $*
+alias mkdir mkdir -p $*
 alias clear eshell/clear-scrollback
 alias open find-file $1
