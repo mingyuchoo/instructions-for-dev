@@ -11,7 +11,7 @@ sudo systemctl start NetworkManager.service
 ## Connect Wireless Manually in Console
 
 ```bash
-iwclt
+iwctl
 
 adapter list
 adpater phy0 set-property Powered on
