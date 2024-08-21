@@ -1,12 +1,11 @@
 live_config_reload = true
 
 
-[shell]
+#[shell]
 # program = "/usr/bin/fish"
 # args = ["--command=tmux]
-
-program = "/usr/bin/nu"
-args = ["-e tmux"]
+## program = "/usr/bin/nu"
+## args = ["-e tmux"]
 
 
 [window]
@@ -29,13 +28,13 @@ cursor.cursor = "#ff0000"
 
 
 [cursor]
-style.shape = "Underline"
+style.shape = "Beam"
 style.blinking = "On"
-thickness = 0.5
+thickness = 0.2
 
 
 [font]
-normal.family = "ZedMono Nerd Font"
+normal.family = "CaskaydiaMono Nerd Font"
 normal.style = "light"
 size = 14
 
