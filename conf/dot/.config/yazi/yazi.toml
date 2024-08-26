@@ -6,6 +6,7 @@ tab_size = 2
 
 [opener]
 edit = [
+  { run = 'emacsclient -c "$@"', block = true },
   # { run = 'nvim "$@"', block = true },
-  { run = 'hx "$@"', block = true },
+  # { run = 'hx "$@"', block = true },
 ]
