@@ -64,3 +64,4 @@ vi ./config/i3/config
 ## References
 
 - [The Ultimate Guide to i3 Customization in Linux](https://itsfoss.com/i3-customization/)
+- [i3 User's Guide](https://i3wm.org/docs/userguide.html)
