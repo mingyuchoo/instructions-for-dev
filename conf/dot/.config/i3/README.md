@@ -40,6 +40,27 @@ vi ./config/i3/config
 
 ```
 
+## How to use i3
+
+- Opening terminals: `$mod+Enter`
+- Moving around:
+  - left: `$mod+j`
+  - down: `$mod+k`
+  - up: `$mod+l`
+  - right: `$mod+;`
+- Changing the container layout
+  - toggle: `$mod+e`
+  - stackked: `$mod+s` 
+  - tabbed: `$mod+w`
+- Toggling fullscreen: `$mod+f`
+- Opening `dmenu`: `$mod+d`
+- Closing windows: `$mod+Shift+q`
+- Using workspaces: `$mod+num`
+  - Moving windows to workspaces: `$mod+Shift+num`
+- Restarting i3: `$mod+Shift+r`
+- Exiting i3: `$mod+Shift+e`
+- Floating: `$mod+Shift+Space`
+
 ## References
 
 - [The Ultimate Guide to i3 Customization in Linux](https://itsfoss.com/i3-customization/)
