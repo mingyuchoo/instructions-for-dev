@@ -14,7 +14,8 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:terminus 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -50,6 +51,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
+#bindsym $mod+Return exec i3-sensible-terminal 
 bindsym $mod+Return exec xterm -bg black -fg gray
 
 # kill focused window
@@ -57,6 +59,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run -fn terminus-8:normal
+
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -64,10 +67,15 @@ bindsym $mod+d exec --no-startup-id dmenu_run -fn terminus-8:normal
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -76,10 +84,15 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+semicolon move right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -88,10 +101,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+slash split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+minus split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -187,20 +200,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        position       top
         status_command i3status
 }
 
-# #############################################################################
-# Added by MINGYUCHOO
-# #############################################################################
-
-# Lock Screen
 bindsym $mod+Shift+x exec i3lock
-
-# Display Resolution
-exec_always xrandr --output eDP-1  --mode 2560x1440
-exec_always xrandr --output HDMI-1 --mode 3840x2160
-
-# Display Wallpaper
-exec_always feh --bg-fill /usr/share/backgrounds/warty-final-ubuntu.png
