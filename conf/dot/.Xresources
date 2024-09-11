@@ -1,5 +1,35 @@
 ! Restore Ctrl+Shift+(c|v)
+URxvt.font: xft:terminus:size=8
+URxvt.scrollBar: false
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.iso14755: false
 URxvt.iso14755_52: false
+URxvt.dynamicColors: on
+URxvt.background: #000000
+URxvt.foreground: #D3D3D3
+
+! red
+URxvt.color1: #B21818
+URxvt.color9: #FF5454
+
+! green
+URxvt.color2: #18B218
+URxvt.color10: #54FF54
+
+! yellow
+URxvt.color3: #B26818
+URxvt.color11: #FFFF54
+
+! blue
+URxvt.color4: #1818B2
+URxvt.color12: #5454FF
+
+! purple
+URxvt.color5: #B218B2
+URxvt.color13: #FF54FF
+
+
+! cyan
+URxvt.color6: #18B2B2
+URxvt.color14: #54FFFF
