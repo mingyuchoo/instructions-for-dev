@@ -14,12 +14,14 @@ stty erase ^H
 # Prompt
 PS1='[\u@\h \W]\$ '
 
+export EDITOR='emacsclient -t'
+export VISUAL='emacsclient -t'
+
 # Aliases
 alias df='df -h'
 alias ls='ls --color=auto'
 alias ll='ls -la'
-alias ed='emacs --daemon'
-alias ec='emacsclient -c'
+alias emacs='emacsclient -nw -c -a 'emacs'"
 alias sbcl='rlwrap sbcl'
 alias vi="nvim"
 alias vim="nvim"
