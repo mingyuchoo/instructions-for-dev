@@ -21,7 +21,7 @@ export VISUAL='emacsclient -t'
 alias df='df -h'
 alias ls='ls --color=auto'
 alias ll='ls -la'
-alias emacs='emacsclient -nw -c -a 'emacs'"
+alias emacs="emacsclient -nw -c -a 'emacs'"
 alias sbcl='rlwrap sbcl'
 alias vi="nvim"
 alias vim="nvim"
