@@ -1,39 +1,5 @@
 # How to install Rust in your machines.
 - <https://gist.github.com/sts10/daadbc2f403bdffad1b6d33aff016c0a>
-## For NixOS machine
-
-edit `/etc/nixos/configuration.nix` in root account
-
-```nix
-{ config, pkgs, ... }:
-{
-  users.users.<user_name> = {
-  rustup
-  }
-}
-```
-
-run following commands to install stable toolchain in user account
-
-```bash
-rustup default stable
-rustup component add rls # or `llvm`
-rustup component add rust-analysis
-rustup component add rust-analyzer
-```
-
-run following command to install cargo tools in user account
-
-```bash
-cargo install cargo-binstall
-cargo install cargo-dist
-cargo install cargo-expand
-cargo install cargo-lambda
-cargo install cargo-modules
-cargo install cargo-tauri-app --locked
-cargo install cargo-watch
-```
-
 ## Install other CLI tools
 
 ```bash
@@ -75,3 +41,53 @@ if command -v zellij &> /dev/null &&
   exec zellij
 fi
 ```
+## For NixOS machine
+
+edit `/etc/nixos/configuration.nix` in root account
+
+```nix
+{ config, pkgs, ... }:
+{
+  users.users.<user_name> = {
+  rustup
+  }
+}
+```
+
+run following commands to install stable toolchain in user account
+
+```bash
+rustup default stable
+
+# list all components
+rustup component list
+
+# add components
+rustup component add clippy
+rustup component add lldb-preview
+rustup component add llvm-tools-preview
+rustup component add miri
+rustup component add rls
+rustup component add rustfmt
+rustup component add rust-analysis
+rustup component add rust-analyzer
+rustup component add rust-demangler-preview
+rustup component add rust-src
+rustup component add rustc-dev
+
+# remove a component
+rustup component remove [component-name]
+```
+
+run following command to install cargo tools in user account
+
+```bash
+cargo install cargo-audit
+cargo install cargo-binstall
+cargo install cargo-dist
+cargo install cargo-expand
+cargo install cargo-lambda
+cargo install cargo-modules
+cargo install cargo-watch
+```
+
