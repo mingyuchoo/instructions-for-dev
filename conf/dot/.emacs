@@ -17,7 +17,7 @@
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
- '(default ((t (:family "IosevkaTerm Nerd Font Mono" :foundry "DAMA" :slant normal :weight regular :height 120 :width normal))))
+ '(default ((t (:family "Iosevka NF" :foundry "outline" :slant normal :weight regular :height 120 :width normal))))
  '(cursor ((t (:background "red3")))))
 
 
