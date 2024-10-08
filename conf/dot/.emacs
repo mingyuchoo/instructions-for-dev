@@ -9,14 +9,24 @@
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(custom-enabled-themes '(wheatgrass))
  '(display-battery-mode t)
  '(display-time-mode t)
+ '(package-selected-packages
+   '(em-alias eshell treemacs-magit treemacs-projectile treemacs slime zig-mode vterm transpose-frame rust-mode opam ocp-indent ocamlformat nix-mode neotree multiple-cursors lsp-ui lsp-haskell helm erlang editorconfig dune dotenv-mode alchemist))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:family "Iosevka NF" :foundry "outline" :slant normal :weight regular :height 120 :width normal))))
  '(cursor ((t (:background "red3")))))
 
@@ -25,66 +35,63 @@
   ;; Insall Emacs Packages
   (require 'package)
   (dolist (archive '(("melpa" . "https://melpa.org/packages/")
-       ("melpa-stable" . "https://stable.melpa.org/packages/")))
+                     ("melpa-stable" . "https://stable.melpa.org/packages/")))
     (add-to-list 'package-archives archive t))
+  (package-initialize)
   (when (not (string-equal system-type "windows-nt"))
       (progn
-  (add-to-list 'exec-path (concat (getenv "HOME") "/.local/bin/"))
-  (add-to-list 'load-path (concat (getenv "HOME") "/.opam/default/share/emacs/site-lisp"))))
-  (package-initialize))
-
-
-
-(if (string-equal system-type "windows-nt")
-    (progn
-      (defvar choo/home-directory "c:/Users/mingy")
-      (setq default-directory choo/home-directory))
-  (progn
-    (defvar choo/home-directory (getenv "HOME"))
-    (setq default-directory (concat choo/home-directory "/Dropbox/org-roam"))))
+        (add-to-list 'exec-path (concat (getenv "HOME") "/.local/bin/"))
+        (add-to-list 'load-path (concat (getenv "HOME") "/.opam/default/share/emacs/site-lisp")))))
 
 
 (progn
-  ;; Evil-mode
-  (custom-set-variables
-   '(package-selected-packages '(evil-mode)))
-  (require 'evil)
-  (evil-mode t)
-  (package-install-selected-packages))
+  (if (string-equal system-type "windows-nt")
+      (progn
+        (defvar choo/home-directory "c:/Users/mingy")
+        (setq default-directory choo/home-directory))
+    (progn
+      (defvar choo/home-directory (getenv "HOME"))
+      (setq default-directory (concat choo/home-directory "/Dropbox/org-roam"))))
+  (progn
+    (setq inhibit-startup-message t)
+    (setq initial-scratch-message "")
+    (setq-default mesage-log-max nil))
+  (progn
+    (set-language-environment "UTF-8")
+    (set-default-coding-systems 'utf-8)
+    (set-terminal-coding-system 'utf-8)
+    (set-keyboard-coding-system 'utf-8)
+    (prefer-coding-system 'utf-8)))
 
 
 (progn
   ;; Transpose-frame
-  (custom-set-variables
-   '(package-selected-packages '(transpose-frame)))
+  (unless (package-installed-p 'transpose-frame)
+    (package-install 'transpose-frame))
   (require 'transpose-frame)
-  (package-install-selected-packages)
   (global-set-key (kbd "C-x t") 'transpose-frame))
 
 
 (progn
   ;; Dotenv-mode
-  (custom-set-variables
-   '(package-selected-packages '(dotenv-mode)))
-   (require 'dotenv-mode)
-   (package-install-selected-packages))
+  (unless (package-installed-p 'dotenv-mode)
+    (package-install 'dotenv-mode))
+   (require 'dotenv-mode))
 
 
 (progn
   ;; Editorconfig
-  (custom-set-variables
-   '(package-selected-packages '(editorconfig)))
+  (unless (package-installed-p 'editorconfig)
+    (package-install 'editorconfig))
    (require 'editorconfig)
-   (package-install-selected-packages)
    (editorconfig-mode t))
 
 
 (progn
   ;; Multiple-cursors
-  (custom-set-variables
-   '(package-selected-packages '(multiple-cursors)))
+  (unless (package-installed-p 'multiple-cursors)
+    (package-install 'multiple-cursors))
    (require 'multiple-cursors)
-   (package-install-selected-packages)
    (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
    (global-set-key (kbd "C-S-c C-S-a") 'mc/mark-all-like-this)
    (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -93,43 +100,54 @@
 
 (progn
   ;; Helm-mode
-  (custom-set-variables
-   '(package-selected-packages '(helm)))
-  (package-install-selected-packages)
+  (unless (package-installed-p 'helm)
+    (package-install 'helm))
+
+  (require 'helm)
   (helm-mode t)
   (global-set-key (kbd "M-x") 'helm-M-x))
 
 
 (progn
-  ;; Vterm
-  (custom-set-variables
-   '(package-selected-packages '(vterm)))
-   (package-install-selected-packages)
-   (global-set-key (kbd "C-x v") 'vterm-toggle))
+  ;; Eshell
+  (unless (package-installed-p 'eshell)
+    (package-install 'eshell))
+  (global-set-key (kbd "C-x e") 'eshell)
+  (add-hook 'eshell-mode-hook
+            (lambda ()
+              (eshell/alias "e" "find-file $1")
+              (eshell/alias "ff" "find-file $1")
+              (eshell/alias "open" "find-file $1")
+              (eshell/alias "d" "dired $1")
+              (eshell/alias "ll" "ls -l $*")
+              (eshell/alias "la" "ls -a $*")
+              (eshell/alias "mkdir" "mkdir -p $*")
+              (eshell/alias "clear" "eshell/clear-scrollback"))))
 
 
 (progn
-  ;; Neotree
-  (custom-set-variables
-   '(package-selected-packages '(neotree)))
-   (package-install-selected-packages)
-   (setq neo-smart-open t)
-   (setq neo-window-width 40)
-   ;;(add-hook 'emacs-startup-hook 'neotree-toggle)
-   (global-set-key (kbd "C-x n") 'neotree-toggle))
-
+  ;; Treemacs
+  (unless (package-installed-p 'treemacs)
+    (package-install 'treemacs))
+  (require 'treemacs)
+  (global-set-key (kbd "C-x t") 'treemacs)
+  (global-set-key (kbd "M-0") 'treemacs-select-window)
+  (unless (package-installed-p 'treemacs-projectile)
+    (package-install 'treemacs-projectile))
+  (unless (package-installed-p 'treemacs-magit)
+    (package-install 'treemacs-magit)))
 
 
 (when (not (string-equal system-type "windows-nt"))
   (progn
     ;; Org-mode and Org-roam
-    (custom-set-variables
-     '(package-selected-packages '(ob-rust ob-typescript org-bullets org-roam)))
+    (dolist (pkg '(ob-rust ob-typescript org-bullets org-roam))
+      (unless (package-installed-p pkg)
+	      (package-install pkg)))
     (require 'org-bullets)
     (require 'org-roam)
     (require 'ob-rust)
     (require 'ob-typescript)
-    (package-install-selected-packages)
     (defvar choo/org-roam-directory (concat choo/home-directory "/Dropbox/org-roam"))
     (setq org-agenda-files (list choo/org-roam-directory))
     (setq org-roam-directory (file-truename choo/org-roam-directory))
@@ -159,10 +177,10 @@
 
 (progn
   ;; Haskell-mode
-  (custom-set-variables
-   '(package-selected-packages '(haskell-mode lsp-haskell lsp-mode lsp-ui)))
+  (dolist (pkg '(haskell-mode lsp-haskell lsp-mode lsp-ui))
+    (unless (package-installed-p pkg)
+      (package-install pkg)))
   (require 'lsp-haskell)
-  (package-install-selected-packages)
   ;; USE SAME VERSION WITH `ghc`
   ;; AND SET CORRECT PATH of `haskell-language-server-wrapper`
   (defvar hls-path "~/.ghcup/bin/haskell-language-server-wrapper")
@@ -174,31 +192,31 @@
 
 (progn
   ;; OCaml-mode
-  (custom-set-variables
-   '(package-selected-packages '(dune ocamlformat ocp-indent opam)))
-  (require 'ocp-indent)
-  (package-install-selected-packages))
+  (dolist (pkg '(dune ocamlformat ocp-indent opam))
+    (unless (package-installed-p pkg)
+      (package-install pkg)))
+  (require 'ocp-indent))
 
 
 (progn
   ;; Zig-mode
-  (custom-set-variables
-   '(package-selected-packages '(zig-mode)))
-  (package-install-selected-packages))
+  (unless (package-installed-p 'zig-mode)
+    (package-install 'zig-mode))
+  (require 'zig-mode))
 
 
 (progn
   ;; Rust-mode
-  (custom-set-variables
-   '(package-selected-packages '(rust-mode)))
-  (package-install-selected-packages))
+  (unless (package-installed-p 'rust-mode)
+    (package-install 'rust-mode))
+  (require 'rust-mode))
 
 
 (progn
   ;; Erlang, Elixir
-  (custom-set-variables
-   '(package-selected-packages '(alchemist elixir-mode eglot erlang)))
-  (package-install-selected-packages)
+  (dolist (pkg '(alchemist elixir-mode eglot erlang))
+    (unless (package-installed-p pkg)
+      (package-install pkg)))
   (require 'eglot)
   (setq lsp-elixir-enable-inlay-hints t)
   (add-hook 'elixir-mode-hook 'eglot-ensure)
@@ -207,10 +225,27 @@
 
 
 (progn
+  ;; SBCL
+  (dolist (pkg '(slime slime-company))
+    (unless (package-installed-p pkg)
+      (package-install pkg)))
+  (require 'slime)
+  (with-eval-after-load 'slime
+    (let ((helper-path (expand-file-name "~/.quicklsp/slime-helper.el")))
+      (when (file-exists-p helper-path)
+	      (load helper-path)))
+    (setq inferior-lisp-program "rlwrap sbcl"))
+  (eval-after-load 'slime
+    '(progn
+       (require 'slime-autoloads)
+       (slime-setup '(slime-fancy slime-company)))))
+
+
+(progn
   ;; Nix-mode
-  (custom-set-variables
-   '(package-selected-packages '(nix-mode)))
-  (package-install-selected-packages))
+  (unless (package-installed-p 'nix-mode)
+    (package-install 'nix-mode))
+  (require 'nix-mode))
 
 
 (progn
