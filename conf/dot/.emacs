@@ -7,7 +7,6 @@
 ;; $ emacsclient -nw -c
 ;;
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -18,7 +17,7 @@
  '(display-battery-mode t)
  '(display-time-mode t)
  '(package-selected-packages
-   '(flycheck-rust flycheck em-alias eshell treemacs-magit treemacs-projectile treemacs slime zig-mode vterm transpose-frame rust-mode opam ocp-indent ocamlformat nix-mode multiple-cursors lsp-ui lsp-haskell helm erlang editorconfig dune dotenv-mode alchemist))
+   '(elisp-mode elisp-format flycheck-rust flycheck em-alias eshell treemacs-magit treemacs-projectile treemacs slime zig-mode vterm transpose-frame rust-mode opam ocp-indent ocamlformat nix-mode multiple-cursors lsp-ui lsp-haskell helm erlang editorconfig dune dotenv-mode alchemist))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
@@ -29,6 +28,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Iosevka NF" :foundry "outline" :slant normal :weight regular :height 120 :width normal))))
  '(cursor ((t (:background "red3")))))
+
 
 
 (progn
@@ -42,6 +42,7 @@
       (progn
         (add-to-list 'exec-path (concat (getenv "HOME") "/.local/bin/"))
         (add-to-list 'load-path (concat (getenv "HOME") "/.opam/default/share/emacs/site-lisp")))))
+
 
 
 (progn
@@ -63,12 +64,14 @@
     (prefer-coding-system 'utf-8)))
 
 
+
 (progn
   ;; Transpose-frame
   (unless (package-installed-p 'transpose-frame)
     (package-install 'transpose-frame))
   (require 'transpose-frame)
   (global-set-key (kbd "C-x t") 'transpose-frame))
+
 
 
 (progn
@@ -78,12 +81,14 @@
    (require 'dotenv-mode))
 
 
+
 (progn
   ;; Editorconfig
   (unless (package-installed-p 'editorconfig)
     (package-install 'editorconfig))
    (require 'editorconfig)
    (editorconfig-mode t))
+
 
 
 (progn
@@ -97,6 +102,7 @@
    (global-set-key (kbd "C-<") 'mc/mark-previous-like-this))
 
 
+
 (progn
   ;; Helm-mode
   (unless (package-installed-p 'helm)
@@ -105,6 +111,7 @@
   (require 'helm)
   (helm-mode t)
   (global-set-key (kbd "M-x") 'helm-M-x))
+
 
 
 (progn
@@ -124,6 +131,7 @@
               (eshell/alias "clear" "eshell/clear-scrollback"))))
 
 
+
 (progn
   ;; Treemacs
   (unless (package-installed-p 'treemacs)
@@ -135,6 +143,7 @@
     (package-install 'treemacs-projectile))
   (unless (package-installed-p 'treemacs-magit)
     (package-install 'treemacs-magit)))
+
 
 
 (when (not (string-equal system-type "windows-nt"))
@@ -174,44 +183,80 @@
                                (visual-line-mode t)
                                (choo/org-mode-keys)))))
 
+
+
 (progn
-  ;; Haskell-mode
-  (dolist (pkg '(haskell-mode lsp-haskell lsp-mode lsp-ui))
+  ;; For Python Programming Language
+  (dolist (pkg '(python-mode lsp-mode lsp-ui company flycheck))
     (unless (package-installed-p pkg)
       (package-install pkg)))
-  (require 'lsp-haskell)
-  ;; USE SAME VERSION WITH `ghc`
-  ;; AND SET CORRECT PATH of `haskell-language-server-wrapper`
-  (defvar hls-path "~/.ghcup/bin/haskell-language-server-wrapper")
-  (setq lsp-haskell-server-path hls-path)
-  (setq haskell-stylish-on-save t)
-  (add-hook 'haskell-mode-hook #'lsp)
-  (add-hook 'haskell-literate-mode-hook #'lsp))
+  (require 'python-mode)
+  (use-package python-mode
+    :ensure t)
+  (use-package lsp-mode
+    :ensure t
+    :hook (python-mode . lsp)
+    :commands lsp)
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :config
+    (setq lsp-ui-doc-enable t)
+    (setq lsp-ui-doc-position 'top)
+    (setq lsp-ui-sideline-enable t))
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+  (use-package company
+    :ensure t
+    :hook (after-init . global-company-mode)
+    :config
+    (setq company-idle-delay 0.1)
+    (setq company-minimum-prefix-length 1)))
 
 
-(progn
-  ;; OCaml-mode
-  (dolist (pkg '(dune ocamlformat ocp-indent opam))
+
+( progn
+  ;; For Typescript Programming Language
+  (dolist (pkg '(typescript-mode lsp-mode lsp-ui company flycheck))
     (unless (package-installed-p pkg)
       (package-install pkg)))
-  (require 'ocp-indent))
+  (require 'typescript-mode)
+  (use-package typescript-mode
+    :ensure t)
+  (use-package lsp-mode
+    :ensure t
+    :hook (typescript-mode . lsp)
+    :commands lsp)
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :config
+    (setq lsp-ui-doc-enable t)
+    (setq lsp-ui-doc-position 'top)
+    (setq lsp-ui-sideline-enable t))
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+  (use-package company
+    :ensure t
+    :hook (after-init . global-company-mode)
+    :config
+    (setq company-idle-delay 0.1)
+    (setq company-minimum-prefix-length 1)))
+
 
 
 (progn
-  ;; Zig-mode
-  (unless (package-installed-p 'zig-mode)
-    (package-install 'zig-mode))
-  (require 'zig-mode))
-
-
-(progn
-  ;; Rust-mode
+  ;; For Rust Programming Language
   (dolist (pkg '(rust-mode lsp-mode lsp-ui company flycheck flycheck-rust))
-    (unless (package-installed-p 'rust-mode)
-      (package-install 'rust-mode)))
+    (unless (package-installed-p pkg)
+      (package-install pkg)))
   (require 'rust-mode)
   (use-package rust-mode
-    :ensure t)
+    :ensure t
+    :hook (rust-mode . (lambda ()
+                         (add-hook 'before-save-hook #'rust-format-buffer nil t))))
   (use-package lsp-mode
     :ensure t
     :hook (rust-mode . lsp)
@@ -237,37 +282,236 @@
   (use-package flycheck-rust
     :ensure t
     :config
-    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-  )
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)))
+
 
 
 (progn
-  ;; Erlang, Elixir
-  (dolist (pkg '(alchemist elixir-mode eglot erlang))
+  ;; For Haskell Programming Language
+  (dolist (pkg '(haskell-mode lsp-mode lsp-ui company flycheck lsp-haskell))
     (unless (package-installed-p pkg)
       (package-install pkg)))
+  (require 'haskell-mode)
+  (use-package haskell-mode
+    :ensure t
+    :hook (haskell-mode . (lambda ()
+                            (add-hook 'before-save-hook #'lsp-format-buffer nil t))))
+  (use-package lsp-mode
+    :ensure t
+    :hook (haskell-mode . lsp)
+    :commands lsp
+    :config
+    (setq lsp-haskell-server-path "haskell-language-server-wrapper"))
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :config
+    (setq lsp-ui-doc-enable t)
+    (setq lsp-ui-doc-position 'top)
+    (setq lsp-ui-sideline-enable t))
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+  (use-package company
+    :ensure t
+    :hook (after-init . global-company-mode)
+    :config
+    (setq company-idle-delay 0.1)
+    (setq company-minimum-prefix-length 1)))
+
+
+
+(progn
+  ;; For OCaml Programming Language
+  (dolist (pkg '(dune ocamlformat ocp-indent opam tuareg lsp-mode lsp-ui company flycheck))
+    (unless (package-installed-p pkg)
+      (package-install pkg)))
+  (require 'tuareg)
+  (use-package tuareg
+    :ensure t
+    :hook (tuareg-mode . (lambda ()
+                           (add-hook 'before-save-hook #'ocamlformat-before-save nil t))))
+  (use-package lsp-mode
+    :ensure t
+    :hook (tuareg-mode . lsp)
+    :commands lsp
+    :config
+    (setq lsp-ocaml-server-command '("ocamllsp")))
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :config
+    (setq lsp-ui-doc-enable t)
+    (setq lsp-ui-doc-position 'top)
+    (setq lsp-ui-sideline-enable t))
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+  (use-package company
+    :ensure t
+    :hook (after-init . global-company-mode)
+    :config
+    (setq company-idle-delay 0.1)
+    (setq company-minimum-prefix-length 1)))
+
+
+
+(progn
+  ;; For Zig Programming Language
+  (dolist (pkg '(zig-mode lsp-mode lsp-ui company flycheck))
+    (unless (package-installed-p pkg)
+      (package-install pkg)))
+  (require 'zig-mode)
+  (use-package zig-mode
+    :ensure t
+    :hook (zig-mode . (lambda ()
+                        (add-hook 'before-save-hook #'zig-mode-format-buffer nil t))))
+  (use-package lsp-mode
+    :ensure t
+    :hook (zig-mode . lsp)
+    :commands lsp
+    :config
+    (setq lsp-zig-zls-executable "zls"))
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :config
+    (setq lsp-ui-doc-enable t)
+    (setq lsp-ui-doc-position 'top)
+    (setq lsp-ui-sideline-enable t))
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+  (use-package company
+    :ensure t
+    :hook (after-init . global-company-mode)
+    :config
+    (setq company-idle-delay 0.1)
+    (setq company-minimum-prefix-length 1)))
+
+
+
+(progn
+  ;; For Erlang Programming Language
+  (dolist (pkg '(erlang lsp-mode lsp-ui company flycheck))
+    (unless (package-installed-p pkg)
+      (package-install pkg)))
+  (require 'erlang)
+  (use-package erlang
+    :ensure t
+    :hook (erlang-mode . (lambda ()
+                           (add-hook 'before-save-hook #'erlang-indent-current-buffer nil t))))
+  (use-package lsp-mode
+    :ensure t
+    :hook (erlang-mode . lsp)
+    :commands lsp
+    :config
+    (setq lsp-erlang-server-command '("erlang_ls")))
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :config
+    (setq lsp-ui-doc-enable t)
+    (setq lsp-ui-doc-position 'top)
+    (setq lsp-ui-sideline-enable t))
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+  (use-package company
+    :ensure t
+    :hook (after-init . global-company-mode)
+    :config
+    (setq company-idle-delay 0.1)
+    (setq company-minimum-prefix-length 1)))
+
+
+
+(progn
+  ;; For Elixir Programming Language
+  (dolist (pkg '(alchemist eglot elixir-mode lsp-mode lsp-ui company flycheck))
+    (unless (package-installed-p pkg)
+      (package-install pkg)))
+  (require 'elixir-mode)
   (require 'eglot)
   (setq lsp-elixir-enable-inlay-hints t)
   (add-hook 'elixir-mode-hook 'eglot-ensure)
   (add-hook 'elixir-mode-hook (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
-  (add-to-list 'eglot-server-programs '(elixir-mode "~/.nix-profile/bin/elixir-ls"))) ;; path in NixOS home-manager
+  (add-to-list 'eglot-server-programs '(elixir-mode "~/.nix-profile/bin/elixir-ls")) ;; path in NixOS home-manager
+  (use-package elixir-mode
+    :ensure t)
+  (use-package lsp-mode
+    :ensure t
+    :hook (elixir-mode . lsp)
+    :commands lsp
+    :config
+    (setq lsp-elixir-server-command '("elixir-ls")))
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :config
+    (setq lsp-ui-doc-enable t)
+    (setq lsp-ui-doc-position 'top)
+    (setq lsp-ui-sideline-enable t))
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+  (use-package company
+    :ensure t
+    :hook (after-init . global-company-mode)
+    :config
+    (setq company-idle-delay 0.1)
+    (setq company-minimum-prefix-length 1)))
+
 
 
 (progn
-  ;; SBCL
-  (dolist (pkg '(slime slime-company))
+  ;; For SBCL (Common Lisp) Programming Language
+  (dolist (pkg '(slime slime-company lsp-mode lsp-ui company flycheck))
     (unless (package-installed-p pkg)
       (package-install pkg)))
   (require 'slime)
   (with-eval-after-load 'slime
     (let ((helper-path (expand-file-name "~/.quicklsp/slime-helper.el")))
       (when (file-exists-p helper-path)
-	      (load helper-path)))
+        (load helper-path)))
     (setq inferior-lisp-program "rlwrap sbcl"))
+  (use-package slime
+    :ensure t
+    :hook (lisp-mode . (lambda ()
+                         (add-hook 'before-save-hook #'slime-format-buffer nil t)))
+    :config
+    (setq slime-contribs '(slime-fancy)))
+  (use-package slime-company
+    :ensure t
+    :after (slime company)
+    :config
+    (setq slime-company-completion 'fuzzy
+          slime-company-after-completion 'slime-company-just-one-space))
   (eval-after-load 'slime
     '(progn
        (require 'slime-autoloads)
-       (slime-setup '(slime-fancy slime-company)))))
+       (slime-setup '(slime-fancy slime-company))))
+  (use-package lsp-mode
+    :ensure t
+    :hook (lisp-mode . lsp)
+    :commands lsp)
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :config
+    (setq lsp-ui-doc-enable t)
+    (setq lsp-ui-doc-position 'top)
+    (setq lsp-ui-sideline-enable t))
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+  (use-package company
+    :ensure t
+    :hook (after-init . global-company-mode)
+    :config
+    (setq company-idle-delay 0.1)
+    (setq company-minimum-prefix-length 1)))
+
 
 
 (progn
@@ -277,11 +521,13 @@
   (require 'nix-mode))
 
 
+
 (progn
   ;; No Line Numbers
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0)))
   (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0)))
   (add-hook 'dired-mode-hook (lambda () (display-line-numbers-mode 0))))
+
 
 
 (progn
@@ -295,6 +541,7 @@
     (other-window 1))
   ;; (add-hook 'after-init-hook 'setup-initial-windows)
   (add-hook 'before-save-hook (lambda () (whitespace-cleanup) (delete-trailing-whitespace))))
+
 
 
 (progn
@@ -322,6 +569,7 @@
   (setq show-paren-style 'parenthesis)
   (setq scroll-preserve-screen-position 'always)
   (kill-buffer "*Messages*"))
+
 
 
 (progn
