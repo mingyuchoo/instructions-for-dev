@@ -18,7 +18,7 @@
  '(display-battery-mode t)
  '(display-time-mode t)
  '(package-selected-packages
-   '(em-alias eshell treemacs-magit treemacs-projectile treemacs slime zig-mode vterm transpose-frame rust-mode opam ocp-indent ocamlformat nix-mode neotree multiple-cursors lsp-ui lsp-haskell helm erlang editorconfig dune dotenv-mode alchemist))
+   '(flycheck-rust flycheck em-alias eshell treemacs-magit treemacs-projectile treemacs slime zig-mode vterm transpose-frame rust-mode opam ocp-indent ocamlformat nix-mode multiple-cursors lsp-ui lsp-haskell helm erlang editorconfig dune dotenv-mode alchemist))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
@@ -54,7 +54,6 @@
       (setq default-directory (concat choo/home-directory "/Dropbox/org-roam"))))
   (progn
     (setq inhibit-startup-message t)
-    (setq initial-scratch-message "")
     (setq-default mesage-log-max nil))
   (progn
     (set-language-environment "UTF-8")
@@ -207,9 +206,39 @@
 
 (progn
   ;; Rust-mode
-  (unless (package-installed-p 'rust-mode)
-    (package-install 'rust-mode))
-  (require 'rust-mode))
+  (dolist (pkg '(rust-mode lsp-mode lsp-ui company flycheck flycheck-rust))
+    (unless (package-installed-p 'rust-mode)
+      (package-install 'rust-mode)))
+  (require 'rust-mode)
+  (use-package rust-mode
+    :ensure t)
+  (use-package lsp-mode
+    :ensure t
+    :hook (rust-mode . lsp)
+    :commands lsp
+    :config
+    (setq lsp-rust-server 'rust-analyzer))
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :config
+    (setq lsp-ui-doc-enable t)
+    (setq lsp-ui-doc-position 'top)
+    (setq lsp-ui-sideline-enable t))
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+  (use-package company
+    :ensure t
+    :hook (after-init . global-company-mode)
+    :config
+    (setq company-idle-delay 0.1)
+    (setq company-minimum-prefix-length 1))
+  (use-package flycheck-rust
+    :ensure t
+    :config
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+  )
 
 
 (progn
