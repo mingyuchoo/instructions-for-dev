@@ -31,6 +31,7 @@
 
 
 
+
 (progn
   ;; Insall Emacs Packages
   (require 'package)
@@ -53,6 +54,8 @@
     (progn
       (defvar choo/home-directory (getenv "HOME"))
       (setq default-directory (concat choo/home-directory "/Dropbox/org-roam"))))
+  (when (display-graphic-p)
+    (setq initial-frame-alist '((width . 160) (height . 50))))
   (progn
     (setq inhibit-startup-message t)
     (setq-default mesage-log-max nil))
