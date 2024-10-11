@@ -17,7 +17,7 @@
  '(display-battery-mode t)
  '(display-time-mode t)
  '(package-selected-packages
-   '(elisp-mode elisp-format flycheck-rust flycheck em-alias eshell treemacs-magit treemacs-projectile treemacs slime zig-mode vterm transpose-frame rust-mode opam ocp-indent ocamlformat nix-mode multiple-cursors lsp-ui lsp-haskell helm erlang editorconfig dune dotenv-mode alchemist))
+   '(tuareg typescript-mode elisp-mode elisp-format flycheck-rust flycheck em-alias eshell treemacs-magit treemacs-projectile treemacs slime zig-mode vterm transpose-frame rust-mode opam ocp-indent ocamlformat nix-mode multiple-cursors lsp-ui lsp-haskell helm erlang editorconfig dune dotenv-mode alchemist))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
@@ -49,7 +49,7 @@
 (progn
   (if (string-equal system-type "windows-nt")
       (progn
-        (defvar choo/home-directory "c:/Users/mingy")
+        (defvar choo/home-directory "c:/Users/mingy/github/mingyuchoo")
         (setq default-directory choo/home-directory))
     (progn
       (defvar choo/home-directory (getenv "HOME"))
@@ -110,7 +110,6 @@
   ;; Helm-mode
   (unless (package-installed-p 'helm)
     (package-install 'helm))
-
   (require 'helm)
   (helm-mode t)
   (global-set-key (kbd "M-x") 'helm-M-x))
@@ -193,7 +192,6 @@
   (dolist (pkg '(python-mode lsp-mode lsp-ui company flycheck))
     (unless (package-installed-p pkg)
       (package-install pkg)))
-  (require 'python-mode)
   (use-package python-mode
     :ensure t)
   (use-package lsp-mode
@@ -224,7 +222,6 @@
   (dolist (pkg '(typescript-mode lsp-mode lsp-ui company flycheck))
     (unless (package-installed-p pkg)
       (package-install pkg)))
-  (require 'typescript-mode)
   (use-package typescript-mode
     :ensure t)
   (use-package lsp-mode
@@ -255,7 +252,6 @@
   (dolist (pkg '(rust-mode lsp-mode lsp-ui company flycheck flycheck-rust))
     (unless (package-installed-p pkg)
       (package-install pkg)))
-  (require 'rust-mode)
   (use-package rust-mode
     :ensure t
     :hook (rust-mode . (lambda ()
@@ -265,7 +261,10 @@
     :hook (rust-mode . lsp)
     :commands lsp
     :config
-    (setq lsp-rust-server 'rust-analyzer))
+    (setq lsp-rust-analyzer-server-command
+          (if (string-equal system-type "windows-nt")
+              '((concat choo/home-directory "/.cargo/bin/rust-analyzer.exe"))
+            '((concat choo/home-directory "/.cargo/bin/rust-analyzer")))))
   (use-package lsp-ui
     :ensure t
     :commands lsp-ui-mode
@@ -294,7 +293,6 @@
   (dolist (pkg '(haskell-mode lsp-mode lsp-ui company flycheck lsp-haskell))
     (unless (package-installed-p pkg)
       (package-install pkg)))
-  (require 'haskell-mode)
   (use-package haskell-mode
     :ensure t
     :hook (haskell-mode . (lambda ()
@@ -329,7 +327,6 @@
   (dolist (pkg '(dune ocamlformat ocp-indent opam tuareg lsp-mode lsp-ui company flycheck))
     (unless (package-installed-p pkg)
       (package-install pkg)))
-  (require 'tuareg)
   (use-package tuareg
     :ensure t
     :hook (tuareg-mode . (lambda ()
@@ -364,7 +361,6 @@
   (dolist (pkg '(zig-mode lsp-mode lsp-ui company flycheck))
     (unless (package-installed-p pkg)
       (package-install pkg)))
-  (require 'zig-mode)
   (use-package zig-mode
     :ensure t
     :hook (zig-mode . (lambda ()
@@ -399,7 +395,6 @@
   (dolist (pkg '(erlang lsp-mode lsp-ui company flycheck))
     (unless (package-installed-p pkg)
       (package-install pkg)))
-  (require 'erlang)
   (use-package erlang
     :ensure t
     :hook (erlang-mode . (lambda ()
@@ -472,7 +467,6 @@
   (dolist (pkg '(slime slime-company lsp-mode lsp-ui company flycheck))
     (unless (package-installed-p pkg)
       (package-install pkg)))
-  (require 'slime)
   (with-eval-after-load 'slime
     (let ((helper-path (expand-file-name "~/.quicklsp/slime-helper.el")))
       (when (file-exists-p helper-path)
@@ -623,5 +617,6 @@
   (global-set-key (kbd "C-c a") 'replace-current-word-everywhere)
   (global-set-key (kbd "C-x 2") 'split-window-below-and-move)
   (global-set-key (kbd "C-x 3") 'split-window-right-and-move)
+  (global-set-key (kbd "C-<kanji>") 'set-mark-command)
   (global-set-key (kbd "C-h") 'delete-backward-char)
   (define-key minibuffer-local-map (kbd "C-h") 'delete-backward-char))
