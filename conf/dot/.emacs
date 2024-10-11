@@ -73,7 +73,7 @@
   (unless (package-installed-p 'transpose-frame)
     (package-install 'transpose-frame))
   (require 'transpose-frame)
-  (global-set-key (kbd "C-x t") 'transpose-frame))
+  (global-set-key (kbd "C-x p") 'transpose-frame))
 
 
 
