@@ -17,7 +17,7 @@
  '(display-battery-mode t)
  '(display-time-mode t)
  '(package-selected-packages
-   '(tuareg typescript-mode elisp-mode elisp-format flycheck-rust flycheck em-alias eshell treemacs-magit treemacs-projectile treemacs slime zig-mode vterm transpose-frame rust-mode opam ocp-indent ocamlformat nix-mode multiple-cursors lsp-ui lsp-haskell helm erlang editorconfig dune dotenv-mode alchemist))
+   '(lsp-rust tuareg typescript-mode elisp-mode elisp-format flycheck-rust flycheck em-alias eshell treemacs-magit treemacs-projectile treemacs slime zig-mode vterm transpose-frame rust-mode opam ocp-indent ocamlformat nix-mode multiple-cursors lsp-ui lsp-haskell helm erlang editorconfig dune dotenv-mode alchemist))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
@@ -254,17 +254,17 @@
       (package-install pkg)))
   (use-package rust-mode
     :ensure t
-    :hook (rust-mode . (lambda ()
-                         (add-hook 'before-save-hook #'rust-format-buffer nil t))))
+    :hook ((rust-mode . lsp)
+           (before-save . lsp-format-buffer)))
   (use-package lsp-mode
     :ensure t
     :hook (rust-mode . lsp)
     :commands lsp
     :config
     (setq lsp-rust-analyzer-server-command
-          (if (string-equal system-type "windows-nt")
-              '((concat choo/home-directory "/.cargo/bin/rust-analyzer.exe"))
-            '((concat choo/home-directory "/.cargo/bin/rust-analyzer")))))
+          (list (or (executable-find "rust-analyzer")
+                    (expand-file-name "~/.cargo/bin/rust-analyzer")
+                    (expand-file-name "~/.cargo/bin/rust-analyzer.exe")))))
   (use-package lsp-ui
     :ensure t
     :commands lsp-ui-mode
@@ -280,7 +280,8 @@
     :hook (after-init . global-company-mode)
     :config
     (setq company-idle-delay 0.1)
-    (setq company-minimum-prefix-length 1))
+    (setq company-minimum-prefix-length 1)
+    (add-to-list 'company-backends 'company-capf))
   (use-package flycheck-rust
     :ensure t
     :config
