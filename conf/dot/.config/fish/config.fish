@@ -1,49 +1,47 @@
+stty erase ^H
+
 umask 022
 
-stty erase 
-
-# ENV
-set -gx EDITOR 'nvim'
+# ENVs
+set -gx EDITOR 'emacsclient -t'
+set -gx VISUAL 'emacsclient -t'
 set -gx LANG en_US.UTF-8
 set -gx MANPATH "/usr/local/man:$MANPATH"
 set -gx PAGER 'cat'
 
 set -x HIST_STAMPS "yyyy-mm-dd"
 set -x fish_history_size 20000
+set -x JAVA_HOME /usr/libexec/java_home
 
-# PATH
-fish_add_path /home/linuxbrew/.linuxbrew/bin
-fish_add_path /home/linuxbrew/.linuxbrew/sbin
+# PATHs
+fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/sbin
 fish_add_path /usr/local/bin
+fish_add_path /Applications/Docker.app/Contents/Resources/bin
+fish_add_path /Applications/Visual Studio Code.app/Contents/Resources/app/bin
+fish_add_path $HOME/Applications/Zed.app/Contents/MacOS
+fish_add_path $HOME/Applications/Alacritty.app/Contents/MacOS
 fish_add_path $HOME/bin
-fish_add_path $HOME/go/bin
-fish_add_path $HOME/.rd/bin
 fish_add_path $HOME/.bun/bin
 fish_add_path $HOME/.cargo/bin
-fish_add_path $HOME/.fly/bin
-fish_add_path $HOME/.ghcup/bin
-fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.config/emacs/bin
-fish_add_path $HOME/.opam/default/bin
-fish_add_path $HOME/.nvm/versions/node/v22.1.0/bin
-fish_add_path $HOME/.zig
+fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.opam/bin
+fish_add_path $HOME/.rd/bin
 
-# ALIASES
+
+# ALIASes
+alias emacs="emacsclient -nw -c -a 'emacs'"
 alias ls="ls --color=auto"
-alias la="ls -la"
 alias ll="ls -l"
-alias lz="lazydocker"
-alias ed="emacs --daemon"
-alias ec="emacsclient -c"
-alias xclip="xclip -selection clipboard"
-alias xsel="xsel --clipboard --input"
+alias la="ls -la"
+alias mkdir="mkdir -p"
+alias vi="nvim"
+alias vim="nvim"
 
-# ENV Hook
-direnv hook fish | source
-zoxide init fish | source
 
-# FUNCTIONS
-function yy
+# FUNCTIONs
+function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file=$tmp
     set cwd (cat -- $tmp)
@@ -53,9 +51,11 @@ function yy
     rm -f -- $tmp
 end
 
-function nvm
-   bass source $HOME/.nvm/nvm.sh --no-use ';' nvm $argv
-end
+# Sources
+source "$HOME/.venv/bin/activate.fish"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-source ~/.asdf/asdf.fish
+# EVALs
+eval "$(zoxide   init fish)"
+eval "$(starship init fish)"
+eval "$(opam env --switch=default)"
+eval "$(fnm env --use-on-cd)"
