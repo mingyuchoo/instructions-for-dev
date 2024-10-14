@@ -21,14 +21,15 @@
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Iosevka NF" :foundry "outline" :slant normal :weight regular :height 120 :width normal))))
- '(cursor ((t (:background "red3")))))
 
+
+
+(progn
+  (defun my/setup-fonts ()
+    (set-cursor-color "#FF0000")
+    (set-face-attribute 'default nil :font (font-spec :family "Iosevka NF" :size 12))
+    (set-fontset-font t 'hangul (font-spec :family "Nanum Myeongjo")))
+  (add-hook 'after-init-hook #'my/setup-fonts))
 
 
 
