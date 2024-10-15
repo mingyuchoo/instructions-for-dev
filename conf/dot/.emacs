@@ -16,8 +16,6 @@
  '(custom-enabled-themes '(wheatgrass))
  '(display-battery-mode t)
  '(display-time-mode t)
- '(package-selected-packages
-   '(lsp-rust tuareg typescript-mode elisp-mode elisp-format flycheck-rust flycheck em-alias eshell treemacs-magit treemacs-projectile treemacs slime zig-mode vterm transpose-frame rust-mode opam ocp-indent ocamlformat nix-mode multiple-cursors lsp-ui lsp-haskell helm erlang editorconfig dune dotenv-mode alchemist))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
@@ -54,9 +52,9 @@
         (setq default-directory choo/home-directory))
     (progn
       (defvar choo/home-directory (getenv "HOME"))
-      (setq default-directory (concat choo/home-directory "/Dropbox/org-roam"))))
+      (setq default-directory (concat choo/home-directory "/github/mingyuchoo"))))
   (when (display-graphic-p)
-    (setq initial-frame-alist '((width . 160) (height . 50))))
+    (setq initial-frame-alist '((width . 120) (height . 40))))
   (progn
     (setq inhibit-startup-message t)
     (setq-default mesage-log-max nil))
@@ -140,16 +138,13 @@
 
 
 (progn
-  ;; Treemacs
-  (unless (package-installed-p 'treemacs)
-    (package-install 'treemacs))
-  (require 'treemacs)
-  (global-set-key (kbd "C-x t") 'treemacs)
-  (global-set-key (kbd "M-0") 'treemacs-select-window)
-  (unless (package-installed-p 'treemacs-projectile)
-    (package-install 'treemacs-projectile))
-  (unless (package-installed-p 'treemacs-magit)
-    (package-install 'treemacs-magit)))
+  ;; Neotree
+  (unless (package-installed-p 'neotree)
+    (package-install 'neotree))
+  (require 'neotree)
+  (global-set-key (kbd "C-x t") 'neotree-toggle)
+  (setq neo-smart-open t)
+  (setq neo-autorefresh t))
 
 
 
@@ -163,7 +158,7 @@
     (require 'org-roam)
     (require 'ob-rust)
     (require 'ob-typescript)
-    (defvar choo/org-roam-directory (concat choo/home-directory "/Dropbox/org-roam"))
+    (defvar choo/org-roam-directory (concat choo/home-directory "/github/mingyuchoo"))
     (setq org-agenda-files (list choo/org-roam-directory))
     (setq org-roam-directory (file-truename choo/org-roam-directory))
     (setq org-startup-folded 'content)
@@ -629,3 +624,9 @@
   (define-key minibuffer-local-ns-map (kbd "C-h") 'delete-backward-char)
   (define-key minibuffer-local-completion-map (kbd "C-h") 'delete-backward-char)
   (define-key minibuffer-local-must-match-map (kbd "C-h") 'delete-backward-char))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
