@@ -122,8 +122,12 @@
   (unless (package-installed-p 'eshell)
     (package-install 'eshell))
   (global-set-key (kbd "C-x e") 'eshell)
+  (setq eshell-cmpl-cycle-completions nil)
+  (setq eshell-cmpl-ignore-case t)
+  (setq eshell-cmpl-autolist nil)
   (add-hook 'eshell-mode-hook
             (lambda ()
+              (company-mode -1)
               (eshell/alias "e" "find-file $1")
               (eshell/alias "ff" "find-file $1")
               (eshell/alias "open" "find-file $1")
