@@ -625,4 +625,7 @@
   (global-set-key (kbd "C-x 3") 'split-window-right-and-move)
   (global-set-key (kbd "C-<kanji>") 'set-mark-command)
   (global-set-key (kbd "C-h") 'delete-backward-char)
-  (define-key minibuffer-local-map (kbd "C-h") 'delete-backward-char))
+  (define-key minibuffer-local-map (kbd "C-h") 'delete-backward-char)
+  (define-key minibuffer-local-ns-map (kbd "C-h") 'delete-backward-char)
+  (define-key minibuffer-local-completion-map (kbd "C-h") 'delete-backward-char)
+  (define-key minibuffer-local-must-match-map (kbd "C-h") 'delete-backward-char))
