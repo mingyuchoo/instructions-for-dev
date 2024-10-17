@@ -1,6 +1,6 @@
 * ASDF version manager
 ** For macOS
-** Install ASDF using Homebrew
+*** Install ASDF using Homebrew
 #+begin_src zsh
   brew install coreutils curl git
   brew install asdf
@@ -43,7 +43,9 @@
   # cat $PWD/.tool-versions
 #+end_src
 ** Uninstall tools using ASDF
-*** Uninstall
+**** Uninstall
 #+begin_src zsh
   asdf uninstall <tool-name>
 #+end_src
+** References
+- https://asdf-vm.com/guide/getting-started.html
