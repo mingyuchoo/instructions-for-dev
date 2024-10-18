@@ -1,3 +1,46 @@
+# #####################################
+# Rust
+# #####################################
+[[language]]
+name = "rust"
+scope = "source.rust"
+injection-regex = "rust"
+file-types = ["rs"]
+roots = ["Cargo.toml", "Cargo.lock"]
+auto-format = true
+language-servers = ["rust-analyzer"]
+indent = { tab-width = 4, unit = "    " }
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.rust-analyzer.config]
+checkOnSave = { command = "clippy" }
+cargo = { loadOutDirsFromCheck = true }
+procMacro = { enable = true }
+diagnostics = { disabled = ["unresolved-proc-macro"] }
+
+
+
+# #####################################
+# Haskell
+# #####################################
+[[language]]
+name = "haskell"
+scope = "source.haskell"
+injection-regex = "hs|haskell"
+file-types = ["hs", "hs-boot", "hsc"]
+roots = ["Setup.hs", "stack.yaml", "cabal.project"]
+auto-format = true
+block-comment-tokens = { start = "{-", end = "-}" }
+language-servers = [ "haskell-language-server" ]
+indent = { tab-width = 2, unit = "  " }
+
+
+
+# #####################################
+# Erlang
+# #####################################
 [[language]]
 language-servers = [ "erlang-ls" ]
 name = "erlang"
@@ -6,9 +49,13 @@ injection-regex = "erl(ang)?"
 file-types = ["erl", "hrl", "app", { glob = "rebar.config" }, { glob = "rebar.lock" }, { glob = "*.app.src" }]
 roots = ["rebar.config"]
 shebangs = ["escript"]
-comment-token = "%%"
 indent = { tab-width = 4, unit = "    " }
 
+
+
+# #####################################
+# Elixir
+# #####################################
 [[language]]
 language-servers = [ "elixir-ls" ]
 name = "elixir"
@@ -19,16 +66,47 @@ shebangs = ["elixir"]
 roots = ["mix.exs", "mix.lock"]
 auto-format = true
 diagnostic-severity = "Hint"
-comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
 
 
+
+# #####################################
+# Python
+# #####################################
+[[language]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py", "pyi", "pyc", "pyd", "pyw"]
+shebangs = ["python"]
+roots = ["pyproject.toml", "setup.py", "Poetry.lock", "pyrightconfig.json"]
+language-servers = [
+  { name = "pylsp", only-features = ["format", "hover", "document-symbols"] },
+  { name = "pyright", except-features = ["format"] }
+]
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = "black", args = ["--quiet", "-"] }
+auto-format = true
+
+[language-server.pylsp]
+command = "pylsp"
+config = { pylsp = { plugins = { pycodestyle = { enabled = false }, mccabe = { enabled = false }, pyflakes = { enabled = false }, ruff = { enabled = true }, black = { enabled = true } } } }
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+
+
+# #####################################
+# HTML
+# #####################################
 [[language]]
 name = "html"
 scope = "text.html.basic"
 injection-regex = "html"
 file-types = ["html", "htm", "shtml", "xhtml", "xht", "jsp", "asp", "aspx", "jshtm", "volt", "rhtml"]
-block-comment-tokens = { start = "<!--", end = "-->" }
 language-servers = [ "vscode-html-language-server" ]
 auto-format = true
 indent = { tab-width = 2, unit = "  " }
+
