@@ -71,7 +71,7 @@ shebangs = ["elixir"]
 roots = ["mix.exs", "mix.lock"]
 auto-format = true
 formatter = { command = "mix", args = ["format", "-"] }
-diagnostic-severity = "Hint"
+diagnostic-severity = "hint"
 indent = { tab-width = 2, unit = "  " }
 language-servers = [ "elixir-ls" ]
 
