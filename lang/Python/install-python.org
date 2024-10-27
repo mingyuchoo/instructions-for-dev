@@ -1,0 +1,16 @@
+* Install Python
+** In Ubuntu Linux
+#+begin_src shell
+  sudo apt install -y python3.12
+  sudo apt install -y python3.12-venv python3.12-pip
+#+end_src
+** Create Virtual Environment
+#+begin_src shell
+  cd $HOME
+  python3.11 -m venv .venv  
+  source .venv/bin/activate
+#+end_src
+** Finish Virtual Environment
+#+begin_src shell
+  deactivate
+#+end_src
