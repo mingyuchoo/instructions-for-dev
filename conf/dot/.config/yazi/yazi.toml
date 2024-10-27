@@ -1,5 +1,6 @@
 [manager]
 ratio = [1,2,5]
+show_hidden = true
 
 [preview]
 tab_size = 2
