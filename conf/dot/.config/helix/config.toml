@@ -4,6 +4,7 @@
 shell = ["fish"]
 auto-save = true
 text-width = 120
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
