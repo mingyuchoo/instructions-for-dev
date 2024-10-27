@@ -8,6 +8,7 @@ injection-regex = "rust"
 file-types = ["rs"]
 roots = ["Cargo.toml", "Cargo.lock"]
 auto-format = true
+formatter = { command = "rustfmt" }
 language-servers = ["rust-analyzer"]
 indent = { tab-width = 4, unit = "    " }
 
@@ -32,23 +33,28 @@ injection-regex = "hs|haskell"
 file-types = ["hs", "hs-boot", "hsc"]
 roots = ["Setup.hs", "stack.yaml", "cabal.project"]
 auto-format = true
+formatter = { command = "stylish-haskell", args = ["-i"] }
 block-comment-tokens = { start = "{-", end = "-}" }
 language-servers = [ "haskell-language-server" ]
 indent = { tab-width = 2, unit = "  " }
 
+[language-server.haskell-language-server]
+config = { haskell = { formattingProvider = "stylish-haskell" } }
 
 
 # #####################################
 # Erlang
 # #####################################
 [[language]]
-language-servers = [ "erlang-ls" ]
 name = "erlang"
 scope = "source.erlang"
 injection-regex = "erl(ang)?"
 file-types = ["erl", "hrl", "app", { glob = "rebar.config" }, { glob = "rebar.lock" }, { glob = "*.app.src" }]
 roots = ["rebar.config"]
 shebangs = ["escript"]
+auto-format = true
+formatter = { command = "erlfmt", args = ["-"] }
+language-servers = [ "erlang-ls" ]
 indent = { tab-width = 4, unit = "    " }
 
 
@@ -57,7 +63,6 @@ indent = { tab-width = 4, unit = "    " }
 # Elixir
 # #####################################
 [[language]]
-language-servers = [ "elixir-ls" ]
 name = "elixir"
 scope = "source.elixir"
 injection-regex = "(elixir|ex)"
@@ -65,8 +70,10 @@ file-types = ["ex", "exs", "heex", { glob = "mix.lock" }]
 shebangs = ["elixir"]
 roots = ["mix.exs", "mix.lock"]
 auto-format = true
+formatter = { command = "mix", args = ["format", "-"] }
 diagnostic-severity = "Hint"
 indent = { tab-width = 2, unit = "  " }
+language-servers = [ "elixir-ls" ]
 
 
 
