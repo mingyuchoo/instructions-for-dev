@@ -1,5 +1,15 @@
 # README
 
+## Install
+
+```bash
+git clone https://github.com/helix-editor/helix
+cd helix
+cargo install --path helix-term --locked
+hx --grammar fetch
+hx --grammar build
+```
+
 ## Language Servers
 
 Check which language servers are installed.
