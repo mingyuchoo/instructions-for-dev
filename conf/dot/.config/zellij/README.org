@@ -1,0 +1,12 @@
+* Zellij
+** How to configure
+#+name: .bashrc
+#+begin_src shell
+if command -v zellij &> /dev/null &&
+  [ -n "$PS1" ] &&
+  [[ ! "$TERM" =~ screen ]] &&
+  [[ ! "$TERM" =~ zellij ]] &&
+  [ -z "$ZELLIJ" ]; then
+  exec zellij
+fi
+#+end_src
