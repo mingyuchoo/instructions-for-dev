@@ -23,6 +23,8 @@ cargo install bandwhich \
   tldr \
   tokei \
   tpnote \
+  yazi-fm --locked \
+  yazi-cli --locked \
   ytop \
   zellij --locked \
   zoxide
