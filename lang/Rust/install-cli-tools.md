@@ -10,6 +10,7 @@ cargo install bandwhich \
   evcxr_repl \
   evcxr_jupyter \
   eza \
+  fd-find \
   gitnu \
   grex \
   hyperfine \
