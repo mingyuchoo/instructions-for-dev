@@ -14,3 +14,38 @@
 #+begin_src shell
   deactivate
 #+end_src
+** Install Jupyter Notebook
+#+begin_src shell
+  pip install jupyter
+  jupyter notebook
+#+end_src
+*** Configure remote connection
+#+begin_src shell
+  jupyter notebook --generate-config
+  echo "c.ServerApp.ip = '0.0.0.0'" >> ~/.jupyter/jupyter_notebook_config.py
+#+end_src
+*** Register as service
+#+begin-src shell
+  sudo vi /etc/systemd/system/jupyter.service
+#+end_src
+Create service file
+#+begin_src
+  [Unit]
+  Description=Jupyter Notebook
+  [Service]
+  Type=simple
+  PIDFile=/run/jupyter.pid
+  ExecStart=/usr/local/bin/jupyter-notebook --config=/home/<your_username>/.jupyter/jupyter_notebook_config.py
+  User=your_username
+  Group=your_username
+  WorkingDirectory=/home/<your_username>
+  Restart=always
+  RestartSec=10
+  [Install]
+  WantedBy=multi-user.target
+#+end_src
+*** Run Servce
+#+begin_src shell
+  sudo systemctl enable jupyter
+  sudo systemctl start jupyter
+#+end_src
