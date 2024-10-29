@@ -11,6 +11,7 @@ cargo install bandwhich \
   evcxr_jupyter \
   eza \
   fd-find \
+  fnm \
   gitnu \
   grex \
   hyperfine \
@@ -19,6 +20,7 @@ cargo install bandwhich \
   pijul \
   procs \
   ripgrep \
+  rm-improved \
   starship --locked \
   sd \
   tldr \
