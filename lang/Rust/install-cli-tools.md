@@ -3,26 +3,31 @@
 ## Install other CLI tools
 
 ```bash
+sudo apt install cmake
 cargo install bandwhich \
   bat \
   du-dust \
+  evcxr_repl \
+  evcxr_jupyter \
   eza \
+  fd-find \
   gitnu \
   grex \
-  evcxr_repl \
   hyperfine \
   mdbook \
+  nu \
+  pijul \
   procs \
-  rg \
-  sd \
+  ripgrep \
   starship --locked \
+  sd \
   tldr \
   tokei \
   tpnote \
-  nu \
+  yazi-fm --locked \
+  yazi-cli --locked \
   ytop \
-  pijul \
-  zellij \
+  zellij --locked \
   zoxide
 ```
 
