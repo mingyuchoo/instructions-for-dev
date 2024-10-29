@@ -11,7 +11,6 @@ umask 022
 
 export HISTSIZE=10000
 export HISTFILESIZE=10000
-export EDITOR='nvim'                # or `emacsclient -cw`
 
 
 # User specific environment
@@ -22,7 +21,8 @@ export EDITOR='nvim'                # or `emacsclient -cw`
 [[ -d "$HOME/.ghcup/bin"   ]] && PATH="$HOME/.ghcup/bin:$PATH"
 [[ -d "$HOME/.local/bin"   ]] && PATH="$HOME/.local/bin:$PATH"
 [[ -d "$HOME/.emacs.d/bin" ]] && PATH="$HOME/.emacs.d/bin:$PATH"
+[[ -d "$HOME/go/bin"       ]] && PATH="$HOME/go/bin:$PATH"
 export PATH
 
 # Call `.bashrc`
-[[ -f $HOME/.bashrc                 ]] && . $HOME/.bashrc
+[[ -f $HOME/.bashrc        ]] && . $HOME/.bashrc
