@@ -24,5 +24,3 @@ export HISTFILESIZE=10000
 [[ -d "$HOME/go/bin"       ]] && PATH="$HOME/go/bin:$PATH"
 export PATH
 
-# Call `.bashrc`
-[[ -f $HOME/.bashrc        ]] && . $HOME/.bashrc
