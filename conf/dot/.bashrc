@@ -17,29 +17,36 @@ PS1='[\u@\h \W]\$ '
 export EDITOR='hx'
 export VISUAL='hx'
 
+
+
 # Aliases
-alias cd='z'
 alias cat='bat'
+alias cd='z'
 alias df='df -h'
 alias emacs="emacsclient -nw -c -a 'emacs'"
 alias ls='eza'
 alias ll='eza -l'
 alias la='eza -la'
 alias lt='eza --tree'
+alias ldk='lazydocker'
 alias sbcl='rlwrap sbcl'
 alias vi="hx"
 alias vim="hx"
 
+
+
 # Scripts
-[[ -f $HOME/.cargo/env              ]] && . $HOME/.cargo/env
-[[ -f $HOME/.ghcup/env              ]] && . $HOME/.ghcup/env
-[[ -f $HOME/.opam/opam-init/init.sh ]] && . $HOME/.opam/opam-init/init.sh
-[[ -f $HOME/.venv/bin/activate      ]] && . $HOME/.venv/bin/activate
+[[ -f "$HOME/.cargo/env"                         ]] && . "$HOME/.cargo/env"
+[[ -f "$HOME/.ghcup/env"                         ]] && . "$HOME/.ghcup/env"
+[[ -f "$HOME/.opam/opam-init/init.sh"            ]] && . "$HOME/.opam/opam-init/init.sh"
+[[ -f "$HOME/.local/share/pdm/venv/bin/activate" ]] && . "$HOME/.local/share/pdm/venv/bin/activate"
 
 
 
+eval "$(direnv hook bash)"
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+eval "$(opam env --switch=default)"
 eval "$(fnm env --use-on-cd --shell bash)"
 
 
@@ -80,7 +87,6 @@ function __zoxide_pwd() {
 }
 
 function __zoxide_cd() {
-    # shellcheck disable=SC2164
     \builtin cd -- "$@"
 }
 
@@ -113,18 +119,15 @@ function __zoxide_z() {
     elif [[ $# -eq 2 && $1 == '--' ]]; then
         __zoxide_cd "$2"
     elif [[ ${@: -1} == "${__zoxide_z_prefix}"?* ]]; then
-        # shellcheck disable=SC2124
         \builtin local result="${@: -1}"
         __zoxide_cd "${result:${#__zoxide_z_prefix}}"
     else
         \builtin local result
-        # shellcheck disable=SC2312
         result="$(\command zoxide query --exclude "$(__zoxide_pwd)" -- "$@")" &&
             __zoxide_cd "${result}"
     fi
 }
 
-# Jump to a directory using interactive search.
 function __zoxide_zi() {
     \builtin local result
     result="$(\command zoxide query --interactive -- "$@")" && __zoxide_cd "${result}"
@@ -142,22 +145,17 @@ function zi() {
 
 if [[ ${BASH_VERSINFO[0]:-0} -eq 4 && ${BASH_VERSINFO[1]:-0} -ge 4 || ${BASH_VERSINFO[0]:-0} -ge 5 ]] &&
     [[ :"${SHELLOPTS}": =~ :(vi|emacs): && ${TERM} != 'dumb' ]]; then
-    # Use `printf '\e[5n'` to redraw line after fzf closes.
     \builtin bind '"\e[0n": redraw-current-line' &>/dev/null
 
     function __zoxide_z_complete() {
-        # Only show completions when the cursor is at the end of the line.
         [[ ${#COMP_WORDS[@]} -eq $((COMP_CWORD + 1)) ]] || return
 
-        # If there is only one argument, use `cd` completions.
         if [[ ${#COMP_WORDS[@]} -eq 2 ]]; then
             \builtin mapfile -t COMPREPLY < <(
                 \builtin compgen -A directory -- "${COMP_WORDS[-1]}" || \builtin true
             )
-        # If there is a space after the last word, use interactive selection.
         elif [[ -z ${COMP_WORDS[-1]} ]] && [[ ${COMP_WORDS[-2]} != "${__zoxide_z_prefix}"?* ]]; then
             \builtin local result
-            # shellcheck disable=SC2312
             result="$(\command zoxide query --exclude "$(__zoxide_pwd)" --interactive -- "${COMP_WORDS[@]:1:${#COMP_WORDS[@]}-2}")" &&
                 COMPREPLY=("${__zoxide_z_prefix}${result}/")
             \builtin printf '\e[5n'
