@@ -29,6 +29,7 @@ alias ll='eza -l'
 alias la='eza -la'
 alias lt='eza --tree'
 alias ldk='lazydocker'
+alias rm='rip'
 alias sbcl='rlwrap sbcl'
 alias vi="hx"
 alias vim="hx"
