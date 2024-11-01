@@ -6,6 +6,7 @@
 sudo apt install cmake
 cargo install bandwhich \
   bat \
+  checkexec \
   du-dust \
   evcxr_repl \
   evcxr_jupyter \
@@ -26,6 +27,7 @@ cargo install bandwhich \
   tldr \
   tokei \
   tpnote \
+  watchexec-cli --locked \
   yazi-fm --locked \
   yazi-cli --locked \
   ytop \
