@@ -61,6 +61,7 @@ stack install \
   hindent \
   hlint \
   hoogle \
+  ihaskell \
   pandoc \
   stylish-haskell \
   ShellCheck
