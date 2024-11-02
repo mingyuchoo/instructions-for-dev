@@ -42,7 +42,8 @@ alias vim="hx"
 [[ -f "$HOME/.ghcup/env"                         ]] && . "$HOME/.ghcup/env"
 [[ -f "$HOME/.opam/opam-init/init.sh"            ]] && . "$HOME/.opam/opam-init/init.sh"
 [[ -f "$HOME/.local/share/pdm/venv/bin/activate" ]] && . "$HOME/.local/share/pdm/venv/bin/activate"
-
+[[ -f "$HOME/.asdf/asdf.sh"                      ]] && . "$HOME/.asdf/asdf.sh"
+[[ -f "$HOME/.asdf/completions/asdf.bash"        ]] && . "$HOME/.asdf/completions/asdf.bash"
 
 
 eval "$(direnv hook bash)"
