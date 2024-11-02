@@ -1,0 +1,18 @@
+* direnv
+** How to install
+*** Ubuntu
+#+begin_src shell
+  sudo apt install -y direnv
+#+end_src
+** How to use with =.env= file
+1. Create =.env= file stored environment variables
+2. Create =.envrc= file
+#+begin_src shell
+  set -a
+  source_env .env
+  set +a
+#+end_src
+3. Allow direnv
+#+begin_src shell
+  direnv allow
+#+end_src
