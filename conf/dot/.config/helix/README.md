@@ -71,8 +71,6 @@ C-a = "goto_line_start"
 
 C-k = "kill_to_line_end"
 C-h = "delete_char_backward"
-
-C-/ = ["normal_mode", "undo", "insert_mode"]
 ```
 
 ## References
