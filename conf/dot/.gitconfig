@@ -38,4 +38,4 @@
 	rebase        = true
 
 [alias]
-	ll            = log --oneline --graph --decoreate --all
+	ll            = log --oneline --graph --decorate --all
