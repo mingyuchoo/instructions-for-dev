@@ -62,13 +62,10 @@ in `config.toml`
 [keys.insert]
 C-p = "move_line_up"
 C-n = "move_line_down"
-
 C-f = "move_char_right"
 C-b = "move_char_left"
-
-C-e = "goto_line_end"
+C-e = "goto_line_end_newline"
 C-a = "goto_line_start"
-
 C-k = "kill_to_line_end"
 C-h = "delete_char_backward"
 ```
