@@ -1,0 +1,11 @@
+* Yamlfmt
+** Installation
+#+begin_src shell
+  go install github.com/google/yamlfmt/cmd/yamlfmt@latest
+#+end_src
+** Basic Usage
+#+begin_src shell
+  yamlfmt .
+  # or
+  yamlfmt -dstar **/*.{yaml,yml}
+#+end_src

@@ -1,6 +1,6 @@
 # README
 
-## Install
+## Installation
 
 ```bash
 git clone https://github.com/helix-editor/helix
@@ -9,6 +9,7 @@ cargo install --path helix-term --locked
 hx --grammar fetch
 hx --grammar build
 ```
+
 
 ## Language Servers
 
@@ -53,6 +54,41 @@ diagnostic-severity = "Hint"
 comment-token = "#"
 indent = {tab-width = 2, unit = " "}
 ```
+
+## Tools for Language Servers
+
+### TOML
+
+Install `taplo-cli`
+
+```bash
+cargo install taplo-cli --locked
+```
+
+Create configuration `.taplo.toml` file in you $HOME
+
+```toml
+[formatting]
+  align_comments        = true
+  align_entries         = true
+  array_auto_collapse   = false
+  column_width          = 80
+  compact_arrays        = true
+  compact_inline_tables = true
+  indent_entries        = true
+  indent_tables         = true
+  inline_table_expand   = false
+  reorder_arrays        = true
+  reorder_inline_tables = true
+  reorder_keys          = true
+```
+
+Run `taplo` in command line
+
+```bash
+taplo fmt {your_file}.toml
+```
+
 ## Keybindings
 
 in `config.toml`
