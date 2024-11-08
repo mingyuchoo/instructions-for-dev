@@ -1,50 +1,50 @@
 [general]
-live_config_reload = true
+  live_config_reload = true
 
 
-#[shell]
-# program = "/usr/bin/fish"
-# args = ["--command=tmux]
-## program = "/usr/bin/nu"
-## args = ["-e tmux"]
+  #[shell]
+  # program = "/usr/bin/fish"
+  # args = ["--command=tmux]
+  ## program = "/usr/bin/nu"
+  ## args = ["-e tmux"]
 
 
 [window]
-dimensions.columns = 80
-dimensions.lines = 55
-dynamic_padding = true
-opacity = 1.0
-padding.x = 3
-padding.y = 3
+  dimensions.columns = 80
+  dimensions.lines   = 55
+  dynamic_padding    = true
+  opacity            = 1.0
+  padding.x          = 3
+  padding.y          = 3
 
 
 [scrolling]
-history = 100000
-multiplier = 3
+  history    = 100000
+  multiplier = 3
 
 
 [colors]
-cursor.text = "#ffffff"
-cursor.cursor = "#ff0000"
+  cursor.cursor = "#ff0000"
+  cursor.text   = "#ffffff"
 
 
 [cursor]
-style.shape = "Beam"
-style.blinking = "On"
-thickness = 0.2
+  style.blinking = "On"
+  style.shape    = "Beam"
+  thickness      = 0.2
 
 
 [font]
-normal.family = "CaskaydiaMono Nerd Font"
-normal.style = "light"
-size = 14
+  normal.family = "CaskaydiaMono Nerd Font"
+  normal.style  = "light"
+  size          = 14
 
 
-[font.offset]
-x = 2
-y = 2
+  [font.offset]
+    x = 2
+    y = 2
 
 
 [selection]
-semantic_escape_chars = ",│`|:\"' ()[]{}<>"
-save_to_clipboard = true
+  save_to_clipboard     = true
+  semantic_escape_chars = ",│`|:\"' ()[]{}<>"

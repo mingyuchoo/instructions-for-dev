@@ -2,118 +2,132 @@
 # Rust
 # #####################################
 [[language]]
-name = "rust"
-scope = "source.rust"
-injection-regex = "rust"
-file-types = ["rs"]
-roots = ["Cargo.toml", "Cargo.lock"]
-auto-format = true
-formatter = { command = "rustfmt" }
-language-servers = ["rust-analyzer"]
-indent = { tab-width = 4, unit = "    " }
+  auto-format      = true
+  file-types       = ["rs"]
+  formatter        = {command = "rustfmt"}
+  indent           = {tab-width = 4, unit = "    "}
+  injection-regex  = "rust"
+  language-servers = ["rust-analyzer"]
+  name             = "rust"
+  roots            = ["Cargo.lock", "Cargo.toml"]
+  scope            = "source.rust"
 
 [language-server.rust-analyzer]
-command = "rust-analyzer"
+  command = "rust-analyzer"
 
-[language-server.rust-analyzer.config]
-checkOnSave = { command = "clippy" }
-cargo = { loadOutDirsFromCheck = true }
-procMacro = { enable = true }
-diagnostics = { disabled = ["unresolved-proc-macro"] }
-
+  [language-server.rust-analyzer.config]
+    cargo       = {loadOutDirsFromCheck = true}
+    checkOnSave = {command = "clippy"}
+    diagnostics = {disabled = ["unresolved-proc-macro"]}
+    procMacro   = {enable = true}
 
 
 # #####################################
 # Haskell
 # #####################################
 [[language]]
-name = "haskell"
-scope = "source.haskell"
-injection-regex = "hs|haskell"
-file-types = ["hs", "hs-boot", "hsc"]
-roots = ["Setup.hs", "stack.yaml", "cabal.project"]
-auto-format = true
-formatter = { command = "stylish-haskell", args = ["-i"] }
-block-comment-tokens = { start = "{-", end = "-}" }
-language-servers = [ "haskell-language-server" ]
-indent = { tab-width = 2, unit = "  " }
+  auto-format          = true
+  block-comment-tokens = {start = "{-", end = "-}"}
+  file-types           = ["hs", "hs-boot", "hsc"]
+  formatter            = {command = "stylish-haskell", args = ["-i"]}
+  indent               = {tab-width = 2, unit = "  "}
+  injection-regex      = "hs|haskell"
+  language-servers     = ["haskell-language-server"]
+  name                 = "haskell"
+  roots                = ["Setup.hs", "cabal.project", "stack.yaml"]
+  scope                = "source.haskell"
 
 [language-server.haskell-language-server]
-config = { haskell = { formattingProvider = "stylish-haskell" } }
+  config = {haskell = {formattingProvider = "stylish-haskell"}}
 
 
 # #####################################
 # Erlang
 # #####################################
 [[language]]
-name = "erlang"
-scope = "source.erlang"
-injection-regex = "erl(ang)?"
-file-types = ["erl", "hrl", "app", { glob = "rebar.config" }, { glob = "rebar.lock" }, { glob = "*.app.src" }]
-roots = ["rebar.config"]
-shebangs = ["escript"]
-auto-format = true
-formatter = { command = "erlfmt", args = ["-"] }
-language-servers = [ "erlang-ls" ]
-indent = { tab-width = 4, unit = "    " }
-
+  auto-format = true
+  file-types = [
+    "app",
+    "erl",
+    "hrl",
+    {glob = "*.app.src"},
+    {glob = "rebar.config"},
+    {glob = "rebar.lock"},
+  ]
+  formatter = {command = "erlfmt", args = ["-"]}
+  indent = {tab-width = 4, unit = "    "}
+  injection-regex = "erl(ang)?"
+  language-servers = ["erlang-ls"]
+  name = "erlang"
+  roots = ["rebar.config"]
+  scope = "source.erlang"
+  shebangs = ["escript"]
 
 
 # #####################################
 # Elixir
 # #####################################
 [[language]]
-name = "elixir"
-scope = "source.elixir"
-injection-regex = "(elixir|ex)"
-file-types = ["ex", "exs", "heex", { glob = "mix.lock" }]
-shebangs = ["elixir"]
-roots = ["mix.exs", "mix.lock"]
-auto-format = true
-formatter = { command = "mix", args = ["format", "-"] }
-diagnostic-severity = "hint"
-indent = { tab-width = 2, unit = "  " }
-language-servers = [ "elixir-ls" ]
-
+  auto-format         = true
+  diagnostic-severity = "hint"
+  file-types          = ["ex", "exs", "heex", {glob = "mix.lock"}]
+  formatter           = {command = "mix", args = ["-", "format"]}
+  indent              = {tab-width = 2, unit = "  "}
+  injection-regex     = "(elixir|ex)"
+  language-servers    = ["elixir-ls"]
+  name                = "elixir"
+  roots               = ["mix.exs", "mix.lock"]
+  scope               = "source.elixir"
+  shebangs            = ["elixir"]
 
 
 # #####################################
 # Python
 # #####################################
 [[language]]
-name = "python"
-scope = "source.python"
-injection-regex = "python"
-file-types = ["py", "pyi", "pyc", "pyd", "pyw"]
-shebangs = ["python"]
-roots = ["pyproject.toml", "setup.py", "Poetry.lock", "pyrightconfig.json"]
-language-servers = [
-  { name = "pylsp", only-features = ["format", "hover", "document-symbols"] },
-  { name = "pyright", except-features = ["format"] }
-]
-indent = { tab-width = 4, unit = "    " }
-formatter = { command = "black", args = ["--quiet", "-"] }
-auto-format = true
+  auto-format = true
+  file-types = ["py", "pyc", "pyd", "pyi", "pyw"]
+  formatter = {command = "black", args = ["-", "--quiet"]}
+  indent = {tab-width = 4, unit = "    "}
+  injection-regex = "python"
+  language-servers = [
+    {name = "pylsp", only-features = ["document-symbols", "format", "hover"]},
+    {name = "pyright", except-features = ["format"]},
+  ]
+  name = "python"
+  roots = ["Poetry.lock", "pyproject.toml", "pyrightconfig.json", "setup.py"]
+  scope = "source.python"
+  shebangs = ["python"]
 
 [language-server.pylsp]
-command = "pylsp"
-config = { pylsp = { plugins = { pycodestyle = { enabled = false }, mccabe = { enabled = false }, pyflakes = { enabled = false }, ruff = { enabled = true }, black = { enabled = true } } } }
+  command = "pylsp"
+  config  = {pylsp = {plugins = {pycodestyle = {enabled = false}, mccabe = {enabled = false}, pyflakes = {enabled = false}, ruff = {enabled = true}, black = {enabled = true}}}}
 
 [language-server.pyright]
-command = "pyright-langserver"
-args = ["--stdio"]
-
+  args    = ["--stdio"]
+  command = "pyright-langserver"
 
 
 # #####################################
 # HTML
 # #####################################
 [[language]]
-name = "html"
-scope = "text.html.basic"
-injection-regex = "html"
-file-types = ["html", "htm", "shtml", "xhtml", "xht", "jsp", "asp", "aspx", "jshtm", "volt", "rhtml"]
-language-servers = [ "vscode-html-language-server" ]
-auto-format = true
-indent = { tab-width = 2, unit = "  " }
-
+  auto-format = true
+  file-types = [
+    "asp",
+    "aspx",
+    "htm",
+    "html",
+    "jshtm",
+    "jsp",
+    "rhtml",
+    "shtml",
+    "volt",
+    "xht",
+    "xhtml",
+  ]
+  indent = {tab-width = 2, unit = "  "}
+  injection-regex = "html"
+  language-servers = ["vscode-html-language-server"]
+  name = "html"
+  scope = "text.html.basic"

@@ -1,9 +1,9 @@
 [manager]
-append_keymap = [
-	{ on = [ "e"     ], run = "open",     desc = "Open the selected files" },
-	{ on = [ "<C-p>" ], run = "arrow -1", desc = "Move cursor up" },
-	{ on = [ "<C-n>" ], run = "arrow  1", desc = "Move cursor down" },
-	{ on = [ "<C-v>" ], run = "arrow  5", desc = "Move cursor down 5 lines" },
-	{ on = [ "<A-v>" ], run = "arrow -5", desc = "Move cursor up 5 lines" },
-	{ on = [ "<C-q>" ], run = "close_tab", desc = "Close tab" },
-]
+  append_keymap = [
+    {on = ["<A-v>"], run = "arrow -5", desc = "Move cursor up 5 lines"},
+    {on = ["<C-n>"], run = "arrow  1", desc = "Move cursor down"},
+    {on = ["<C-p>"], run = "arrow -1", desc = "Move cursor up"},
+    {on = ["<C-q>"], run = "close_tab", desc = "Close tab"},
+    {on = ["<C-v>"], run = "arrow  5", desc = "Move cursor down 5 lines"},
+    {on = ["e"], run = "open", desc = "Open the selected files"},
+  ]

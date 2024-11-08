@@ -1,13 +1,13 @@
 [manager]
-ratio = [1,2,5]
+  ratio = [1, 2, 5]
 
 [preview]
-tab_size = 2
+  tab_size = 2
 
 [opener]
-edit = [
-  { run = 'emacsclient -c "$@"', block = true },
-  #{ run = 'emacs "$@"', block = true },
-  #{ run = 'nvim "$@"', block = true },
-  #{ run = 'hx "$@"', block = true },
-]
+  edit = [
+    {run = 'emacsclient -c "$@"', block = true},
+    #{ run = 'emacs "$@"', block = true },
+    #{ run = 'nvim "$@"', block = true },
+    #{ run = 'hx "$@"', block = true },
+  ]
