@@ -24,6 +24,7 @@ cargo install bandwhich \
   rm-improved \
   starship --locked \
   sd \
+  taplo-cli \
   tldr \
   tokei \
   tpnote \
@@ -35,6 +36,10 @@ cargo install bandwhich \
   zoxide
 ```
 
+## How to add configure `taplo`
+
+- https://taplo.tamasfe.dev/
+ 
 ## How to change default shell to zellij
 
 addd below to `.bashrc`

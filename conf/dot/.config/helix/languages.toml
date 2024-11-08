@@ -131,3 +131,13 @@
   language-servers = ["vscode-html-language-server"]
   name = "html"
   scope = "text.html.basic"
+
+
+# #####################################
+# TOML
+# #####################################
+[[language]]
+  auto-format = true
+  formatter   = {command = "taplo", args = ["-", "format"]}
+  indent      = {tab-width = 2, unit = "  "}
+  name        = "toml"
