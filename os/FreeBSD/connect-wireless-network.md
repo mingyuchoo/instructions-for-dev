@@ -37,7 +37,7 @@ eapol_version=2
 ap_scan=1
 fast_reauth=1
 network={
-	ssid="<my-SSID>"
-	psk="<my-SSID-password>"
+	ssid="{my-SSID}"
+	psk="{my-SSID-password}"
 }
 ```

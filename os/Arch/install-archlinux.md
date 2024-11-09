@@ -13,5 +13,5 @@ You can find package groups here
 - <https://archlinux.org/groups/>
 
 ```bash
-$ sudo pacman -Syyu <package-group-name>
+$ sudo pacman -Syyu {package-group-name}
 ```

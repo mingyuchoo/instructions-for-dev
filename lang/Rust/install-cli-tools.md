@@ -62,7 +62,7 @@ edit `/etc/nixos/configuration.nix` in root account
 ```nix
 { config, pkgs, ... }:
 {
-  users.users.<user_name> = {
+  users.users.{username} = {
   rustup
   }
 }

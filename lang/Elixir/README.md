@@ -48,5 +48,5 @@ $ mix archive.install hex phx_new
 ## How to create a project
 
 ```bash
-$ mix phx.new <project-name>
+$ mix phx.new {project-name}
 ```
