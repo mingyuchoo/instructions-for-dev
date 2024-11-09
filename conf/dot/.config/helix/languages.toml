@@ -138,6 +138,6 @@
 # #####################################
 [[language]]
   auto-format = true
-  formatter   = {command = "taplo", args = ["-", "format"]}
+  formatter   = {command = "taplo", args = ["format", "-"]}
   indent      = {tab-width = 2, unit = "  "}
   name        = "toml"
