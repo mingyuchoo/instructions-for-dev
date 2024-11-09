@@ -101,6 +101,7 @@ cargo install cargo-binstall
 cargo install cargo-dist
 cargo install cargo-expand
 cargo install cargo-lambda
+cargo install cargo-make --force
 cargo install cargo-modules
 cargo install cargo-watch
 ```
