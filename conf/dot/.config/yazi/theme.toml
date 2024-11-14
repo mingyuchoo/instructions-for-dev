@@ -143,3 +143,17 @@
   ]
 
   # : }}}
+
+
+[icon]
+  prepend_conds = [
+    {if = "!(dir | link)", text = "📄"}, # Normal files (not directories or symlinks)
+    {if = "dir", text = "📁"},           # Directories
+    {if = "hidden & dir", text = "👻"},  # Hidden directories
+  ]
+
+
+[notify]
+  title_error = {fg = "#d3869b"}
+  title_info  = {fg = "#8ec07c"}
+  title_warn  = {fg = "#fbf1c7"}
