@@ -2,12 +2,9 @@
   live_config_reload = true
 
 
-  #[shell]
-  # program = "/usr/bin/fish"
-  # args = ["--command=tmux]
-  ## program = "/usr/bin/nu"
-  ## args = ["-e tmux"]
-
+[terminal]
+  osc52 = "OnlyCopy"
+  # shell = { program = "Ubuntu" } # for WSL2
 
 [window]
   dimensions.columns = 80
@@ -36,13 +33,13 @@
 
 [font]
   normal.family = "CaskaydiaMono Nerd Font"
-  normal.style  = "light"
-  size          = 14
+  normal.style  = "Regular"
+  size          = 11
 
 
   [font.offset]
-    x = 2
-    y = 2
+    x = 1
+    y = 1
 
 
 [selection]

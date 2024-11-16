@@ -20,7 +20,7 @@ export VISUAL='hx'
 
 
 # Aliases
-alias cat='bat'
+alias cat='bat -pp'
 alias cd='z'
 alias df='df -h'
 alias emacs="emacsclient -nw -c -a 'emacs'"
