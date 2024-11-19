@@ -19,7 +19,7 @@
     cargo       = {loadOutDirsFromCheck = true}
     checkOnSave = {command = "clippy"}
     diagnostics = {disabled = ["unresolved-proc-macro"]}
-    procMacro   = {enable = true}
+    procMacro   = {ignored = {leptos_macro = ["component", "server"]}}
 
 
 # #####################################
@@ -138,6 +138,6 @@
 # #####################################
 [[language]]
   auto-format = true
-  formatter   = {command = "taplo", args = ["format", "-"]}
+  formatter   = {command = "taplo", args = ["-", "format"]}
   indent      = {tab-width = 2, unit = "  "}
   name        = "toml"
