@@ -18,7 +18,7 @@
   [language-server.rust-analyzer.config]
     cargo       = {loadOutDirsFromCheck = true}
     checkOnSave = {command = "clippy"}
-    diagnostics = {disabled = ["unresolved-proc-macro"]}
+    diagnostics = {disabled = ["unlinked-file", "unresolved-proc-macro"]}
     procMacro   = {ignored = {leptos_macro = ["component", "server"]}}
 
 
