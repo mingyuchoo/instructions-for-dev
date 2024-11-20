@@ -71,7 +71,7 @@
   auto-format         = true
   diagnostic-severity = "hint"
   file-types          = ["ex", "exs", "heex", {glob = "mix.lock"}]
-  formatter           = {command = "mix", args = ["-", "format"]}
+  formatter           = {command = "mix", args = ["format", "-"]}
   indent              = {tab-width = 2, unit = "  "}
   injection-regex     = "(elixir|ex)"
   language-servers    = ["elixir-ls"]
@@ -87,7 +87,7 @@
 [[language]]
   auto-format = true
   file-types = ["py", "pyc", "pyd", "pyi", "pyw"]
-  formatter = {command = "black", args = ["-", "--quiet"]}
+  formatter = {command = "black", args = ["--quiet", "-"]}
   indent = {tab-width = 4, unit = "    "}
   injection-regex = "python"
   language-servers = [
@@ -138,6 +138,6 @@
 # #####################################
 [[language]]
   auto-format = true
-  formatter   = {command = "taplo", args = ["-", "format"]}
+  formatter   = {command = "taplo", args = ["format", "-"]}
   indent      = {tab-width = 2, unit = "  "}
   name        = "toml"

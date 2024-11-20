@@ -78,7 +78,7 @@ Create configuration `.taplo.toml` file in you $HOME
   indent_entries        = true
   indent_tables         = true
   inline_table_expand   = false
-  reorder_arrays        = true
+  reorder_arrays        = false
   reorder_inline_tables = true
   reorder_keys          = true
 ```
