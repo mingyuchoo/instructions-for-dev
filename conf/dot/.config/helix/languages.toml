@@ -19,7 +19,8 @@
     cargo       = {loadOutDirsFromCheck = true}
     checkOnSave = {command = "clippy"}
     diagnostics = {disabled = ["unlinked-file", "unresolved-proc-macro"]}
-    procMacro   = {enable = true, ignored = {leptos_macro = ["component", "server"]}}
+    procMacro   = {enable = true}
+    # procMacro   = {ignored = {leptos_macro = ["component", "server"]}}
 
 
 # #####################################
