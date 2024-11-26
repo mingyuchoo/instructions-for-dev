@@ -3,7 +3,7 @@ theme = "gruvbox"
 
 [editor]
   auto-save  = true
-  rulers = [80, 100, 120]
+  rulers     = [80, 100, 120]
   shell      = ["fish"]
   text-width = 120
   true-color = true
@@ -36,6 +36,9 @@ theme = "gruvbox"
     character   = "┊"
     render      = true
     skip-levels = 1
+
+  [editor.lsp]
+    display-inlay-hints = true
 
 [keys]
   [keys.normal]
