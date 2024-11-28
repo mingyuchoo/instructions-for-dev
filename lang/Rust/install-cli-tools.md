@@ -103,6 +103,9 @@ cargo install cargo-expand
 cargo install cargo-lambda
 cargo install cargo-make --force
 cargo install cargo-modules
+cargo install cargo-udeps
+cargo install cargo-deps
+cargo install cargo-tree
 cargo install cargo-watch
-```
 
+```
