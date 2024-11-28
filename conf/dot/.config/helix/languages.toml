@@ -83,6 +83,16 @@
 
 
 # #####################################
+# OCaml
+# #####################################
+[[language]]
+  auto-format = true
+  formatter   = {command = "ocamlformat", args = ["-", "--impl"]}
+  name        = "ocaml"
+  roots       = ["dune-project"]
+
+
+# #####################################
 # Python
 # #####################################
 [[language]]
