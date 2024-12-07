@@ -43,6 +43,54 @@
 
 
 # #####################################
+# OCaml
+# #####################################
+[[language]]
+  auto-format = true
+  file-types = ["ml", "mli", "re", "rei"]
+  formatter = {command = "ocamlformat", args = ["--enable-outside-detected-project", "--name", "INPUT", "-"]}
+  indent = {tab-width = 2, unit = "  "}
+  injection-regex = "ocaml"
+  language-servers = ["ocaml-lsp"]
+  name = "ocaml"
+  roots = [
+    "dune-project",
+    "opam",
+    "esy.json",
+    "package.json",
+    ".merlin",
+    "dune",
+  ]
+  scope = "source.ocaml"
+
+[language-server.ocaml-lsp]
+  command = "ocamllsp"
+  config  = {ocamlformat_enable = true}
+
+# #####################################
+# ReasonML
+# #####################################
+[[language]]
+  auto-format      = true
+  comment-token    = "//"
+  file-types       = ["re", "rei"]
+  formatter        = {command = "refmt", args = ["--parse", "re", "--print", "re"]}
+  indent           = {tab-width = 2, unit = "  "}
+  injection-regex  = "reason"
+  language-servers = ["reason-language-server"]
+  name             = "reason"
+  roots            = ["bsconfig.json", "package.json"]
+  scope            = "source.reason"
+
+[language-server.reason-language-server]
+  args    = ["--stdio"]
+  command = "reason-language-server"
+
+  [language-server.reason-language-server.config]
+    format = {width = 100}
+    refmt  = "refmt"
+
+# #####################################
 # Erlang
 # #####################################
 [[language]]
