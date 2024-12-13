@@ -12,6 +12,8 @@ set -x HIST_STAMPS yyyy-mm-dd
 set -x fish_history_size 20000
 
 set -gx ASDF_DIR $HOME/.asdf
+set -gx ELIXIR_LS_DIR $HOME/.local/share/elixir-ls
+set -gx ERLANG_LS_DIR $HOME/.local/share/erlang_ls
 set -gx VENV_DIR $HOME/.local/share/pdm/venv
 
 # PATH
@@ -23,10 +25,12 @@ fish_add_path $HOME/.bun/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.ghcup/bin
 fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.local/share/elixir-ls
+fish_add_path $HOME/.local/share/erlang_ls
+fish_add_path $HOME/.local/share/zig
 fish_add_path $HOME/.config/emacs/bin
 fish_add_path $HOME/.opam/default/bin
 fish_add_path $HOME/.rd/bin
-fish_add_path $HOME/.zig
 
 # ALIASES
 alias cat="bat -pp"
@@ -43,6 +47,7 @@ alias vim="hx"
 # SCRIPTs
 source $ASDF_DIR/asdf.fish
 source $VENV_DIR/bin/activate.fish
+source $ELIXIR_lS_DIR/launch.fish
 
 # ENV Hook
 starship init fish | source
