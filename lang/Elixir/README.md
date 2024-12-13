@@ -5,19 +5,18 @@
 ### Using `asdf` in Ubuntu
 
 ```bash
-$ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
-$ sudo apt install -y libssl-dev automake autoconf libncurses5-dev
-$ sudo apt install -y dirmngr gpg curl gawk
-$ asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
-$ asdf list all erlang
-$ asdf install erlang 
-$ asdf plugin add elixir git@github.com:asdf-vm/asdf-elixir.git
-$ asdf list all elixir
-$ asdf install elixir 1.17.0-rc.1-otp-27
-
-$ vim $HOME/.tool-versions
+sudo apt install -y libssl-dev automake autoconf libncurses5-dev
+sudo apt install -y dirmngr gpg curl gawk
+asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
+asdf plugin add elixir git@github.com:asdf-vm/asdf-elixir.git
+asdf install erlang latest 
+asdf install elixir latest
+asdf global erlang latest 
+asdf global elixir latest
+vim $HOME/.tool-versions
 ```
 
 `$HOME/.tool-versions`
@@ -36,17 +35,17 @@ elixir 1.17.0-rc.1-otp-27
 Install `inotify-tools` in your Ubuntu.
 
 ```bash
-$ sudo apt install -y inotify-tools
+sudo apt install -y inotify-tools
 ```
 
 ## How to install Phoenix
 
 ```bash
-$ mix archive.install hex phx_new
+mix archive.install hex phx_new
 ```
 
 ## How to create a project
 
 ```bash
-$ mix phx.new {project-name}
+mix phx.new {project-name}
 ```
