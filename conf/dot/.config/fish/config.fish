@@ -12,6 +12,7 @@ set -x HIST_STAMPS yyyy-mm-dd
 set -x fish_history_size 20000
 
 set -gx ASDF_DIR $HOME/.asdf
+set -gx VENV_DIR $HOME/.local/share/pdm/venv
 
 # PATH
 fish_add_path /usr/local/bin
@@ -41,6 +42,7 @@ alias vim="hx"
 
 # SCRIPTs
 source $ASDF_DIR/asdf.fish
+source $VENV_DIR/bin/activate.fish
 
 # ENV Hook
 starship init fish | source
