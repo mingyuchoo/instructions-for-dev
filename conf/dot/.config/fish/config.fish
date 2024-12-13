@@ -1,53 +1,63 @@
-stty erase ^H
-
-
 umask 022
 
+stty erase 
 
-# ENVs
+# ENV
 set -gx EDITOR hx
-set -gx VISUAL hx
 set -gx LANG en_US.UTF-8
 set -gx MANPATH "/usr/local/man:$MANPATH"
-set -gx PAGER bat
-
+set -gx PAGER cat
 
 set -x HIST_STAMPS yyyy-mm-dd
 set -x fish_history_size 20000
-#set -x JAVA_HOME /usr/libexec/java_home
 
+set -gx ASDF_DIR $HOME/.asdf
 
-# PATHs
-#fish_add_path /opt/homebrew/bin
-#fish_add_path /opt/homebrew/sbin
-#fish_add_path /usr/local/bin
+# PATH
+fish_add_path /usr/local/bin
 fish_add_path $HOME/bin
 fish_add_path $HOME/go/bin
+fish_add_path $HOME/.asdf/bin
 fish_add_path $HOME/.bun/bin
 fish_add_path $HOME/.cargo/bin
-fish_add_path $HOME/.config/emacs/bin
-fish_add_path $HOME/.emacs.d/bin
 fish_add_path $HOME/.ghcup/bin
 fish_add_path $HOME/.local/bin
-fish_add_path $HOME/.opam/bin
+fish_add_path $HOME/.config/emacs/bin
+fish_add_path $HOME/.opam/default/bin
 fish_add_path $HOME/.rd/bin
+fish_add_path $HOME/.zig
 
-
-# ALIASes
-alias emacs="emacsclient -nw -c -a 'emacs'"
+# ALIASES
+alias cat="bat -pp"
+alias df="df -h"
 alias ls="eza"
 alias ll="eza -l"
 alias la="eza -la"
 alias lt="eza --tree"
 alias ldk="lazydocker"
-alias mkdir="mkdir -p"
-alias sbcl='rlwrap sbcl'
 alias tree="eza --tree"
 alias vi="hx"
 alias vim="hx"
 
+# SCRIPTs
+source $ASDF_DIR/asdf.fish
 
-# FUNCTIONs
+# ENV Hook
+starship init fish | source
+direnv hook fish | source
+zoxide init fish | source
+opam env --switch=default | source
+fnm env --use-on-cd --shell fish | source
+
+# FUNCTIONS
+if type -q zellij &&
+        not set -q PS1 &&
+        not echo $TERM | grep -q screen &&
+        not echo $TERM | grep -q zellij &&
+        not set -q ZELLIJ
+    exec zellij
+end
+
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file=$tmp
@@ -57,11 +67,3 @@ function y
     end
     rm -f -- $tmp
 end
-
-
-# EVALs
-eval "$(direnv   hook fish)"
-eval "$(starship init fish)"
-eval "$(zoxide   init fish)"
-eval "$(opam env --switch=default)"
-eval "$(fnm env --use-on-cd --shell fish)"

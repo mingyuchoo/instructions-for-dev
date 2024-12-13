@@ -1,13 +1,15 @@
-[general]
-  live_config_reload = true
+#[general]
+#  live_config_reload = true
 
 
 [terminal]
   osc52 = "OnlyCopy"
   # shell = { program = "Ubuntu" } # for WSL2
+  # shell = { program = "/usr/bin/zsh" }
+  # shell = { program = "/usr/bin/fish" }
 
 [window]
-  dimensions.columns = 80
+  dimensions.columns = 120
   dimensions.lines   = 55
   dynamic_padding    = true
   opacity            = 1.0
@@ -32,14 +34,14 @@
 
 
 [font]
-  normal.family = "CaskaydiaMono Nerd Font"
-  normal.style  = "Regular"
+  normal.family = "BlexMono Nerd Font"
+  normal.style  = "Medium"
   size          = 11
 
 
-  [font.offset]
-    x = 1
-    y = 1
+  #[font.offset]
+  #  x = 1
+  #  y = 1
 
 
 [selection]
