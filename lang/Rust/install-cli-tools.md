@@ -4,36 +4,37 @@
 
 ```bash
 sudo apt install cmake
-cargo install bandwhich \
-  bat \
-  checkexec \
-  du-dust \
-  evcxr_repl \
-  evcxr_jupyter \
-  eza \
-  fd-find \
-  fnm \
-  gitnu \
-  grex \
-  hyperfine \
-  mdbook \
-  nu \
-  pijul \
-  procs \
-  ripgrep \
-  rm-improved \
-  starship --locked \
-  sd \
-  taplo-cli \
-  tldr \
-  tokei \
-  tpnote \
-  watchexec-cli --locked \
-  yazi-fm --locked \
-  yazi-cli --locked \
-  ytop \
-  zellij --locked \
-  zoxide
+cargo install bandwhich 
+cargo install bat
+cargo install checkexec
+cargo install du-dust
+cargo install evcxr_repl
+cargo install evcxr_jupyter
+cargo install eza
+cargo install fd-find
+cargo install fnm
+cargo install gitnu
+cargo install grex
+cargo install hyperfine
+cargo install mdbook
+cargo install nu
+cargo install pijul
+cargo install procs
+cargo install ripgrep
+cargo install rm-improved
+cargo install starship --locked
+cargo install sd
+cargo install taplo-cli
+cargo install tldr
+cargo install tokei
+cargo install tpnote
+cargo install watchexec-cli --locked
+cargo install yazi-fm --locked
+cargo install yazi-cli --locked
+cargo install ytop
+cargo install zellij --locked
+cargo install zoxide
+cargo install --git https://github.com/astral-sh/uv uv
 ```
 
 ## How to add configure `taplo`
