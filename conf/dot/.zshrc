@@ -1,63 +1,95 @@
 stty erase ^H
 
 # path
-PATH="/opt/homebrew/bin:$PATH"
-PATH="/opt/homebrew/sbin:$PATH"
-PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
-PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-PATH="/usr/local/bin:$PATH"
-PATH="$HOME/bin:$PATH"
-PATH="$HOME/.config/emacs/bin:$PATH"
-PATH="$HOME/.local/bin:$PATH"
-PATH="$HOME/.rd/bin:$PATH"
-PATH="$HOME/.bun/bin:$PATH"
 export PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="jonathan"
-ZSH_THEME_RANDOM_CANDIDATES=( "xiong-chiamiov-plus" "jonathan" "gnzh" "af-magic" "agnoster" )
 
-CASE_SENSITIVE="true"
-HYPHEN_INSENSITIVE="true"
+# User specific environment
+[[ -d "/opt/homebrew/bin"            ]] && PATH="/opt/homebrew/bin:$PATH"
+[[ -d "/opt/homebrew/sbin"           ]] && PATH="/opt/homebrew/sbin:$PATH"
+[[ -d "/usr/local/bin"               ]] && PATH="/usr/local/bin:$PATH"
+[[ -d "$HOME/bin"                    ]] && PATH="$HOME/bin:$PATH"
+[[ -d "$HOME/go/bin"                 ]] && PATH="$HOME/go/bin:$PATH"
+[[ -d "$HOME/.bun/bin"               ]] && PATH="$HOME/.bun/bin:$PATH"
+[[ -d "$HOME/.cargo/bin"             ]] && PATH="$HOME/.cargo/bin:$PATH"
+[[ -d "$HOME/.deno/bin"              ]] && PATH="$HOME/.deno/bin:$PATH"
+[[ -d "$HOME/.ghcup/bin"             ]] && PATH="$HOME/.ghcup/bin:$PATH"
+[[ -d "$HOME/.local/bin"             ]] && PATH="$HOME/.local/bin:$PATH"
+[[ -d "$HOME/.local/share/elixir-ls" ]] && PATH="$HOME/.local/share/elixir-ls:$PATH"
+[[ -d "$HOME/.local/share/erlang_ls" ]] && PATH="$HOME/.local/share/erlang_ls:$PATH"
+[[ -d "$HOME/.local/share/zig"       ]] && PATH="$HOME/.local/share/zig:$PATH"
+[[ -d "$HOME/.emacs.d/bin"           ]] && PATH="$HOME/.emacs.d/bin:$PATH"
+export PATH
 
-zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' frequency 13
 
-DISABLE_MAGIC_FUNCTIONS="true"
-DISABLE_LS_COLORS="true"
-DISABLE_AUTO_TITLE="true"
-ENABLE_CORRECTION="false"
-COMPLETION_WAITING_DOTS="true"
 
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-HIST_STAMPS="yyyy-mm-dd"
-
-plugins=( aws cabal direnv dotenv git rust tmux )
-
-export ARCHFLAGS="-arch x86_64"
-export EDITOR='emacsclient -c'
+export EDITOR='hx'
+export VISUAL='hx'
 export LANG=en_US.UTF-8
 export MANPATH="/usr/local/man:$MANPATH"
 
-# aliases
-alias ls="ls --color=auto"
-alias ll="ls -l"
-alias la="ls -la"
-alias ed="emacs --daemon"
-alias ec="emacsclient -c"
-alias nnn="nnn -e"
-alias n3="nnn"
 
-# env
-export NVM_DIR="$HOME/.nvm"
 
-# source
-source "$HOME/.cargo/env"
-source "$HOME/.nvm/nvm.sh"
-source "$HOME/.nvm/bash_completion"
-source "$HOME/.ghcup/env"
-source "$HOME/.bun/_bun"
-source "$HOME/.opam/opam-init/init.zsh"
-source "$ZSH/oh-my-zsh.sh"
+# Aliases
+alias cat='bat -pp'
+alias cd='z'
+alias df='df -h'
+alias emacs="emacsclient -nw -c -a 'emacs'"
+alias ls='eza'
+alias ll='eza -l'
+alias la='eza -la'
+alias lt='eza --tree'
+alias ldk='lazydocker'
+alias rm='rip'
+alias sbcl='rlwrap sbcl'
+alias tree='eza --tree'
+alias vi="hx"
+alias vim="hx"
+
+
+
+# Sources
+[[ -f "$HOME/.bun/_bun"                   ]] && . "$HOME/.bun/_bun"
+[[ -f "$HOME/.cargo/env"                  ]] && . "$HOME/.cargo/env"
+[[ -f "$HOME/.ghcup/env"                  ]] && . "$HOME/.ghcup/env"
+[[ -f "$HOME/.opam/opam-init/init.sh"     ]] && . "$HOME/.opam/opam-init/init.sh"
+[[ -f "$HOME/.venv/bin/activate"          ]] && . "$HOME/.venv/bin/activate"
+[[ -f "$HOME/.asdf/asdf.sh"               ]] && . "$HOME/.asdf/asdf.sh"
+[[ -f "$HOME/.asdf/completions/asdf.bash" ]] && . "$HOME/.asdf/completions/asdf.bash"
+
+
+
+eval "$(direnv hook zsh)"
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(opam env --switch=default)"
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+
+
+# ############################################################
+# Zellij
+# ############################################################
+if command -v zellij &> /dev/null &&
+  [ -n "$PS1" ] &&
+  [[ ! "$TERM" =~ screen ]] &&
+  [[ ! "$TERM" =~ zellij ]] &&
+  [ -z "$ZELLIJ" ]; then
+  exec zellij
+fi
+
+
+
+
+# ############################################################
+# Yasi
+# ############################################################
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
