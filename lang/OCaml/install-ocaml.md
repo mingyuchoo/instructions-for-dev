@@ -12,7 +12,7 @@ $ opam install ocaml-lsp-server odoc ocamlformat utop
 ## Install the Dune build system
 
 ```bash
-opam install dune ocaml-lsp-server ocamlformat uodoc top
+opam install dune ocaml-lsp-server ocamlformat odoc top
 opam install menhir mirage
 ```
 
