@@ -1,55 +1,56 @@
-* Install Python
-** With UV package manager
-*** Install UV
+* Installation
+** Install Python
+*** With UV package manager
+**** Install UV
 #+begin_src shell
   curl -LsSf https://astral.sh/uv/install.sh | sh
   # or
   cargo install --git https://github.com/astral-sh/uv uv
 #+end_src
-*** Create a project
+**** Create a project
 #+begin_src shell
   uv init {project_name}
   cd {project_name}
 #+end_src
-*** Add a package globally
+**** Add a package globally
 #+begin_src shell
   uv pip install {package_name}
 #+end_src
-*** Add a package current project
+**** Add a package current project
 #+begin_src shell
   uv add {package_name}
   uv run {pacage_name} check
 #+end_src
-*** Install tools
+**** Install tools
 #+begin_src shell
   uv tool install {tool_name}
 #+end_src
-*** Install multiple Python version
+**** Install multiple Python version
 #+begin_src shell
   uv python install 3.10 3.11 3.12
 #+end_src
-*** Create venv with a specific Python version
+**** Create venv with a specific Python version
 #+begin_src shell
   uv venv --python 3.12.0
 #+end_src
-*** Use a specifi Python version in the current directory
+**** Use a specifi Python version in the current directory
 #+begin_src shell
   uv python pin 3.11
 #+end_src
-*** Urn a script
+**** Run a script
 #+begin_src shell
   uv run {script_name}.py
 #+end_src
-*** Install packages again
+**** Install packages again
 #+begin_src shell
   uv pip install .
 #+end_src
-** With PDM package manager
+*** With PDM package manager
 Install PDM for Python package management
 #+begin_src shell
   curl -sSL https://pdm-project.org/install-pdm.py | python3 -
 #+end_src
-*** Hwo to create a Python project with PDM
+**** Hwo to create a Python project with PDM
 #+begin_src shell
   source $HOME/.local/share/pdm/venv/bin/activate
   mkdir {project-name}
@@ -63,18 +64,18 @@ Install PDM for Python package management
   pdm add pylint
   pdm add mypy
 #+end_src
-** In Ubuntu Linux
+*** In Ubuntu Linux
 #+begin_src shell
   sudo apt install -y python3.12
   sudo apt install -y python3.12-venv python3.12-pip
 #+end_src
-*** Create Virtual Environment
+**** Create Virtual Environment
 #+begin_src shell
   cd $HOME
   python3.11 -m venv .venv  
   source .venv/bin/activate
 #+end_src
-*** Finish Virtual Environment
+**** Finish Virtual Environment
 #+begin_src shell
   deactivate
 #+end_src
