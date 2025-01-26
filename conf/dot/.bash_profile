@@ -27,3 +27,4 @@ export HISTFILESIZE=10000
 [[ -d "$HOME/.emacs.d/bin"           ]] && PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH
 
+# [[ -f "$HOME/.bashrc"                ]] && . "$HOME/.bashrc"
