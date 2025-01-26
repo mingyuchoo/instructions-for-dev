@@ -25,7 +25,7 @@ vim $HOME/.tool-versions
 # $HOME/.tool-versions
 
 erlang 27.0
-elixir 1.17.0-rc.1-otp-27
+elixir 1.18.2-otp-27
 ```
 
 ## How to use Phoenix Framework
