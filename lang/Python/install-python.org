@@ -44,7 +44,7 @@
 #+begin_src shell
   uv pip install .
 #+end_src
-** With UV package manager
+** With PDM package manager
 Install PDM for Python package management
 #+begin_src shell
   curl -sSL https://pdm-project.org/install-pdm.py | python3 -
