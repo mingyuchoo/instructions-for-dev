@@ -7,7 +7,7 @@
 steps:
   # Convert some ASCII sequences to their Unicode equivalents. This is disabled
   # by default.
-  #- unicode_syntax:
+  # - unicode_syntax:
   #     # In order to make this work, we also need to insert the UnicodeSyntax
   #     # language pragma. If this flag is set to true, we insert it when it's
   #     # not already present. You may want to disable it if you configure
@@ -20,88 +20,90 @@ steps:
   # Currently, this option is not configurable and will format all exports and
   # module declarations to minimize diffs
   #
-  - module_header:
-      #     # How many spaces use for indentation in the module header.
-      indent: 4
-      #
-      #     # Should export lists be sorted?  Sorting is only performed within the
-      #     # export section, as delineated by Haddock comments.
-      sort: true
-      #
-      #     # See `separate_lists` for the `imports` step.
-      separate_lists: true
-      #
-      #     # When to break the "where".
-      #     # Possible values:
-      #     # - exports: only break when there is an explicit export list.
-      #     # - single: only break when the export list counts more than one export.
-      #     # - inline: only break when the export list is too long. This is
-      #     #   determined by the `columns` setting. Not applicable when the export
-      #     #   list contains comments as newlines will be required.
-      #     # - always: always break before the "where".
-      break_where: always
-      #
-      #     # Where to put open bracket
-      #     # Possible values:
-      #     # - same_line: put open bracket on the same line as the module name, before the
-      #     #              comment of the module
-      #     # - next_line: put open bracket on the next line, after module comment
-      open_bracket: next_line
-      # Format record definitions. This is disabled by default.
-      #
-      # You can control the layout of record fields. The only rules that can't be configured
-      # are these:
-      #
-      # - "|" is always aligned with "="
-      # - "," in fields is always aligned with "{"
-      # - "}" is likewise always aligned with "{"
-      #
-      # - records:   <<<<<<<<<<<<<< TEMPORARY DON'T USE >>>>>>>>>>>>>>>
-      #     # How to format equals sign between type constructor and data constructor.
-      #     # Possible values:
-      #     # - "same_line" -- leave "=" AND data constructor on the same line as the type constructor.
-      #     # - "indent N" -- insert a new line and N spaces from the beginning of the next line.
-      equals: "same_line"
-      #
-      #     # How to format first field of each record constructor.
-      #     # Possible values:
-      #     # - "same_line" -- "{" and first field goes on the same line as the data constructor.
-      #     # - "indent N" -- insert a new line and N spaces from the beginning of the data constructor
-      first_field: "same_line"
-      #
-      #     # How many spaces to insert between the column with "," and the beginning of the comment in the next line.
-      field_comment: 2
-      #
-      #     # How many spaces to insert before "deriving" clause. Deriving clauses are always on separate lines.
-      deriving: 5
-      #
-      #     # How many spaces to insert before "via" clause counted from indentation of deriving clause
-      #     # Possible values:
-      #     # - "same_line" -- "via" part goes on the same line as "deriving" keyword.
-      #     # - "indent N" -- insert a new line and N spaces from the beginning of "deriving" keyword.
-      via: "indent 2"
-      #
-      #     # Sort typeclass names in the "deriving" list alphabetically.
-      sort_deriving: true
-      #
-      #     # Wheter or not to break enums onto several lines
-      #     #
-      #     # Default: false
-      break_enums: false
-      #
-      #     # Whether or not to break single constructor data types before `=` sign
-      #     #
-      #     # Default: true
-      break_single_constructors: true
-      #
-      #     # Whether or not to curry constraints on function.
-      #     #
-      #     # E.g: @allValues :: Enum a => Bounded a => Proxy a -> [a]@
-      #     #
-      #     # Instead of @allValues :: (Enum a, Bounded a) => Proxy a -> [a]@
-      #     #
-      #     # Default: false
-      curried_context: false
+   - module_header:
+       # How many spaces use for indentation in the module header.
+       indent: 4
+  
+       # Should export lists be sorted?  Sorting is only performed within the
+       # export section, as delineated by Haddock comments.
+       sort: true
+  
+       # See `separate_lists` for the `imports` step.
+       separate_lists: true
+  
+       # When to break the "where".
+       # Possible values:
+       # - exports: only break when there is an explicit export list.
+       # - single: only break when the export list counts more than one export.
+       # - inline: only break when the export list is too long. This is
+       #   determined by the `columns` setting. Not applicable when the export
+       #   list contains comments as newlines will be required.
+       # - always: always break before the "where".
+       break_where: always
+  
+       # Where to put open bracket
+       # Possible values:
+       # - same_line: put open bracket on the same line as the module name, before the
+       #              comment of the module
+       # - next_line: put open bracket on the next line, after module comment
+       open_bracket: next_line
+
+  # Format record definitions. This is disabled by default.
+  #
+  # You can control the layout of record fields. The only rules that can't be configured
+  # are these:
+  #
+  # - "|" is always aligned with "="
+  # - "," in fields is always aligned with "{"
+  # - "}" is likewise always aligned with "{"
+  #
+   - records:
+       # How to format equals sign between type constructor and data constructor.
+       # Possible values:
+       # - "same_line" -- leave "=" AND data constructor on the same line as the type constructor.
+       # - "indent N" -- insert a new line and N spaces from the beginning of the next line.
+       equals: "same_line"
+  
+       # How to format first field of each record constructor.
+       # Possible values:
+       # - "same_line" -- "{" and first field goes on the same line as the data constructor.
+       # - "indent N" -- insert a new line and N spaces from the beginning of the data constructor
+       first_field: "same_line"
+  
+       # How many spaces to insert between the column with "," and the beginning of the comment in the next line.
+       field_comment: 2
+  
+       # How many spaces to insert before "deriving" clause. Deriving clauses are always on separate lines.
+       deriving: 5
+  
+       # How many spaces to insert before "via" clause counted from indentation of deriving clause
+       # Possible values:
+       # - "same_line" -- "via" part goes on the same line as "deriving" keyword.
+       # - "indent N" -- insert a new line and N spaces from the beginning of "deriving" keyword.
+       via: "indent 2"
+  
+       # Sort typeclass names in the "deriving" list alphabetically.
+       sort_deriving: true
+  
+       # Whether or not to break enums onto several lines
+       #
+       # Default: false
+       break_enums: false
+  
+       # Whether or not to break single constructor data types before `=` sign
+       #
+       # Default: true
+       break_single_constructors: true
+  
+       # Whether or not to curry constraints on function.
+       #
+       # E.g: @allValues :: Enum a => Bounded a => Proxy a -> [a]@
+       #
+       # Instead of @allValues :: (Enum a, Bounded a) => Proxy a -> [a]@
+       #
+       # Default: false
+       curried_context: false
+
   # Align the right hand side of some elements.  This is quite conservative
   # and only applies to statements where each element occupies a single
   # line.
@@ -115,6 +117,7 @@ steps:
       top_level_patterns: always
       records: always
       multi_way_if: always
+
   # Import cleanup
   - imports:
       # There are different ways we can align names and lists.
@@ -132,6 +135,7 @@ steps:
       #
       # Default: global.
       align: global
+
       # The following options affect only import list alignment.
       #
       # List align has following options:
@@ -171,6 +175,7 @@ steps:
       #
       # Default: after_alias
       list_align: after_alias
+
       # Right-pad the module names to align imports in a group:
       #
       # - true: a little more readable
@@ -189,6 +194,7 @@ steps:
       #
       # Default: true
       pad_module_names: true
+
       # Long list align style takes effect when import is too long. This is
       # determined by 'columns' setting.
       #
@@ -211,6 +217,7 @@ steps:
       #
       # Default: inline
       long_list_align: multiline
+
       # Align empty list (importing instances)
       #
       # Empty list align has following options
@@ -223,6 +230,7 @@ steps:
       #
       # Default: inherit
       empty_list_align: inherit
+
       # List padding determines indentation of import list on lines after import.
       # This option affects 'long_list_align'.
       #
@@ -233,6 +241,7 @@ steps:
       #
       # Default: 4
       list_padding: 4
+
       # Separate lists option affects formatting of import list for type
       # or class. The only difference is single space between type and list
       # of constructors, selectors and class functions.
@@ -249,6 +258,7 @@ steps:
       #
       # Default: true
       separate_lists: true
+
       # Space surround option affects formatting of import lists on a single
       # line. The only difference is single space after the initial
       # parenthesis and a single space before the terminal parenthesis.
@@ -264,6 +274,7 @@ steps:
       #
       # Default: false
       space_surround: false
+
       # Post qualify option moves any qualifies found in import declarations
       # to the end of the declaration. This also adjust padding for any
       # unqualified import declarations.
@@ -282,6 +293,109 @@ steps:
       #
       # Default: false
       post_qualify: false
+
+      # Automatically group imports based on their module names, with
+      # a blank line separating each group. Groups are ordered in
+      # alphabetical order.
+      #
+      # By default, this groups by the first part of each module's
+      # name (Control.* will be grouped together, Data.*... etc), but
+      # this can be configured with the group_patterns setting.
+      #
+      # When enabled, this rewrites existing blank lines and groups.
+      #
+      # - true: Group imports by the first part of the module name.
+      #
+      #   > import Control.Applicative
+      #   > import Control.Monad
+      #   > import Control.Monad.MonadError
+      #   >
+      #   > import Data.Functor
+      #
+      # - false: Keep import groups as-is (still sorting and
+      #   formatting the imports within each group)
+      #
+      #   > import Control.Monad
+      #   > import Data.Functor
+      #   >
+      #   > import Control.Applicative
+      #   > import Control.Monad.MonadError
+      #
+      # Default: false
+      group_imports: false
+
+      # A list of rules specifying how to group modules and how to
+      # order the groups.
+      #
+      # Each rule has a match field; the rule only applies to module
+      # names matched by this pattern. Patterns are POSIX extended
+      # regular expressions; see the documentation of Text.Regex.TDFA
+      # for details:
+      # https://hackage.haskell.org/package/regex-tdfa-1.3.1.2/docs/Text-Regex-TDFA.html
+      #
+      # Rules are processed in order, so only the *first* rule that
+      # matches a specific module will apply. Any module names that do
+      # not match a single rule will be put into a single group at the
+      # end of the import block.
+      #
+      # Example: group MyApp modules first, with everything else in
+      # one group at the end.
+      #
+      #  group_rules:
+      #    - match: "^MyApp\\>"
+      #
+      #  > import MyApp
+      #  > import MyApp.Foo
+      #  >
+      #  > import Control.Monad
+      #  > import MyApps
+      #  > import Test.MyApp
+      #
+      # A rule can also optionally have a sub_group pattern. Imports
+      # that match the rule will be broken up into further groups by
+      # the part of the module name matched by the sub_group pattern.
+      #
+      # Example: group MyApp modules first, then everything else
+      # sub-grouped by the first part of the module name.
+      #
+      #  group_rules:
+      #    - match: "^MyApp\\>"
+      #    - match: "."
+      #      sub_group: "^[^.]+"
+      #
+      #  > import MyApp
+      #  > import MyApp.Foo
+      #  >
+      #  > import Control.Applicative
+      #  > import Control.Monad
+      #  >
+      #  > import Data.Map
+      #
+      # A pattern only needs to match part of the module name, which
+      # could be in the middle. You can use ^pattern to anchor to the
+      # beginning of the module name, pattern$ to anchor to the end
+      # and ^pattern$ to force a full match. Example:
+      #
+      #  - "Test\\." would match "Test.Foo" and "Foo.Test.Lib"
+      #  - "^Test\\." would match "Test.Foo" but not "Foo.Test.Lib"
+      #  - "\\.Test$" would match "Foo.Test" but not "Foo.Test.Lib"
+      #  - "^Test$" would *only* match "Test"
+      #
+      # You can use \\< and \\> to anchor against the beginning and
+      # end of words, respectively. For example:
+      #
+      #  - "^Test\\." would match "Test.Foo" but not "Test" or "Tests"
+      #  - "^Test\\>" would match "Test.Foo" and "Test", but not
+      #    "Tests"
+      #
+      # The default is a single rule that matches everything and
+      # sub-groups based on the first component of the module name.
+      #
+      # Default: [{ "match" : ".*", "sub_group": "^[^.]+" }]
+      group_rules:
+        - match: ".*"
+          sub_group: "^[^.]+"
+
   # Language pragmas
   - language_pragmas:
       # We can generate different styles of language pragma lists.
@@ -297,6 +411,7 @@ steps:
       #
       # Default: vertical.
       style: vertical
+
       # Align affects alignment of closing pragma brackets.
       #
       # - true: Brackets are aligned in same column.
@@ -306,24 +421,30 @@ steps:
       #
       # Default: true
       align: true
+
       # stylish-haskell can detect redundancy of some language pragmas. If this
       # is set to true, it will remove those redundant pragmas. Default: true.
       remove_redundant: true
+
       # Language prefix to be used for pragma declaration, this allows you to
       # use other options non case-sensitive like "language" or "Language".
       # If a non correct String is provided, it will default to: LANGUAGE.
       language_prefix: LANGUAGE
+
   # Replace tabs by spaces. This is disabled by default.
-  - tabs:
-      #     # Number of spaces to use for each tab. Default: 8, as specified by the
-      #     # Haskell report.
-      spaces: 4
+   - tabs:
+       # Number of spaces to use for each tab. Default: 8, as specified by the
+       # Haskell report.
+       spaces: 4
+
   # Remove trailing whitespace
   - trailing_whitespace: {}
-    # Squash multiple spaces between the left and right hand sides of some
-    # elements into single spaces. Basically, this undoes the effect of
-    # simple_align but is a bit less conservative.
-    #- squash: {}
+
+  # Squash multiple spaces between the left and right hand sides of some
+  # elements into single spaces. Basically, this undoes the effect of
+  # simple_align but is a bit less conservative.
+  # - squash: {}
+
 # A common setting is the number of columns (parts of) code will be wrapped
 # to. Different steps take this into account.
 #
@@ -331,6 +452,7 @@ steps:
 #
 # Default: 80.
 columns: 80
+
 # By default, line endings are converted according to the OS. You can override
 # preferred format here.
 #
@@ -342,14 +464,15 @@ columns: 80
 #
 # Default: native.
 newline: lf
+
 # Sometimes, language extensions are specified in a cabal file or from the
 # command line instead of using language pragmas in the file. stylish-haskell
 # needs to be aware of these, so it can parse the file correctly.
 #
 # No language extensions are enabled by default.
 # language_extensions:
-# - TemplateHaskell
-# - QuasiQuotes
+  # - TemplateHaskell
+  # - QuasiQuotes
 
 # Attempt to find the cabal file in ancestors of the current directory, and
 # parse options (currently only language extensions) from that.
