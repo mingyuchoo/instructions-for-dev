@@ -128,7 +128,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 sudo apt install -y lua5.4
 ```
 
-## Install MIT-Scheme
+## Install BSD 3-Clause-Scheme
 
 ```bash
 sudo apt install -y mit-scheme
