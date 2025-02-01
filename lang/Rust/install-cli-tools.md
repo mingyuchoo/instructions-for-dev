@@ -100,6 +100,7 @@ run following command to install cargo tools in user account
 cargo install cargo-audit
 cargo install cargo-binstall
 cargo install cargo-dist
+cargo install cargo-edit // for upgrade Cargo.toml dependencies
 cargo install cargo-expand
 cargo install cargo-lambda
 cargo install cargo-make --force
