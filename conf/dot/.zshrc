@@ -9,6 +9,7 @@ export PATH
 [[ -d "/opt/homebrew/bin"            ]] && PATH="/opt/homebrew/bin:$PATH"
 [[ -d "/opt/homebrew/sbin"           ]] && PATH="/opt/homebrew/sbin:$PATH"
 [[ -d "/usr/local/bin"               ]] && PATH="/usr/local/bin:$PATH"
+[[ -d "/usr/local/share/dotnet"      ]] && PATH="/usr/local/share/dotnet:$PATH"
 [[ -d "$HOME/bin"                    ]] && PATH="$HOME/bin:$PATH"
 [[ -d "$HOME/go/bin"                 ]] && PATH="$HOME/go/bin:$PATH"
 [[ -d "$HOME/.bun/bin"               ]] && PATH="$HOME/.bun/bin:$PATH"
@@ -20,10 +21,11 @@ export PATH
 [[ -d "$HOME/.local/share/erlang_ls" ]] && PATH="$HOME/.local/share/erlang_ls:$PATH"
 [[ -d "$HOME/.local/share/zig"       ]] && PATH="$HOME/.local/share/zig:$PATH"
 [[ -d "$HOME/.emacs.d/bin"           ]] && PATH="$HOME/.emacs.d/bin:$PATH"
+[[ -d "$HOME/.zig"                   ]] && PATH="$HOME/.zig:$PATH"
 export PATH
 
 
-
+export SHELL='zsh'
 export EDITOR='hx'
 export VISUAL='hx'
 export LANG=en_US.UTF-8
@@ -41,7 +43,6 @@ alias ll='eza -l'
 alias la='eza -la'
 alias lt='eza --tree'
 alias ldk='lazydocker'
-alias rm='rip'
 alias sbcl='rlwrap sbcl'
 alias tree='eza --tree'
 alias vi="hx"
@@ -56,8 +57,6 @@ alias vim="hx"
 [[ -f "$HOME/.opam/opam-init/init.sh"     ]] && . "$HOME/.opam/opam-init/init.sh"
 [[ -f "$HOME/.venv/bin/activate"          ]] && . "$HOME/.venv/bin/activate"
 [[ -f "$HOME/.asdf/asdf.sh"               ]] && . "$HOME/.asdf/asdf.sh"
-[[ -f "$HOME/.asdf/completions/asdf.bash" ]] && . "$HOME/.asdf/completions/asdf.bash"
-
 
 
 eval "$(direnv hook zsh)"
