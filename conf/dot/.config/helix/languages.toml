@@ -141,23 +141,6 @@
 
 
 # #####################################
-# C#
-# #####################################
-[[language]]
-  auto-format     = true
-  language-server = {command = "csharpier", args = ["--write-stdout", "--fast"]}
-  name            = "cs"
-
-# #####################################
-# F#
-# #####################################
-[[language]]
-  auto-format     = true
-  language-server = {command = "fsautocomplete", args = []}
-  name            = "fs"
-
-
-# #####################################
 # Python
 # #####################################
 [[language]]
