@@ -5,17 +5,20 @@
 ### Using `asdf` in Ubuntu
 
 ```bash
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.16.4
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.16.0
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
 sudo apt install -y libssl-dev automake autoconf libncurses-dev
 sudo apt install -y dirmngr gpg curl gawk
 asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
 asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
+asdf plugin-add sbcl https://github.com/smashedtoatoms/asdf-sbcl.git
 asdf install erlang latest 
 asdf install elixir latest
+asdf install sbcl latest
 asdf global erlang latest 
 asdf global elixir latest
+asdf global sbcl latest
 vim $HOME/.tool-versions
 ```
 
