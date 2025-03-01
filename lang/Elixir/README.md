@@ -12,7 +12,7 @@ sudo apt install -y libssl-dev automake autoconf libncurses-dev
 sudo apt install -y dirmngr gpg curl gawk
 asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
 asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
-asdf plugin-add sbcl https://github.com/smashedtoatoms/asdf-sbcl.git
+asdf plugin add sbcl https://github.com/smashedtoatoms/asdf-sbcl.git
 asdf install erlang latest 
 asdf install elixir latest
 asdf install sbcl latest
