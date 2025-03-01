@@ -31,17 +31,14 @@ sudo apt install -y \
   libffi-dev \
   libgdbm-dev \
   libgmp3-dev \
-  libncurses5-dev \
+  libncurses-dev \
   libnss3-dev \
   libreadline-dev \
   libsqlite3-dev \
   libssl-dev \
-  libtinfo-dev \
   pkg-config \
   zlib1g-dev \
-  gconf2 \
-  gconf-service \
-  libappindicator1
+  gconf2 
 ```
 
 
@@ -55,8 +52,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
 ```bash
 stack install \
-  dhall \
-  dhall-json \
   ghcid \
   hindent \
   hlint \
