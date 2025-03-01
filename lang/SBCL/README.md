@@ -13,6 +13,7 @@ asdf plugin add sbcl https://github.com/smashedtoatoms/asdf-sbcl.git
 asdf install sbcl latest
 vim $HOME/.tool-versions
 ```
+Add `$HOME/.asdf/shims` to the front of your `$PATH`.
 
 ## Install SBCL on macOS
 
