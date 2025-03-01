@@ -11,7 +11,7 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.16.4
 sudo apt install -y libssl-dev automake autoconf libncurses-dev
 sudo apt install -y dirmngr gpg curl gawk
 asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
-asdf plugin add elixir git@github.com:asdf-vm/asdf-elixir.git
+asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
 asdf install erlang latest 
 asdf install elixir latest
 asdf global erlang latest 
