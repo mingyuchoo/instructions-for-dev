@@ -7,7 +7,7 @@ Install SBCL with ASDF
 Please instal ASDF from https://asdf-vm.com/guide/getting-started.html
 
 ```bash
-sudo apt install -y libssl-dev automake autoconf libncurses-dev
+sudo apt install -y libssl-dev automake autoconf libncurses-dev libzstd-dev
 sudo apt install -y dirmngr gpg curl gawk
 asdf plugin add sbcl https://github.com/smashedtoatoms/asdf-sbcl.git
 asdf install sbcl latest
