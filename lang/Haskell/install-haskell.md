@@ -71,7 +71,7 @@ templates:
   params:
     author-email: myname@myemail.com
     author-name: First Last
-    category: CLI
+    category: Web
     copyright: First Last year
     github-username: myusername
 
