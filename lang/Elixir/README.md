@@ -26,6 +26,7 @@ vim $HOME/.tool-versions
 erlang 27.0
 elixir 1.18.2-otp-27
 ```
+Add `$HOME/.asdf/shims` to the front of your `$PATH`.
 
 ## How to use Phoenix Framework
 
