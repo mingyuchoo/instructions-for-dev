@@ -7,7 +7,7 @@
 
 [opener]
   edit = [
-    {run = 'emacsclient -c "$@"', block = true},
-    # { run = 'nvim "$@"', block = true },
-    # { run = 'hx "$@"', block = true },
+    { run = 'hx "$@"', block = true },
+    #{run = 'emacsclient -c "$@"', block = true},
+    #{ run = 'nvim "$@"', block = true },
   ]
