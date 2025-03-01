@@ -10,7 +10,7 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.16.0
 . "$HOME/.asdf/completions/asdf.bash"
 sudo apt install -y libssl-dev automake autoconf libncurses-dev
 sudo apt install -y dirmngr gpg curl gawk
-asdf plugin-add sbcl https://github.com/smashedtoatoms/asdf-sbcl.git
+asdf plugin add sbcl https://github.com/smashedtoatoms/asdf-sbcl.git
 asdf install sbcl latest
 asdf global sbcl latest
 vim $HOME/.tool-versions
