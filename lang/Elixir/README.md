@@ -15,9 +15,6 @@ asdf plugin add sbcl https://github.com/smashedtoatoms/asdf-sbcl.git
 asdf install erlang latest 
 asdf install elixir latest
 asdf install sbcl latest
-asdf global erlang latest 
-asdf global elixir latest
-asdf global sbcl latest
 vim $HOME/.tool-versions
 ```
 
