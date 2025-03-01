@@ -5,7 +5,7 @@
 ### Using `asdf` in Ubuntu
 
 ```bash
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.15.0
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.16.4
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
 sudo apt install -y libssl-dev automake autoconf libncurses5-dev
