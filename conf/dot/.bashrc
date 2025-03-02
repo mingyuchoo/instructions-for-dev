@@ -29,7 +29,6 @@ alias ll='eza -l'
 alias la='eza -la'
 alias lt='eza --tree'
 alias ldk='lazydocker'
-alias rm='rip'
 alias sbcl='rlwrap sbcl'
 alias tree='eza --tree'
 alias vi="hx"
@@ -78,3 +77,7 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

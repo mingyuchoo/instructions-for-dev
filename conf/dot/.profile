@@ -16,6 +16,7 @@ export HISTFILESIZE=10000
 # User specific environment
 [[ -d "$HOME/bin"                    ]] && PATH="$HOME/bin:$PATH"
 [[ -d "$HOME/go/bin"                 ]] && PATH="$HOME/go/bin:$PATH"
+[[ -d "$HOME/.asdf/shims"            ]] && PATH="$HOME/.asdf/shims:$PATH"
 [[ -d "$HOME/.bun/bin"               ]] && PATH="$HOME/.bun/bin:$PATH"
 [[ -d "$HOME/.cargo/bin"             ]] && PATH="$HOME/.cargo/bin:$PATH"
 [[ -d "$HOME/.deno/bin"              ]] && PATH="$HOME/.deno/bin:$PATH"
@@ -27,4 +28,4 @@ export HISTFILESIZE=10000
 [[ -d "$HOME/.emacs.d/bin"           ]] && PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH
 
-# [[ -f "$HOME/.bashrc"                ]] && . "$HOME/.bashrc"
+[[ -f "$HOME/.bashrc"                ]] && . "$HOME/.bashrc"
