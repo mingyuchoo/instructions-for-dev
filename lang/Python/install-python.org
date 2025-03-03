@@ -15,6 +15,15 @@
 **** Add a package globally
 #+begin_src shell
   uv pip install {package_name}
+  uv pip install behave
+  uv pip install coverage
+  uv pip install mypy
+  uv pip install notebook
+  uv pip install pylint
+  uv pip install pyright
+  uv pip install python-lsp-server
+  uv pip install jupyter
+  uv pip install notebook`
 #+end_src
 **** Add a package current project
 #+begin_src shell
