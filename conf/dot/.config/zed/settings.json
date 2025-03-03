@@ -7,7 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "theme": "Gruvbox Dark Hard",
+  "theme": "Rosé Pine Dawn",
   "autosave": {
     "after_delay": {
       "milliseconds": 1000
@@ -54,7 +54,15 @@
     "copy_on_select": true,
     "blinking": "on",
     "font_family": "BlexMono Nerd Font",
-    "font_size": 12.0
+    "font_size": 12.0,
+    "shell": {
+      "with_arguments": {
+        "program": "/bin/zsh",
+        "args": [
+          "--login"
+        ]
+      }
+    }
   },
   "telemetry": {
     "metrics": false,
