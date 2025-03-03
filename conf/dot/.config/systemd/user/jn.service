@@ -1,0 +1,9 @@
+[Unit]
+Description=Jupyter Notebook
+
+[Service]
+ExecStart=/bin/bash "$HOME/bin/jn"
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
