@@ -1,0 +1,17 @@
+* Git Credential Manager (GCM)으로 git 작업 시 자격 증명을 안전하게 저장하기
+** In Ubuntu Linux
+*** gnupg 와 gcm 설치와 설정
+#+begin_src bash
+  # gnupg, pass 설치와 설정
+  sudo apt install gnupg pass
+  gpg --full-generate-key
+  gpg-agent--version
+  gpg --list-secret-keys --keyid-format long
+  pass init {my-gpg-key-id}
+  # gcm 설치와 설정
+  sudo dpkg -i gcm-linux_amd64.2.6.1.deb
+  echo "export GCM_CREDENTIAL_STORE=gpg" >> $HOME/.profile
+  git config --global credential.helper manager
+  git config --global credential.credentialStore gpg
+  git config --global credential.useHttpPath true
+#+end_src
