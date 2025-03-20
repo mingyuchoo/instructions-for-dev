@@ -146,25 +146,21 @@
 [[language]]
   auto-format = true
   file-types = ["py", "pyc", "pyd", "pyi", "pyw"]
-  formatter = {command = "black", args = ["--quiet", "-"]}
+  formatter = {command = "black", args = ["--quiet", "--line-length", "160", "-"]}
   indent = {tab-width = 4, unit = "    "}
   injection-regex = "python"
   language-servers = [
-    {name = "pylsp", only-features = ["document-symbols", "format", "hover"]},
-    {name = "pyright", except-features = ["format"]},
+    {name = "pyright"},
   ]
   name = "python"
   roots = ["Poetry.lock", "pyproject.toml", "pyrightconfig.json", "setup.py"]
   scope = "source.python"
   shebangs = ["python"]
 
-[language-server.pylsp]
-  command = "pylsp"
-  config  = {pylsp = {plugins = {pycodestyle = {enabled = false}, mccabe = {enabled = false}, pyflakes = {enabled = false}, ruff = {enabled = true}, black = {enabled = true}}}}
-
 [language-server.pyright]
   args    = ["--stdio"]
   command = "pyright-langserver"
+  config  = {python = {analysis = {diagnosticSeverityOverrides = {reportGeneralTypeIssues = "none"}}}}
 
 
 # #####################################
