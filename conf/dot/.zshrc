@@ -1,5 +1,8 @@
 stty erase ^H
 
+bindkey '^H' backward-delete-char
+bindkey '^?' backward-delete-char
+
 # path
 export PATH
 
