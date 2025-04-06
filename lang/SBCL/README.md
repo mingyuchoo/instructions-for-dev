@@ -4,7 +4,7 @@
 
 Install SBCL with ASDF
 
-Please instal ASDF from https://asdf-vm.com/guide/getting-started.html
+Please install ASDF from https://asdf-vm.com/guide/getting-started.html
 
 ```bash
 sudo apt install -y libssl-dev automake autoconf libncurses-dev libzstd-dev
