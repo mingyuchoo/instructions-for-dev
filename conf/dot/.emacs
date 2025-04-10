@@ -489,10 +489,6 @@
     '(progn
        (require 'slime-autoloads)
        (slime-setup '(slime-fancy slime-company))))
-  (use-package lsp-mode
-    :ensure t
-    :hook (lisp-mode . lsp)
-    :commands lsp)
   (use-package lsp-ui
     :ensure t
     :commands lsp-ui-mode
