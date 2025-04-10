@@ -9,7 +9,7 @@
 #   - Set scripts ex) `eval "$(...)"`
 # #############################################################################
 
-stty erase ^H
+bind '"\C-h": backward-delete-char'
 
 # Prompt
 PS1='[\u@\h \W]\$ '
@@ -23,7 +23,8 @@ export VISUAL='hx'
 alias cat='bat -pp'
 alias cd='z'
 alias df='df -h'
-alias emacs="emacsclient -nw -c -a 'emacs'"
+#alias emacs="emacsclient -nw -c -a 'emacs'"
+alias emacs='TERM=xterm-256color emacs'
 alias ls='eza'
 alias ll='eza -l'
 alias la='eza -la'

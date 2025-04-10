@@ -25,7 +25,7 @@
 (progn
   (defun my/setup-fonts ()
     (set-cursor-color "#FF0000")
-    (set-face-attribute 'default nil :font (font-spec :family "Iosevka NF" :size 12))
+    (set-face-attribute 'default nil :font (font-spec :family "BlexMono Nerd Font" :size 12))
     (set-fontset-font t 'hangul (font-spec :family "Nanum Myeongjo")))
   (add-hook 'after-init-hook #'my/setup-fonts))
 
