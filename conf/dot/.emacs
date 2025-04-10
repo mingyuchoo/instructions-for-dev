@@ -469,7 +469,7 @@
     (unless (package-installed-p pkg)
       (package-install pkg)))
   (with-eval-after-load 'slime
-    (let ((helper-path (expand-file-name "~/.quicklsp/slime-helper.el")))
+    (let ((helper-path (expand-file-name "~/quicklisp/slime-helper.el")))
       (when (file-exists-p helper-path)
         (load helper-path)))
     (setq inferior-lisp-program "rlwrap sbcl"))
