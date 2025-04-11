@@ -1,11 +1,16 @@
-;;; The following lines added by ql:add-to-init-file:
-#-quicklisp
-(let ((quicklisp-init (merge-pathnames ".quicklisp/setup.lisp"
-                                       (user-homedir-pathname))))
-  (when (probe-file quicklisp-init)
-    (load quicklisp-init)))
-
 (setf sb-impl::*default-external-format* :utf-8)
 
 ;; Change print cases (:upcase :downcase :capitalize)
 (setf *print-case* :upcase)
+
+;;; The following lines added by ql:add-to-init-file:
+#-quicklisp
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                       ;;(user-homedir-pathname)
+                                       *default-pathname-defaults*)))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+(when (find-package :ql)
+  (push (truename ".") ql:*local-project-directories*)
+  (ql:register-local-projects))
