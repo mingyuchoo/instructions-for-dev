@@ -216,7 +216,7 @@ steps:
       #   >     )
       #
       # Default: inline
-      long_list_align: multiline
+      long_list_align: inline
 
       # Align empty list (importing instances)
       #
@@ -322,7 +322,7 @@ steps:
       #   > import Control.Monad.MonadError
       #
       # Default: false
-      group_imports: false
+      group_imports: true
 
       # A list of rules specifying how to group modules and how to
       # order the groups.
