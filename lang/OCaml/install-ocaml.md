@@ -6,13 +6,12 @@
 $ bash -c "sh <(curl -fsSL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.sh)"
 $ opam init
 $ eval $(opam env)
-$ opam install ocaml-lsp-server odoc ocamlformat utop
 ```
 
 ## Install the Dune build system
 
 ```bash
-opam install dune ocaml-lsp-server ocamlformat odoc top
+opam install dune ocaml-lsp-server ocamlformat odoc utop
 opam install menhir mirage
 ```
 
