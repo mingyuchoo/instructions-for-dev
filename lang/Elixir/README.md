@@ -1,14 +1,14 @@
 # README
 
-## How to install `Erlang` and `Elixir`
+## How to install `Erlang`, `Elixir`, and `SBCL`
 
 ### Using `asdf` in Ubuntu
 
 Please install ASDF from https://asdf-vm.com/guide/getting-started.html
 
 ```bash
-sudo apt install -y libssl-dev automake autoconf libncurses-dev
-sudo apt install -y dirmngr gpg curl gawk
+sudo apt install -y libssl-dev automake autoconf libncurses-dev dirmngr gpg curl gawk libzstd-dev inotify-tools
+# Donload and install `asdf` from https://github.com/asdf-vm/asdf/releases
 asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
 asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
 asdf plugin add sbcl https://github.com/smashedtoatoms/asdf-sbcl.git
@@ -25,28 +25,13 @@ vim $HOME/.tool-versions
 
 erlang 27.2.4
 elixir main-otp-27
-sbcl 2.5.2
+sbcl 2.5.4
 ```
 Add `$HOME/.asdf/shims` to the front of your `$PATH`.
 
 ## How to use Phoenix Framework
 
-## Prerequsites 
-
-Install `inotify-tools` in your Ubuntu.
-
-```bash
-sudo apt install -y inotify-tools
-```
-
-## How to install Phoenix
-
 ```bash
 mix archive.install hex phx_new
-```
-
-## How to create a project
-
-```bash
 mix phx.new {project-name}
 ```
