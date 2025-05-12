@@ -56,7 +56,7 @@ stack install \
   hindent \
   hlint \
   hoogle \
-  ihaskell \
+  ihaskell  #sudo apt install -y libzmq3-dev \
   pandoc \
   stylish-haskell \
   ShellCheck
