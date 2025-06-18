@@ -36,6 +36,10 @@
   multiplier = 3
 
 
+[cursor]
+  shape = "Beam"
+
+
 [terminal]
   osc52 = "OnlyCopy"
   shell = {program = "/bin/zsh"}
